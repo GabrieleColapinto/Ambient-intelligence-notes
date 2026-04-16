@@ -1,0 +1,1024 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.4.16)  16 APR 2026 21:25
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"./Distributed and transactional systems.tex"
+(Distributed and transactional systems.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-10-24>
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+book.cls
+Document Class: scrbook 2025/09/09 v3.48 KOMA-Script document class (book)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+kbase.sty
+Package: scrkbase 2025/09/09 v3.48 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+base.sty
+Package: scrbase 2025/09/09 v3.48 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+lfile.sty
+Package: scrlfile 2025/09/09 v3.48 KOMA-Script package (file load hooks)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+lfile-hook.sty
+Package: scrlfile-hook 2025/09/09 v3.48 KOMA-Script package (using LaTeX hooks)
+
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+logo.sty
+Package: scrlogo 2025/09/09 v3.48 KOMA-Script package (logo)
+)))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
+.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 370.
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\toc
+basic.sty
+Package: tocbasic 2025/09/09 v3.48 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip49
+\scr@dte@tocline@numbox=\box53
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 143.
+Class scrbook Info: File `scrsize11pt.clo' used instead of
+(scrbook)           file `scrsize11.clo' to setup font sizes on input line 2710
+.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+size11pt.clo
+File: scrsize11pt.clo 2025/09/09 v3.48 KOMA-Script font size class option (11pt
+)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\typ
+earea.sty
+Package: typearea 2025/09/09 v3.48 KOMA-Script package (type area)
+\ta@bcor=\skip50
+\ta@div=\count275
+\ta@hblk=\skip51
+\ta@vblk=\skip52
+\ta@temp=\skip53
+\footheight=\skip54
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 47.2316pt
+(typearea)              \oddsidemargin  = -12.5192pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 595.80026pt
+(typearea)              \topmargin      = -25.16531pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1807.
+)
+\c@part=\count276
+\c@chapter=\count277
+\c@section=\count278
+\c@subsection=\count279
+\c@subsubsection=\count280
+\c@paragraph=\count281
+\c@subparagraph=\count282
+\scr@dte@chapter@maxnumwidth=\skip55
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\chapter on input line 6076.
+\scr@dte@section@maxnumwidth=\skip56
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\section on input line 6087.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\section on input line 6087.
+\scr@dte@part@maxnumwidth=\skip57
+Class scrbook Info: using compatibility default `afterindent=true'
+(scrbook)           for `\part on input line 6096.
+\scr@dte@subsection@maxnumwidth=\skip58
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsection on input line 6106.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsection on input line 6106.
+\scr@dte@subsubsection@maxnumwidth=\skip59
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsubsection on input line 6116.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsubsection on input line 6116.
+\scr@dte@paragraph@maxnumwidth=\skip60
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\paragraph on input line 6127.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\paragraph on input line 6127.
+\scr@dte@subparagraph@maxnumwidth=\skip61
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subparagraph on input line 6137.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subparagraph on input line 6137.
+\abovecaptionskip=\skip62
+\belowcaptionskip=\skip63
+\c@pti@nb@sid@b@x=\box54
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 7350.
+\scr@dte@figure@maxnumwidth=\skip64
+\c@figure=\count283
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 7363.
+\scr@dte@table@maxnumwidth=\skip65
+\c@table=\count284
+Class scrbook Info: Redefining `\numberline' on input line 7534.
+\bibindent=\dimen148
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cs.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
+ty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
+aphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
+ftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.
+sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen151
+\ar@mcellbox=\box55
+\extrarowheight=\dimen152
+\NC@list=\toks18
+\extratabsurround=\skip66
+\backup@length=\skip67
+\ar@cellbox=\box56
+)
+\TX@col@width=\dimen153
+\TX@old@table=\dimen154
+\TX@old@col=\dimen155
+\TX@target=\dimen156
+\TX@delta=\dimen157
+\TX@cols=\count285
+\TX@ftn=\toks19
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjus
+tbox.sty
+Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval
+.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyv
+al.tex
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvut
+ils.tex
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+)
+\XKV@depth=\count286
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjca
+lc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimc
+lip.sty
+Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\coll
+ectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box57
+)
+\tc@llx=\dimen158
+\tc@lly=\dimen159
+\tc@urx=\dimen160
+\tc@ury=\dimen161
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pd
+ftex.def
+File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen162
+\adjbox@Height=\dimen163
+\adjbox@Depth=\dimen164
+\adjbox@Totalheight=\dimen165
+\adjbox@pwidth=\dimen166
+\adjbox@pheight=\dimen167
+\adjbox@pdepth=\dimen168
+\adjbox@ptotalheight=\dimen169
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifodd
+page.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count287
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwid
+th.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box58
+\sift@deathcycles=\count288
+\@vwid@loff=\dimen170
+\@vwid@roff=\dimen171
+)
+==> First Aid for varwidth.sty applied!
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+layer-scrpage.sty
+Package: scrlayer-scrpage 2025/09/09 v3.48 KOMA-Script package (end user interf
+ace for scrlayer)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+layer.sty
+Package: scrlayer 2025/09/09 v3.48 KOMA-Script package (defining layers and pag
+e styles)
+Package scrlayer Info: patching LaTeX kernel macro \pagestyle on input line 217
+9.
+)
+Package scrlayer-scrpage Info: Makeing stand-alone element `pagehead' from
+(scrlayer-scrpage)             alias to `pageheadfoot' on input line 1106.
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperr
+ef.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.s
+ty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvset
+keys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\
+kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdf
+escape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcm
+ds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pd
+ftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\inf
+warerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor
+.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namere
+f.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcou
+nt.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestrin
+g\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopt
+ions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count289
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolb
+ox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count290
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\str
+ingenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen172
+\Hy@linkcounter=\count291
+\Hy@pagecounter=\count292
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc
+.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intca
+lc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count293
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.
+def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count294
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen173
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset
+.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bi
+gintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count295
+\Field@Width=\dimen174
+\Fld@charsize=\dimen175
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count296
+\c@Item=\count297
+\c@Hfootnote=\count298
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdfte
+x.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count299
+\c@bookmark@seq@number=\count300
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\
+rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter
+\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip68
+)
+Class scrbook Info: loading recommended package `bookmark'.
+(scrbook)           Using `bookmark' together with `hyperref' is recommended,
+(scrbook)           because of handling of possible bookmark level gaps.
+(scrbook)           You can avoid loading `bookmark' with KOMA-Script option
+(scrbook)           `bookmarkpackage=false' before \begin{document} and
+(scrbook)           you can avoid this message adding:
+(scrbook)             \usepackage{bookmark}
+(scrbook)           before \begin{document} on input line 15.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookma
+rk.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pd
+ftex.def
+File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
+)
+\BKM@id=\count301
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
+kend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count302
+) (Distributed and transactional systems.aux)
+\openout1 = `"Distributed and transactional systems.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+Package scrbase Info: activating english \partname on input line 15.
+Package scrbase Info: activating english \chaptername on input line 15.
+Package scrbase Info: activating english \appendixname on input line 15.
+Package scrbase Info: activating english \figurename on input line 15.
+Package scrbase Info: activating english \tablename on input line 15.
+Package scrbase Info: activating english \contentsname on input line 15.
+Package scrbase Info: activating english \listfigurename on input line 15.
+Package scrbase Info: activating english \listtablename on input line 15.
+Package scrbase Info: activating english \bibname on input line 15.
+Package scrbase Info: activating english \indexname on input line 15.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
+p-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count303
+\scratchdimen=\dimen176
+\scratchbox=\box59
+\nofMPsegments=\count304
+\nofMParguments=\count305
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count306
+\MPscratchDim=\dimen177
+\MPnumerator=\count307
+\makeMPintoPDFobject=\count308
+\everyMPtoPDFconversion=\toks23
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
+stopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
+df-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring OFF on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 18.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 18.
+ [1
+
+
+
+{C:/Users/Gabriele_user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 24.
+
+Overfull \hbox (10.95003pt too wide) in paragraph at lines 27--30
+[][]
+ []
+
+[2] (Distributed and transactional systems.toc
+Overfull \hbox (2.0509pt too wide) in paragraph at lines 39--39
+ [][] [][]\OT1/cmr/m/n/10 Resource Dis-cov-ery in Struc-tured Net-works: Dis-tr
+ibuted Hash Ta-bles (DHTs)[] []  
+ []
+
+[3
+
+
+
+])
+\tf@toc=\write3
+\openout3 = `"Distributed and transactional systems.toc"'.
+
+ [4]
+chapter 1.
+[5
+
+
+]
+Overfull \hbox (7.07747pt too wide) in paragraph at lines 120--123
+\OT1/cmr/m/n/10 This fun-da-men-tal choice of interface---tightly-coupled RPC o
+r loosely-coupled protocol---constrains
+ []
+
+<Images/Synchronous_communication.jpg, id=153, 367.70976pt x 148.58711pt>
+File: Images/Synchronous_communication.jpg Graphic file (type jpg)
+<use Images/Synchronous_communication.jpg>
+Package pdftex.def Info: Images/Synchronous_communication.jpg  used on input li
+ne 138.
+(pdftex.def)             Requested size: 334.60571pt x 135.21674pt.
+[6 <./Images/Synchronous_communication.jpg>]
+<Images/Asynchronous_communication.jpg, id=168, 297.36093pt x 210.7875pt>
+File: Images/Asynchronous_communication.jpg Graphic file (type jpg)
+<use Images/Asynchronous_communication.jpg>
+Package pdftex.def Info: Images/Asynchronous_communication.jpg  used on input l
+ine 162.
+(pdftex.def)             Requested size: 250.95587pt x 177.8901pt.
+ [7 <./Images/Asynchronous_communication.jpg>] [8
+
+
+]
+chapter 2.
+<Images/Client_server_P2P.jpg, id=181, 623.18977pt x 290.74777pt>
+File: Images/Client_server_P2P.jpg Graphic file (type jpg)
+<use Images/Client_server_P2P.jpg>
+Package pdftex.def Info: Images/Client_server_P2P.jpg  used on input line 209.
+(pdftex.def)             Requested size: 250.95587pt x 117.08229pt.
+
+Overfull \hbox (4.63408pt too wide) in paragraph at lines 215--220
+\OT1/cmr/m/n/10 Distributed sys-tems are gen-er-ally or-ga-nized ac-cord-ing to
+ one of two ma-jor ar-chi-tec-tural paradigms:
+ []
+
+[9 <./Images/Client_server_P2P.jpg>]
+Underfull \hbox (badness 3930) in paragraph at lines 298--298
+[]|\OT1/cmr/bx/n/10.95 Bootstrapping Pro-cess: \OT1/cmr/m/n/10.95 Boot-strap-
+ []
+
+[10]
+<Images/P2P_Stack.jpg, id=195, 410.66365pt x 310.90271pt>
+File: Images/P2P_Stack.jpg Graphic file (type jpg)
+<use Images/P2P_Stack.jpg>
+Package pdftex.def Info: Images/P2P_Stack.jpg  used on input line 325.
+(pdftex.def)             Requested size: 250.95587pt x 189.99193pt.
+ [11 <./Images/P2P_Stack.jpg>]
+Overfull \hbox (0.59248pt too wide) in paragraph at lines 395--396
+[]\OT1/cmr/bx/n/10 Resource uti-liza-tion me-ter-ing \OT1/cmr/m/n/10 to track u
+s-age for pay-ment or in kind ex-changes. Its
+ []
+
+[12]
+<Images/Gaussiana.jpg, id=207, 358.71pt x 170.28pt>
+File: Images/Gaussiana.jpg Graphic file (type jpg)
+<use Images/Gaussiana.jpg>
+Package pdftex.def Info: Images/Gaussiana.jpg  used on input line 489.
+(pdftex.def)             Requested size: 418.25555pt x 198.55643pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Images/Comparison of small world regular and random networks.jpg, id=208, 402.
+39223pt x 153.46222pt>
+File: Images/Comparison of small world regular and random networks.jpg Graphic 
+file (type jpg)
+<use Images/Comparison of small world regular and random networks.jpg>
+Package pdftex.def Info: Images/Comparison of small world regular and random ne
+tworks.jpg  used on input line 506.
+(pdftex.def)             Requested size: 418.25555pt x 159.5173pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13]
+<Images/Small world network power law.jpg, id=220, 223.28194pt x 191.46156pt>
+File: Images/Small world network power law.jpg Graphic file (type jpg)
+<use Images/Small world network power law.jpg>
+Package pdftex.def Info: Images/Small world network power law.jpg  used on inpu
+t line 544.
+(pdftex.def)             Requested size: 418.25555pt x 358.64769pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--579
+[]|\OT1/cmr/m/n/10.95 10,000-Node Ran-dom
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--579
+[]|\OT1/cmr/m/n/10.95 10,000-Node Power-Law
+ []
+
+
+Underfull \hbox (badness 7468) in paragraph at lines 579--579
+[]|\OT1/cmr/m/n/10.95 Only tiny groups (1-2
+ []
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 579--579
+[]|\OT1/cmr/m/n/10.95 A large clus-ter per-sists
+ []
+
+[14 <./Images/Gaussiana.jpg>] [15 <./Images/Comparison of small world regular a
+nd random networks.jpg>] [16 <./Images/Small world network power law.jpg>]
+chapter 3.
+<Images/P2P overlay network types.jpg, id=239, 361.35pt x 226.62445pt>
+File: Images/P2P overlay network types.jpg Graphic file (type jpg)
+<use Images/P2P overlay network types.jpg>
+Package pdftex.def Info: Images/P2P overlay network types.jpg  used on input li
+ne 613.
+(pdftex.def)             Requested size: 334.60571pt x 209.85257pt.
+[17
+
+
+]
+File: Images/Flooding_1.png Graphic file (type png)
+<use Images/Flooding_1.png>
+Package pdftex.def Info: Images/Flooding_1.png  used on input line 688.
+(pdftex.def)             Requested size: 322.8052pt x 236.0814pt.
+File: Images/Flooding_2.png Graphic file (type png)
+<use Images/Flooding_2.png>
+Package pdftex.def Info: Images/Flooding_2.png  used on input line 688.
+(pdftex.def)             Requested size: 322.8052pt x 236.0814pt.
+File: Images/Flooding_3.png Graphic file (type png)
+<use Images/Flooding_3.png>
+Package pdftex.def Info: Images/Flooding_3.png  used on input line 688.
+(pdftex.def)             Requested size: 321.60071pt x 273.4208pt.
+File: Images/Flooding_4.png Graphic file (type png)
+<use Images/Flooding_4.png>
+Package pdftex.def Info: Images/Flooding_4.png  used on input line 688.
+(pdftex.def)             Requested size: 321.60071pt x 237.2859pt.
+ [18 <./Images/P2P overlay network types.jpg>] [19 <./Images/Flooding_1.png> <.
+/Images/Flooding_2.png> <./Images/Flooding_3.png> <./Images/Flooding_4.png>]
+<Images/Random_walk.jpg, id=270, 350.5095pt x 246.32025pt>
+File: Images/Random_walk.jpg Graphic file (type jpg)
+<use Images/Random_walk.jpg>
+Package pdftex.def Info: Images/Random_walk.jpg  used on input line 722.
+(pdftex.def)             Requested size: 334.60571pt x 235.14926pt.
+<Images/Expanding_ring.jpg, id=271, 469.15276pt x 311.9655pt>
+File: Images/Expanding_ring.jpg Graphic file (type jpg)
+<use Images/Expanding_ring.jpg>
+Package pdftex.def Info: Images/Expanding_ring.jpg  used on input line 737.
+(pdftex.def)             Requested size: 334.60571pt x 222.50621pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 757.
+
+Underfull \vbox (badness 3000) has occurred while \output is active []
+
+ [20 <./Images/Random_walk.jpg>]
+<Images/Hash table.jpg, id=281, 486.91pt x 208.415pt>
+File: Images/Hash table.jpg Graphic file (type jpg)
+<use Images/Hash table.jpg>
+Package pdftex.def Info: Images/Hash table.jpg  used on input line 787.
+(pdftex.def)             Requested size: 334.60571pt x 143.22134pt.
+<Images/Distributed hash table.jpg, id=282, 254.75175pt x 386.6445pt>
+File: Images/Distributed hash table.jpg Graphic file (type jpg)
+<use Images/Distributed hash table.jpg>
+Package pdftex.def Info: Images/Distributed hash table.jpg  used on input line 
+798.
+(pdftex.def)             Requested size: 334.60571pt x 507.84134pt.
+ [21 <./Images/Expanding_ring.jpg>]
+<Images/DHT routing.jpg, id=295, 472.53462pt x 320.91924pt>
+File: Images/DHT routing.jpg Graphic file (type jpg)
+<use Images/DHT routing.jpg>
+Package pdftex.def Info: Images/DHT routing.jpg  used on input line 816.
+(pdftex.def)             Requested size: 334.60571pt x 227.24214pt.
+ [22 <./Images/Hash table.jpg>] [23 <./Images/Distributed hash table.jpg>]
+Underfull \vbox (badness 4995) has occurred while \output is active []
+
+ [24 <./Images/DHT routing.jpg>]
+File: Images/Chord routing without finger table.jpg Graphic file (type jpg)
+<use Images/Chord routing without finger table.jpg>
+Package pdftex.def Info: Images/Chord routing without finger table.jpg  used on
+ input line 895.
+(pdftex.def)             Requested size: 284.52686pt x 284.52686pt.
+File: Images/Chord routing with finger table.jpg Graphic file (type jpg)
+<use Images/Chord routing with finger table.jpg>
+Package pdftex.def Info: Images/Chord routing with finger table.jpg  used on in
+put line 895.
+(pdftex.def)             Requested size: 284.52686pt x 284.52686pt.
+ [25 <./Images/Chord routing without finger table.jpg> <./Images/Chord routing 
+with finger table.jpg>]
+<Images/CAN not simply connected region.jpg, id=330, 255.354pt x 200.54926pt>
+File: Images/CAN not simply connected region.jpg Graphic file (type jpg)
+<use Images/CAN not simply connected region.jpg>
+Package pdftex.def Info: Images/CAN not simply connected region.jpg  used on in
+put line 968.
+(pdftex.def)             Requested size: 334.60571pt x 262.801pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1012
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1012
+
+ []
+
+<Images/CAN routing.jpg, id=331, 545.90727pt x 273.5509pt>
+File: Images/CAN routing.jpg Graphic file (type jpg)
+<use Images/CAN routing.jpg>
+Package pdftex.def Info: Images/CAN routing.jpg  used on input line 1017.
+(pdftex.def)             Requested size: 334.60571pt x 167.67557pt.
+[26] [27 <./Images/CAN not simply connected region.jpg>]
+<Images/Kademlia.jpg, id=348, 448.81052pt x 345.69917pt>
+File: Images/Kademlia.jpg Graphic file (type jpg)
+<use Images/Kademlia.jpg>
+Package pdftex.def Info: Images/Kademlia.jpg  used on input line 1067.
+(pdftex.def)             Requested size: 334.60571pt x 257.744pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1087--1091
+
+ []
+
+[28 <./Images/CAN routing.jpg>] [29 <./Images/Kademlia.jpg>]
+<Images/Distributed architecture comparison.jpg, id=366, 474.21611pt x 258.2983
+4pt>
+File: Images/Distributed architecture comparison.jpg Graphic file (type jpg)
+<use Images/Distributed architecture comparison.jpg>
+Package pdftex.def Info: Images/Distributed architecture comparison.jpg  used o
+n input line 1190.
+(pdftex.def)             Requested size: 334.60571pt x 182.26193pt.
+
+Overfull \hbox (4.56647pt too wide) in paragraph at lines 1204--1204
+[]|\OT1/cmr/m/n/10.95 Communication
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1204--1204
+[]|\OT1/cmr/m/n/10.95 Complex
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1204--1204
+\OT1/cmr/m/n/10.95 Query Pat-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1204--1204
+[]|\OT1/cmr/bx/n/10.95 Central
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1204--1204
+[]|\OT1/cmr/bx/n/10.95 Flooding
+ []
+
+[30] [31 <./Images/Distributed architecture comparison.jpg>] [32]
+chapter 4.
+<Images/Distributed system properties.jpg, id=386, 405.63104pt x 170.85797pt>
+File: Images/Distributed system properties.jpg Graphic file (type jpg)
+<use Images/Distributed system properties.jpg>
+Package pdftex.def Info: Images/Distributed system properties.jpg  used on inpu
+t line 1240.
+(pdftex.def)             Requested size: 334.60571pt x 140.9413pt.
+[33
+
+
+ <./Images/Distributed system properties.jpg>] [34] [35] [36]
+Underfull \hbox (badness 1735) in paragraph at lines 1539--1539
+[]|\OT1/cmr/m/n/10.95 A trans-ac-tion reads a value
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1539
+[]|\OT1/cmr/bx/n/10.95 Unrepeatable
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 1539--1539
+\OT1/cmr/m/n/10.95 data item twice and gets a
+ []
+
+
+Underfull \hbox (badness 4072) in paragraph at lines 1539--1539
+[]|\OT1/cmr/bx/n/10.95 Phantom up-
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 1539--1539
+\OT1/cmr/m/n/10.95 up-date that vi-o-lates a data
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1539
+
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 1539--1539
+\OT1/cmr/m/n/10.95 For ex-am-ple: let\TS1/cmr/m/n/10.95 '\OT1/cmr/m/n/10.95 s s
+ay that
+ []
+
+
+Underfull \hbox (badness 3098) in paragraph at lines 1539--1539
+\OT1/cmr/m/n/10.95 rule is vi-o-lated lead-ing the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1539
+
+ []
+
+
+Underfull \hbox (badness 5607) in paragraph at lines 1539--1539
+\OT1/cmr/m/it/10.95 ($\OML/cmm/m/it/10.95 T\OT1/cmr/m/n/10.95 1$ \OT1/cmr/m/it/
+10.95 now sees an in-con-sis-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1539
+[]|\OT1/cmr/bx/n/10.95 Phantom in-
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 1539--1539
+[]|\OT1/cmr/m/n/10.95 A trans-ac-tion $\OML/cmm/m/it/10.95 T\OT1/cmr/m/n/10.95 
+1$ cal-cu-lates
+ []
+
+
+Underfull \hbox (badness 3977) in paragraph at lines 1539--1539
+\OML/cmm/m/it/10.95 SUM\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 salary\OT1/cmr/m
+/n/10.95 )$ for a de-part-
+ []
+
+
+Underfull \hbox (badness 1838) in paragraph at lines 1539--1539
+\OT1/cmr/m/n/10.95 ment. A con-cur-rent trans-
+ []
+
+
+LaTeX Warning: Float too large for page by 97.9999pt on input line 1541.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1565--1566
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+[]|\OT1/cmr/m/n/10.95 OK. The shared
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+\OT1/cmr/m/n/10.95 counter is decre-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+\OT1/cmr/m/n/10.95 mented. If the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+\OT1/cmr/m/n/10.95 counter be-comes
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+\OT1/cmr/m/n/10.95 zero, the re-source
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+\OT1/cmr/m/n/10.95 state tran-si-tions
+ []
+
+<Images/Two-phase locking.jpg, id=410, 314.81517pt x 136.7842pt>
+File: Images/Two-phase locking.jpg Graphic file (type jpg)
+<use Images/Two-phase locking.jpg>
+Package pdftex.def Info: Images/Two-phase locking.jpg  used on input line 1601.
+
+(pdftex.def)             Requested size: 334.60571pt x 145.38292pt.
+[37] [38] [39 <./Images/Two-phase locking.jpg>] [40] [41] [42
+
+
+]
+chapter 5.
+[43]
+<Images/Two-phase commit.jpg, id=454, 516.06888pt x 283.99057pt>
+File: Images/Two-phase commit.jpg Graphic file (type jpg)
+<use Images/Two-phase commit.jpg>
+Package pdftex.def Info: Images/Two-phase commit.jpg  used on input line 1822.
+(pdftex.def)             Requested size: 418.25555pt x 230.16542pt.
+ [44] [45 <./Images/Two-phase commit.jpg>] [46]
+chapter 6.
+[47
+
+
+] [48]
+Underfull \hbox (badness 10000) in paragraph at lines 2078--2084
+
+ []
+
+<Images/Byzantine generals problem.jpg, id=494, 527.04219pt x 245.89427pt>
+File: Images/Byzantine generals problem.jpg Graphic file (type jpg)
+<use Images/Byzantine generals problem.jpg>
+Package pdftex.def Info: Images/Byzantine generals problem.jpg  used on input l
+ine 2089.
+(pdftex.def)             Requested size: 418.25555pt x 195.13982pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49 <./Images/Byzantine generals problem.jpg>] [50] [51] [52]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 2
+339.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
+File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 2339.
+
+<Images/Traitor lieutenant.jpg, id=516, 670.89584pt x 294.19646pt>
+File: Images/Traitor lieutenant.jpg Graphic file (type jpg)
+<use Images/Traitor lieutenant.jpg>
+Package pdftex.def Info: Images/Traitor lieutenant.jpg  used on input line 2366
+.
+(pdftex.def)             Requested size: 418.25555pt x 183.41443pt.
+[53 <./Images/Traitor lieutenant.jpg>]
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
+2386.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 2386.
+
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 2386.
+
+<Images/Traitor commander.jpg, id=530, 600.74437pt x 290.77383pt>
+File: Images/Traitor commander.jpg Graphic file (type jpg)
+<use Images/Traitor commander.jpg>
+Package pdftex.def Info: Images/Traitor commander.jpg  used on input line 2394.
+
+(pdftex.def)             Requested size: 418.25555pt x 202.44882pt.
+[54 <./Images/Traitor commander.jpg>] [55]
+(Distributed and transactional systems.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-10-24>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 15210 strings out of 467871
+ 306167 string characters out of 5414504
+ 873331 words of memory out of 5000000
+ 43682 multiletter control sequences out of 15000+600000
+ 637134 words of font info for 71 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 108i,20n,107p,11297b,604s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Gabriele_user\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\tcsx1200.pk> <C:\Users\Gabriele_user\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\tcrm1095.pk> <C:\Users\Gabriele_user\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/Gabriele_user/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Gabriele
+_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Gabriele_user/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Gabriele_user/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Gab
+riele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr8.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmsl10.pfb><C:/Users/Gabriele_user/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Gabriele_user/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
+/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmtt10.pfb>
+Output written on "Distributed and transactional systems.pdf" (55 pages, 168137
+5 bytes).
+PDF statistics:
+ 850 PDF objects out of 1000 (max. 8388607)
+ 262 named destinations out of 1000 (max. 500000)
+ 610 words of extra memory for PDF output out of 10000 (max. 10000000)
+

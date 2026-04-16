@@ -1,0 +1,102 @@
+\contentsline {chapter}{\numberline {1}Core Concepts and Programming Paradigm}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}JavaScript Engine: AST, Bytecode, JIT, and De-optimization}{6}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Abstract Syntax Tree (AST)}{6}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Bytecode Generation}{6}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Interpretation}{7}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Just-In-Time Compilation (JIT)}{7}{subsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.1.5}Speculative Optimization}{7}{subsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.1.6}De-optimization}{7}{subsection.1.1.6}%
+\contentsline {subsection}{\numberline {1.1.7}Coexistence of Interpreted and Compiled Code}{8}{subsection.1.1.7}%
+\contentsline {subsection}{\numberline {1.1.8}Concurrency and External Interactions}{8}{subsection.1.1.8}%
+\contentsline {subsection}{\numberline {1.1.9}Platform Dependence}{8}{subsection.1.1.9}%
+\contentsline {chapter}{\numberline {2}Syntax and Integration with HTML}{9}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Variables and Data Types}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Variable Declaration: \texttt {var}, \texttt {let}, and \texttt {const}}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Primitive Data Types}{12}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Strings and Implicit Type Coercion in JavaScript}{12}{subsection.3.2.1}%
+\contentsline {subsubsection}{\nonumberline Implicit Type Coercion in String Operations}{13}{subsubsection*.3}%
+\contentsline {paragraph}{\nonumberline How does the conversion work?}{13}{paragraph*.5}%
+\contentsline {paragraph}{\nonumberline Is autoboxing involved?}{13}{paragraph*.7}%
+\contentsline {subsubsection}{\nonumberline Template Literals and Backticks}{14}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline Multi-line Strings and Newline Characters}{14}{subsubsection*.11}%
+\contentsline {paragraph}{\nonumberline How to avoid inserting newline characters}{14}{paragraph*.13}%
+\contentsline {subsubsection}{\nonumberline Practical Considerations}{14}{subsubsection*.15}%
+\contentsline {chapter}{\numberline {4}Operators and Control Flow}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Operators}{15}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Loose equality vs. strict equality}{15}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Complex logical operators in JavaScript}{15}{subsection.4.1.2}%
+\contentsline {subsubsection}{\nonumberline \texttt {??}: The Nullish Coalescing Operator}{16}{subsubsection*.17}%
+\contentsline {subsection}{\numberline {4.1.3}Clarification of Bitwise Operations}{17}{subsection.4.1.3}%
+\contentsline {subsubsection}{\nonumberline When are bitwise operations useful?}{17}{subsubsection*.19}%
+\contentsline {subsubsection}{\nonumberline Performance considerations}{17}{subsubsection*.21}%
+\contentsline {subsubsection}{\nonumberline JIT optimizations}{17}{subsubsection*.23}%
+\contentsline {subsubsection}{\nonumberline Bitwise operations and memory usage}{18}{subsubsection*.25}%
+\contentsline {subsubsection}{\nonumberline Example: Permissions using bit masks}{18}{subsubsection*.27}%
+\contentsline {subsubsection}{\nonumberline Example: Representing a system state}{18}{subsubsection*.29}%
+\contentsline {subsubsection}{\nonumberline \texttt {\&}: The Bitwise AND Operator}{19}{subsubsection*.31}%
+\contentsline {paragraph}{\nonumberline Parity check}{19}{paragraph*.33}%
+\contentsline {paragraph}{\nonumberline Power-of-two check}{20}{paragraph*.35}%
+\contentsline {paragraph}{\nonumberline Checking permissions using bitwise AND}{20}{paragraph*.37}%
+\contentsline {subsubsection}{\nonumberline \texttt {|}: The Bitwise OR Operator}{21}{subsubsection*.39}%
+\contentsline {paragraph}{\nonumberline Assigning permissions and state components}{21}{paragraph*.41}%
+\contentsline {subsubsection}{\nonumberline \texttt {^}: The Bitwise XOR Operator}{21}{subsubsection*.43}%
+\contentsline {paragraph}{\nonumberline Flipping individual bits}{21}{paragraph*.45}%
+\contentsline {paragraph}{\nonumberline Swapping two variables without a temporary variable}{21}{paragraph*.47}%
+\contentsline {paragraph}{\nonumberline Checking if two numbers have opposite signs}{22}{paragraph*.49}%
+\contentsline {paragraph}{\nonumberline Implementing simple encryption algorithms}{22}{paragraph*.51}%
+\contentsline {paragraph}{\nonumberline Detecting changes in data}{22}{paragraph*.53}%
+\contentsline {subsubsection}{\nonumberline \texttt {\textasciitilde }: The Bitwise NOT Operator}{22}{subsubsection*.55}%
+\contentsline {paragraph}{\nonumberline Relation with XOR}{23}{paragraph*.57}%
+\contentsline {subsubsection}{\nonumberline \texttt {<<}: The Bitwise Left Shift Operator}{23}{subsubsection*.59}%
+\contentsline {paragraph}{\nonumberline Multiplication by powers of 2}{23}{paragraph*.61}%
+\contentsline {subsubsection}{\nonumberline \texttt {>>}: The Sign-Preserving Right Shift}{23}{subsubsection*.63}%
+\contentsline {paragraph}{\nonumberline Division by powers of 2}{23}{paragraph*.65}%
+\contentsline {subsubsection}{\nonumberline \texttt {>>>}: The Zero-Fill Right Shift}{23}{subsubsection*.67}%
+\contentsline {subsubsection}{\nonumberline Bitwise Assignment Operators}{24}{subsubsection*.69}%
+\contentsline {subsection}{\numberline {4.1.4}Clarification of the Ternary Operator}{24}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Clarification of Type Operators}{25}{subsection.4.1.5}%
+\contentsline {subsubsection}{\nonumberline Understanding the \texttt {typeof} Operator}{26}{subsubsection*.75}%
+\contentsline {paragraph}{\nonumberline Why does \texttt {typeof null} return \texttt {'object'}?}{26}{paragraph*.77}%
+\contentsline {subsubsection}{\nonumberline Understanding the \texttt {instanceof} Operator}{26}{subsubsection*.79}%
+\contentsline {subsubsection}{\nonumberline Key Differences Between \texttt {typeof} and \texttt {instanceof}}{27}{subsubsection*.81}%
+\contentsline {subsubsection}{\nonumberline Is \texttt {Object} a superclass in JavaScript?}{27}{subsubsection*.83}%
+\contentsline {subsubsection}{\nonumberline Wrapper Objects in JavaScript}{28}{subsubsection*.85}%
+\contentsline {paragraph}{\nonumberline Why should wrapper objects be avoided?}{28}{paragraph*.87}%
+\contentsline {section}{\numberline {4.2}Control Flow Statements}{29}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Conditional Statements}{29}{subsection.4.2.1}%
+\contentsline {paragraph}{\nonumberline if / else Statements:}{29}{paragraph*.89}%
+\contentsline {paragraph}{\nonumberline switch Statement:}{29}{paragraph*.91}%
+\contentsline {subsection}{\numberline {4.2.2}Loop Statements}{29}{subsection.4.2.2}%
+\contentsline {paragraph}{\nonumberline while Loop:}{30}{paragraph*.93}%
+\contentsline {paragraph}{\nonumberline do-while Loop:}{30}{paragraph*.95}%
+\contentsline {paragraph}{\nonumberline for Loop:}{30}{paragraph*.97}%
+\contentsline {subsection}{\numberline {4.2.3}Truthy and Falsy Values}{30}{subsection.4.2.3}%
+\contentsline {paragraph}{\nonumberline Why is \texttt {document.all} falsy?}{31}{paragraph*.101}%
+\contentsline {subsubsection}{\nonumberline Default Values Using Logical OR (\texttt {||})}{31}{subsubsection*.104}%
+\contentsline {subsubsection}{\nonumberline Nullish Coalescing vs Logical OR}{32}{subsubsection*.106}%
+\contentsline {subsubsection}{\nonumberline Safe Property Access}{32}{subsubsection*.108}%
+\contentsline {subsubsection}{\nonumberline Avoiding Explicit Comparisons}{32}{subsubsection*.110}%
+\contentsline {chapter}{\numberline {5}Functions: Reusable Blocks of Code}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Function Definition and Usage}{33}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Working with Data Structures: Arrays and Objects}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Arrays}{35}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Example of \texttt {forEach()} usage}{37}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Example of \texttt {map()} usage}{38}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}Objects}{38}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Creating an object}{39}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Methods}{39}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Common objects}{40}{subsection.6.2.3}%
+\contentsline {chapter}{\numberline {7}Advanced Concepts: this and Symbol}{43}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The \texttt {this} Keyword: Understanding Context}{43}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Strict mode vs. non-strict mode}{43}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}The "left of the dot" rule}{43}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}Default binding (global context)}{44}{subsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.1.4}The \texttt {this} problem inside callbacks}{44}{subsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.1.5}Solutions to preserve \texttt {this}}{45}{subsection.7.1.5}%
+\contentsline {subsubsection}{\nonumberline Solution 1: Store \texttt {this} in a variable}{45}{subsubsection*.112}%
+\contentsline {subsubsection}{\nonumberline Solution 2: Use \texttt {bind()}}{45}{subsubsection*.114}%
+\contentsline {subsubsection}{\nonumberline Solution 3: Use arrow functions (recommended)}{45}{subsubsection*.116}%
+\contentsline {subsection}{\numberline {7.1.6}Key observations}{46}{subsection.7.1.6}%
+\contentsline {subsection}{\numberline {7.1.7}Important takeaway}{46}{subsection.7.1.7}%
+\contentsline {section}{\numberline {7.2}The Symbol Type: Ensuring Uniqueness}{46}{section.7.2}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

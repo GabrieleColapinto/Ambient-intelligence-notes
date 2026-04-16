@@ -1,0 +1,23 @@
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Understanding the Development Toolkit}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Core Environment: Hardhat}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Essential Prerequisites}{8}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Project Initialization and Structure}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Initializing a Hardhat Project}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Anatomy of a Hardhat Project}{9}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Dissecting the Purchase.sol Smart Contract}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Core Logic and State Machine}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Key Functions and Modifiers}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Clarifications about the code}{14}{section.4.3}%
+\contentsline {chapter}{\numberline {5}The Core Workflow: Compiling, Testing, and Deploying}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Compilation and Testing}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Running a Local Network}{15}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Deploying the Contract}{17}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Interacting with the Deployed Contract via Remix}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Connecting Remix to the Local Hardhat Node}{19}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Using MetaMask as an injected provider}{19}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Using an external HTTP provider}{21}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Compiling and deploying the contract}{22}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Calling Contract Functions}{22}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Conclusion}{27}{chapter.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

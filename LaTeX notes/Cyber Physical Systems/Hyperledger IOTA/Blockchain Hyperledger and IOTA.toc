@@ -1,0 +1,22 @@
+\contentsline {chapter}{\numberline {1}Fundamental Definitions and Technological Foundations}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Hyperledger Fabric: A Permissioned DLT for Business Ecosystems}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Core Features and Architecture}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Key Components of the Fabric Network}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Membership and Identity Management}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Hyperledger Fabric network example}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Hyperledger Fabric transaction lifecycle}{11}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Smart Contracts (Chaincode) and Endorsement}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}The Transaction Flow}{13}{section.2.5}%
+\contentsline {chapter}{\numberline {3}IOTA: A Distributed Ledger for the Internet of Things}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The Tangle: A Directed Acyclic Graph (DAG)}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Core Concepts and Definitions}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}The Transaction Approval Process: Tip Selection Strategies}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Random Tip Selection}{20}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}MCMC (Markov Chain Monte Carlo)}{20}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}MCMC Transition Probability}{20}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Example of tangle and MCMC random walks}{21}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}IOTA's Proof-of-Work: A Mechanism for Spam Prevention}{22}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Network Security and Finality: The Role of the Coordinator}{23}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Coordinator Functionality}{23}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}A Temporary Measure}{24}{subsection.3.6.2}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -1,0 +1,94 @@
+\contentsline {chapter}{\numberline {1}Introduction to Distributed Systems}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Interoperability: Enabling Communication Between Nodes}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}The Challenge of Interoperability}{5}{subsection.1.1.1}%
+\contentsline {subsubsection}{\nonumberline API-based (RPC)}{5}{subsubsection*.3}%
+\contentsline {subsubsection}{\nonumberline Protocol-based}{6}{subsubsection*.5}%
+\contentsline {subsubsection}{\nonumberline Conclusions}{6}{subsubsection*.7}%
+\contentsline {subsection}{\numberline {1.1.2}Core Communication Models: Synchronous vs. Asynchronous}{6}{subsection.1.1.2}%
+\contentsline {subsubsection}{\nonumberline Analyzing Communication Patterns}{6}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline Synchronous (Blocking) Communication}{6}{subsubsection*.11}%
+\contentsline {subsubsection}{\nonumberline Asynchronous (Non-Blocking) Communication}{7}{subsubsection*.13}%
+\contentsline {chapter}{\numberline {2}Architectural Paradigms: Client-Server and Peer-to-Peer}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Structuring the Distributed System}{9}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}The Client-Server Model}{9}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}The Peer-to-Peer (P2P) Model}{9}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}A Deeper Analysis of Peer-to-Peer Architectures}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}The Bootstrapping Challenge in P2P Networks}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Contrasting P2P Implementations}{10}{subsection.2.2.2}%
+\contentsline {subsubsection}{\nonumberline Case Study: The ROS Master as a Tracker Analogy}{10}{subsubsection*.15}%
+\contentsline {subsection}{\numberline {2.2.3}Defining the Peer-to-Peer (P2P) Architecture}{11}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Comparing P2P with Other Distributed System Models}{12}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Analyzing the Core Benefits and Challenges of P2P}{12}{subsection.2.2.5}%
+\contentsline {subsubsection}{\nonumberline Benefits}{12}{subsubsection*.17}%
+\contentsline {subsubsection}{\nonumberline Challenges}{13}{subsubsection*.19}%
+\contentsline {subsection}{\numberline {2.2.6}Understanding P2P Network Topology}{13}{subsection.2.2.6}%
+\contentsline {subsubsection}{\nonumberline Random Network Models}{13}{subsubsection*.21}%
+\contentsline {subsubsection}{\nonumberline Small-World Networks}{13}{subsubsection*.23}%
+\contentsline {subsubsection}{\nonumberline Resilience Properties of Small-World Networks}{14}{subsubsection*.25}%
+\contentsline {chapter}{\numberline {3}P2P Overlay Networks}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction to P2P Overlay Networks}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}P2P Network Types}{17}{subsection.3.1.1}%
+\contentsline {subsubsection}{\nonumberline Unstructured P2P Networks}{17}{subsubsection*.27}%
+\contentsline {subsubsection}{\nonumberline Structured P2P Networks}{17}{subsubsection*.29}%
+\contentsline {subsection}{\numberline {3.1.2}Resource Discovery in Unstructured Networks}{18}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Evaluating Blind Search Techniques}{18}{subsection.3.1.3}%
+\contentsline {subsubsection}{\nonumberline Flooding}{18}{subsubsection*.31}%
+\contentsline {subsubsection}{\nonumberline Random Walk}{20}{subsubsection*.33}%
+\contentsline {subsubsection}{\nonumberline Expanding Ring}{20}{subsubsection*.35}%
+\contentsline {subsubsection}{\nonumberline Analyzing the Time Complexity of Flooding Search}{21}{subsubsection*.37}%
+\contentsline {subsection}{\numberline {3.1.4}Resource Discovery in Structured Networks: Distributed Hash Tables (DHTs)}{21}{subsection.3.1.4}%
+\contentsline {subsubsection}{\nonumberline Explaining the Fundamentals of DHTs}{21}{subsubsection*.39}%
+\contentsline {subsubsection}{\nonumberline Clarifying the DHT Routing Process}{22}{subsubsection*.41}%
+\contentsline {subsubsection}{\nonumberline Why does a requesting node contact an arbitrary DHT node instead of hashing and contacting the owner directly?}{24}{subsubsection*.43}%
+\contentsline {subsubsection}{\nonumberline What are the numbers on the ring and how do nodes communicate?}{24}{subsubsection*.45}%
+\contentsline {section}{\numberline {3.2}Case Studies in DHT Implementation}{25}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Analyze Chord\textquotesingle s Ring Topology}{25}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Analyze CAN\textquotesingle s Coordinate Space Topology}{25}{subsection.3.2.2}%
+\contentsline {subsubsection}{\nonumberline How do the nodes know if a node leaves the network?}{26}{subsubsection*.47}%
+\contentsline {subsubsection}{\nonumberline Clarifying examples}{27}{subsubsection*.49}%
+\contentsline {subsection}{\numberline {3.2.3}Analyze Kademlia\textquotesingle s Binary Tree Topology}{28}{subsection.3.2.3}%
+\contentsline {subsubsection}{\nonumberline k-buckets examples}{28}{subsubsection*.51}%
+\contentsline {subsubsection}{\nonumberline Why this structure is effective}{29}{subsubsection*.53}%
+\contentsline {subsubsection}{\nonumberline Illustrating Kademlia Routing}{29}{subsubsection*.55}%
+\contentsline {subsection}{\numberline {3.2.4}Comparative Analysis of P2P Architectures}{30}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Defining the Evaluation Metrics}{30}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Presenting and Analyzing the Comparison Table}{30}{subsection.3.2.6}%
+\contentsline {chapter}{\numberline {4}Foundational Concepts for Trustworthy Systems}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Foundational Concepts of Transactional Systems}{34}{section.4.1}%
+\contentsline {section}{\numberline {4.2}The ACID Properties: Guarantees of Transactional Integrity}{34}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Atomicity}{35}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Consistency}{35}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Isolation}{35}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Durability}{35}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Core Mechanisms for Achieving ACID Properties}{36}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Reliability Control: Ensuring Atomicity and Durability}{36}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Concurrency Control: Ensuring Isolation}{37}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Advanced Concurrency Control: Protocols and Challenges}{37}{subsection.4.3.3}%
+\contentsline {subsubsection}{\nonumberline Two-Phase Locking (2PL)}{37}{subsubsection*.57}%
+\contentsline {subsubsection}{\nonumberline Deadlocks}{40}{subsubsection*.59}%
+\contentsline {chapter}{\numberline {5}Transaction Processing in Distributed Systems}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Rationale and Impact on ACID Properties}{43}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Consistency in the Context of Data Redundancy}{43}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Distributed Transaction Protocols}{44}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Distributed Concurrency Control}{44}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Distributed Reliability Control: The Two-Phase Commit (2PC) Protocol}{44}{subsection.5.3.2}%
+\contentsline {subsubsection}{\nonumberline Protocol Flow: The Two Phases}{45}{subsubsection*.61}%
+\contentsline {paragraph}{\nonumberline Phase 1: The Voting Phase}{45}{paragraph*.63}%
+\contentsline {paragraph}{\nonumberline Phase 2: The Decision Phase}{45}{paragraph*.65}%
+\contentsline {subsubsection}{\nonumberline Fault Handling and Considerations}{46}{subsubsection*.67}%
+\contentsline {chapter}{\numberline {6}Fault Tolerance and Consensus in Distributed Systems}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Introduction to Faults in Distributed Systems}{47}{section.6.1}%
+\contentsline {section}{\numberline {6.2}The Core Challenge: The Consensus Problem}{48}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Adversary Models and Fault Tolerance}{50}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}The Fail-Stop Model and Crash Fault Tolerance}{50}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}The Byzantine Model and Byzantine Fault Tolerance}{50}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Analysis of Fault Tolerance Limits}{50}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Maximum Tolerable Faults in the Fail-Stop Model}{51}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Maximum Tolerable Faults in the Byzantine Model}{51}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Algorithms for Achieving Consensus}{52}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Atomic Broadcast: Consensus on a Sequence}{52}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}The Oral Message Algorithm for Byzantine Agreement}{53}{subsection.6.5.2}%
+\contentsline {subsubsection}{\nonumberline Scenario 1: Traitor Lieutenant}{53}{subsubsection*.69}%
+\contentsline {subsubsection}{\nonumberline Scenario 2: Traitor Commander}{54}{subsubsection*.71}%
+\contentsline {subsection}{\numberline {6.5.3}Real-World Applications of Fault Tolerance}{55}{subsection.6.5.3}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

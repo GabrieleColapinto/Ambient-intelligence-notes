@@ -1,0 +1,29 @@
+\contentsline {chapter}{\numberline {1}Foundational Concepts of Ethereum}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Defining Ethereum: The World Computer}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Core Applications: Smart Contracts and Decentralized Applications (Dapps)}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}The Ethereum Virtual Machine (EVM)}{5}{section.1.3}%
+\contentsline {chapter}{\numberline {2}The Genesis and Motivation of Ethereum}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}A Brief History}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Why Ethereum? Analyzing the Limitations of Bitcoin}{7}{section.2.2}%
+\contentsline {chapter}{\numberline {3}The Ethereum Account Model}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}The Two Types of Accounts}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}The Structure of an Account}{9}{section.3.2}%
+\contentsline {chapter}{\numberline {4}The Mechanics of Execution: Transactions, Messages, and Gas}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Transactions: The Catalyst for State Change}{11}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Clarifying the transaction signature}{12}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Messages: Contract-to-Contract Communication}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Gas: The Fuel for the Ethereum Network}{13}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Clarification of figure \ref {fig:EVM_execution_trace}}{14}{subsection.4.3.1}%
+\contentsline {chapter}{\numberline {5}The Ethereum State Transition Function}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The State Transition Process}{15}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Data Structures: Blocks and Merkle-Patricia Trees}{17}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The Structure of an Ethereum Block}{17}{section.6.1}%
+\contentsline {section}{\numberline {6.2}The Merkle-Patricia Tree}{17}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Defining Token Systems on Ethereum}{21}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Token Standards: A Framework for Interoperability}{21}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}ERC-20: The Standard for Fungible Tokens}{21}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}ERC-721: The Standard for Non-Fungible Tokens (NFTs)}{22}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}The Evolution of the Ethereum Protocol}{22}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}The Merge: Transition to Proof of Stake}{22}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Sharding: A Proposed Solution for Scalability}{22}{subsection.7.2.2}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

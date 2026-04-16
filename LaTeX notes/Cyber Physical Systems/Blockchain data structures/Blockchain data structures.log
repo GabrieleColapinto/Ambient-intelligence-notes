@@ -1,0 +1,1137 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.4.16)  16 APR 2026 21:48
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**"./Blockchain data structures.tex"
+(Blockchain data structures.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-10-24>
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+book.cls
+Document Class: scrbook 2025/09/09 v3.48 KOMA-Script document class (book)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+kbase.sty
+Package: scrkbase 2025/09/09 v3.48 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+base.sty
+Package: scrbase 2025/09/09 v3.48 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+lfile.sty
+Package: scrlfile 2025/09/09 v3.48 KOMA-Script package (file load hooks)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+lfile-hook.sty
+Package: scrlfile-hook 2025/09/09 v3.48 KOMA-Script package (using LaTeX hooks)
+
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+logo.sty
+Package: scrlogo 2025/09/09 v3.48 KOMA-Script package (logo)
+)))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
+.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 370.
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\toc
+basic.sty
+Package: tocbasic 2025/09/09 v3.48 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip49
+\scr@dte@tocline@numbox=\box53
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 143.
+Class scrbook Info: File `scrsize11pt.clo' used instead of
+(scrbook)           file `scrsize11.clo' to setup font sizes on input line 2710
+.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+size11pt.clo
+File: scrsize11pt.clo 2025/09/09 v3.48 KOMA-Script font size class option (11pt
+)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\typ
+earea.sty
+Package: typearea 2025/09/09 v3.48 KOMA-Script package (type area)
+\ta@bcor=\skip50
+\ta@div=\count275
+\ta@hblk=\skip51
+\ta@vblk=\skip52
+\ta@temp=\skip53
+\footheight=\skip54
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 47.2316pt
+(typearea)              \oddsidemargin  = -12.5192pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 595.80026pt
+(typearea)              \topmargin      = -25.16531pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1807.
+)
+\c@part=\count276
+\c@chapter=\count277
+\c@section=\count278
+\c@subsection=\count279
+\c@subsubsection=\count280
+\c@paragraph=\count281
+\c@subparagraph=\count282
+\scr@dte@chapter@maxnumwidth=\skip55
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\chapter on input line 6076.
+\scr@dte@section@maxnumwidth=\skip56
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\section on input line 6087.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\section on input line 6087.
+\scr@dte@part@maxnumwidth=\skip57
+Class scrbook Info: using compatibility default `afterindent=true'
+(scrbook)           for `\part on input line 6096.
+\scr@dte@subsection@maxnumwidth=\skip58
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsection on input line 6106.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsection on input line 6106.
+\scr@dte@subsubsection@maxnumwidth=\skip59
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subsubsection on input line 6116.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subsubsection on input line 6116.
+\scr@dte@paragraph@maxnumwidth=\skip60
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\paragraph on input line 6127.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\paragraph on input line 6127.
+\scr@dte@subparagraph@maxnumwidth=\skip61
+Class scrbook Info: using compatibility default `runin=bysign'
+(scrbook)           for `\subparagraph on input line 6137.
+Class scrbook Info: using compatibility default `afterindent=bysign'
+(scrbook)           for `\subparagraph on input line 6137.
+\abovecaptionskip=\skip62
+\belowcaptionskip=\skip63
+\c@pti@nb@sid@b@x=\box54
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 7350.
+\scr@dte@figure@maxnumwidth=\skip64
+\c@figure=\count283
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 7363.
+\scr@dte@table@maxnumwidth=\skip65
+\c@table=\count284
+Class scrbook Info: Redefining `\numberline' on input line 7534.
+\bibindent=\dimen148
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cs.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
+ty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
+aphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
+ftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.
+sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen151
+\ar@mcellbox=\box55
+\extrarowheight=\dimen152
+\NC@list=\toks18
+\extratabsurround=\skip66
+\backup@length=\skip67
+\ar@cellbox=\box56
+)
+\TX@col@width=\dimen153
+\TX@old@table=\dimen154
+\TX@old@col=\dimen155
+\TX@target=\dimen156
+\TX@delta=\dimen157
+\TX@cols=\count285
+\TX@ftn=\toks19
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+layer-scrpage.sty
+Package: scrlayer-scrpage 2025/09/09 v3.48 KOMA-Script package (end user interf
+ace for scrlayer)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
+layer.sty
+Package: scrlayer 2025/09/09 v3.48 KOMA-Script package (defining layers and pag
+e styles)
+Package scrlayer Info: patching LaTeX kernel macro \pagestyle on input line 217
+9.
+)
+Package scrlayer-scrpage Info: Makeing stand-alone element `pagehead' from
+(scrlayer-scrpage)             alias to `pageheadfoot' on input line 1106.
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperr
+ef.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.s
+ty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvset
+keys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\
+kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdf
+escape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcm
+ds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pd
+ftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\inf
+warerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor
+.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\namere
+f.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcou
+nt.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestrin
+g\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopt
+ions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count286
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolb
+ox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count287
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\str
+ingenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen158
+\Hy@linkcounter=\count288
+\Hy@pagecounter=\count289
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc
+.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intca
+lc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count290
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.
+def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count291
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen159
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset
+.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bi
+gintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count292
+\Field@Width=\dimen160
+\Fld@charsize=\dimen161
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count293
+\c@Item=\count294
+\c@Hfootnote=\count295
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdfte
+x.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count296
+\c@bookmark@seq@number=\count297
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\
+rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter
+\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip68
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
+gs.sty \lstset,
+\lst@mode=\count298
+ 
+new hook `InitVars',
+
+new hook `EndGroup',
+
+new hook `ExitVars',
+
+new hook `ModeTrue',
+
+new hook `EOL',
+\lst@gtempboxa=\box57
+\lst@token=\toks20
+\lst@length=\count299
+
+new hook `InitVarsBOL',
+\lst@currlwidth=\dimen162
+\lst@column=\count300
+\lst@pos=\count301
+\lst@lostspace=\dimen163
+\lst@width=\dimen164
+basewidth, 
+new hook `FontAdjust',
+fontadjust, 
+new hook `PostOutput',
+
+new hook `OutputBox',
+
+new hook `InitBOL',
+columns, flexiblecolumns,
+\lst@newlines=\count302
+ 
+new hook `OnNewLine',
+emptylines, 
+new hook `OnEmptyLine',
+identifierstyle, 
+new hook `EmptyStyle',
+
+new hook `OutputOther',
+
+new hook `Output',
+tabsize, showtabs, tab, showspaces, keepspaces, 
+new hook `Init',
+formfeed, upquote, SelectCharTable, MoreSelectCharTable,
+
+new hook `SetLanguage',
+extendedchars, useoutput, rescanchars, alsoletter, alsodigit, alsoother,
+
+new hook `SelectCharTable',
+excludedelims, delim, moredelim, deletedelim, literate, basicstyle,
+inputencoding, multicols, 
+new hook `EveryLine',
+\lst@lineno=\count303
+print, firstline, lastline, 
+new hook `PreSet',
+nolol, linerange, consecutivenumbers, rangeprefix, rangesuffix,
+rangebeginprefix, rangebeginsuffix, rangeendprefix, rangeendsuffix,
+includerangemarker, 
+new hook `DeInit',
+captionpos, abovecaptionskip, belowcaptionskip, label, title, caption,
+
+new hook `TextStyle',
+\lstlistingname, \lstlistingnamestyle, numberbychapter, boxpos, float,
+floatplacement, aboveskip, belowskip, everydisplay, 
+new hook `DisplayStyle',
+
+new hook `PreInit',
+
+new hook `EveryPar',
+showlines,
+\lst@maxwidth=\dimen165
+ 
+new hook `InitVarsEOL',
+gobble, name, \lstlistlistingname, \lstlistoflistings, inputpath,
+\lstnewenvironment, fancyvrb,
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpat
+ch.sty
+File: lstpatch.sty 2025/10/06 1.11 (Carsten Heinz)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmis
+c.sty
+File: lstmisc.sty 2025/10/06 1.11 (Carsten Heinz)
+ 
+Define lst-aspect `strings': string, morestring, deletestring, stringstyle,
+showstringspaces, 
+new hook `ExcludeDelims',
+
+Allocs: none
+
+Define lst-aspect `comments': comment, morecomment, deletecomment,
+commentstyle, 
+new hook `AfterBeginComment',
+
+Allocs: none
+
+Define lst-aspect `escape': texcl, escapebegin, escapeend, escapechar,
+escapeinside, mathescape, 
+Allocs: none
+
+Define lst-aspect `keywords': sensitive, 
+new hook `TrackKeywords',
+
+new hook `PostTrackKeywords',
+
+new hook `DetectKeywords',
+classoffset, keywords, morekeywords, deletekeywords, keywordstyle,
+keywordstyle, ndkeywords, morendkeywords, deletendkeywords, ndkeywordstyle,
+keywordsprefix, otherkeywords, 
+Allocs: none
+
+Define lst-aspect `emph': emph, moreemph, deleteemph, emphstyle, 
+Allocs: none
+
+Define lst-aspect `index': index, moreindex, deleteindex, indexstyle,
+\lstindexmacro, 
+Allocs: none
+
+Define lst-aspect `style': \lststylefiles, \lstdefinestyle, \lst@definestyle,
+style, 
+new hook `SetStyle',
+
+Allocs: none
+
+Define lst-aspect `language': \lstlanguagefiles, \lstdefinelanguage,
+\lst@definelanguage, language, alsolanguage, \lstalias, defaultdialect,
+
+Allocs: none
+
+Define lst-aspect `labels': numbers, stepnumber, numberfirstline, numberstyle,
+numbersep, numberblanklines, firstnumber,
+\c@lstnumber=\count304
+\lst@skipnumbers=\count305
+ 
+Allocs: 2\count, 
+
+Define lst-aspect `lineshape': xleftmargin, xrightmargin, resetmargins,
+
+new hook `BoxUnsafe',
+linewidth, lineskip, breaklines, breakindent, breakautoindent,
+breakatwhitespace, prebreak, postbreak, 
+Allocs: none
+
+Define lst-aspect `frames': framexleftmargin, framexrightmargin,
+framextopmargin, framexbottommargin, backgroundcolor, fillcolor, rulecolor,
+rulesepcolor, rulesep, framerule, framesep, frameshape, frameround, frame,
+\lst@framebox=\box58
+
+
+Allocs: 1\box, 
+) 
+Allocs: 8\count, 4\dimen, 2\box, 1\toks, 
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
+gs.cfg
+File: listings.cfg 2025/10/06 1.11 listings configuration
+))
+Package: listings 2025/10/06 1.11 (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/10/06 1.11 (Carsten Heinz)
+    so I'm assuming it got fixed.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\matht
+ools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count306
+\calc@Bcount=\count307
+\calc@Adimen=\dimen166
+\calc@Bdimen=\dimen167
+\calc@Askip=\skip69
+\calc@Bskip=\skip70
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count308
+\calc@Cskip=\skip71
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhset
+up.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath
+.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip72
+
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext
+.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.
+sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen168
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.
+sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen169
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.
+sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count309
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count310
+\leftroot@=\count311
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count312
+\DOTSCASE@=\count313
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box59
+\strutbox@=\box60
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen170
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count314
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count315
+\dotsspace@=\muskip18
+\c@parentequation=\count316
+\dspbrk@lvl=\count317
+\tag@help=\toks22
+\row@=\count318
+\column@=\count319
+\maxfields@=\count320
+\andhelp@=\toks23
+\eqnshift@=\dimen171
+\alignsep@=\dimen172
+\tagshift@=\dimen173
+\tagwidth@=\dimen174
+\totwidth@=\dimen175
+\lineht@=\dimen176
+\@envbody=\toks24
+\multlinegap=\skip73
+\multlinetaggap=\skip74
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+\g_MT_multlinerow_int=\count321
+\l_MT_multwidth_dim=\dimen177
+\origjot=\skip75
+\l_MT_shortvdotswithinadjustabove_dim=\dimen178
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen179
+\l_MT_above_intertext_sep=\dimen180
+\l_MT_below_intertext_sep=\dimen181
+\l_MT_above_shortintertext_sep=\dimen182
+\l_MT_below_shortintertext_sep=\dimen183
+\xmathstrut@box=\box61
+\xmathstrut@dim=\dimen184
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssym
+b.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfon
+ts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumit
+em.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip76
+\enit@outerparindent=\dimen185
+\enit@toks=\toks26
+\enit@inbox=\box62
+\enit@count@id=\count322
+\enitdp@description=\count323
+)
+Class scrbook Info: loading recommended package `bookmark'.
+(scrbook)           Using `bookmark' together with `hyperref' is recommended,
+(scrbook)           because of handling of possible bookmark level gaps.
+(scrbook)           You can avoid loading `bookmark' with KOMA-Script option
+(scrbook)           `bookmarkpackage=false' before \begin{document} and
+(scrbook)           you can avoid this message adding:
+(scrbook)             \usepackage{bookmark}
+(scrbook)           before \begin{document} on input line 23.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookma
+rk.sty
+Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pd
+ftex.def
+File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
+)
+\BKM@id=\count324
+))
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
+kend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count325
+) (Blockchain data structures.aux)
+\openout1 = `"Blockchain data structures.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+Package scrbase Info: activating english \partname on input line 23.
+Package scrbase Info: activating english \chaptername on input line 23.
+Package scrbase Info: activating english \appendixname on input line 23.
+Package scrbase Info: activating english \figurename on input line 23.
+Package scrbase Info: activating english \tablename on input line 23.
+Package scrbase Info: activating english \contentsname on input line 23.
+Package scrbase Info: activating english \listfigurename on input line 23.
+Package scrbase Info: activating english \listtablename on input line 23.
+Package scrbase Info: activating english \bibname on input line 23.
+Package scrbase Info: activating english \indexname on input line 23.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
+p-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count326
+\scratchdimen=\dimen186
+\scratchbox=\box63
+\nofMPsegments=\count327
+\nofMParguments=\count328
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count329
+\MPscratchDim=\dimen187
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
+\everyMPtoPDFconversion=\toks28
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
+stopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
+df-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring OFF on input line 23.
+\c@lstlisting=\count332
+Package tocbasic Info: omitting babel extension for `lol'
+(tocbasic)             because of missing \bbl@set@language on input line 23.
+\scr@dte@lstlisting@maxnumwidth=\skip77
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
+
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.f
+d
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
+
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.f
+d
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+
+{C:/Users/Gabriele_user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (10.95003pt too wide) in paragraph at lines 35--38
+[][]
+ []
+
+[2] (Blockchain data structures.toc)
+\tf@toc=\write3
+\openout3 = `"Blockchain data structures.toc"'.
+
+ [3
+
+
+
+] [4
+
+
+]
+chapter 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+<Images/Blockchain.jpg, id=56, 705.22075pt x 160.00243pt>
+File: Images/Blockchain.jpg Graphic file (type jpg)
+<use Images/Blockchain.jpg>
+Package pdftex.def Info: Images/Blockchain.jpg  used on input line 67.
+(pdftex.def)             Requested size: 418.25555pt x 94.89377pt.
+
+Underfull \hbox (badness 5475) in paragraph at lines 80--80
+[]|\OT1/cmr/m/n/10.95 Account-Based Model (e.g.,
+ []
+
+
+Underfull \hbox (badness 1077) in paragraph at lines 82--82
+\OT1/cmr/m/n/10.95 within their ac-count's state,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\OT1/cmr/bx/n/10.95 Transaction
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+[]|\OT1/cmr/m/n/10.95 A trans-ac-tion spec-i-fies a
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 83--83
+\OT1/cmr/m/n/10.95 sender, a re-ceiver, and an
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+\OT1/cmr/m/n/10.95 i-fies the bal-ances of the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
+[]|\OT1/cmr/bx/n/10.95 Smart Con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]|\OT1/cmr/bx/n/10.95 Transaction
+ []
+
+
+Underfull \hbox (badness 1112) in paragraph at lines 85--85
+\OT1/cmr/m/n/10.95 in-de-pen-dent of one an-other,
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 85--85
+[]|\OT1/cmr/m/n/10.95 State man-age-ment is gen-er-
+ []
+
+
+Underfull \hbox (badness 2495) in paragraph at lines 85--85
+\OT1/cmr/m/n/10.95 ally more com-plex and of-
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Images/UTXO_transaction_Structure.jpg, id=59, 612.19684pt x 354.82239pt>
+File: Images/UTXO_transaction_Structure.jpg Graphic file (type jpg)
+<use Images/UTXO_transaction_Structure.jpg>
+Package pdftex.def Info: Images/UTXO_transaction_Structure.jpg  used on input l
+ine 93.
+(pdftex.def)             Requested size: 418.25555pt x 242.41841pt.
+[5]
+<Images/UTXO_transactions_example.jpg, id=67, 694.04121pt x 254.60257pt>
+File: Images/UTXO_transactions_example.jpg Graphic file (type jpg)
+<use Images/UTXO_transactions_example.jpg>
+Package pdftex.def Info: Images/UTXO_transactions_example.jpg  used on input li
+ne 100.
+(pdftex.def)             Requested size: 418.25555pt x 153.4348pt.
+ [6 <./Images/Blockchain.jpg>] [7 <./Images/UTXO_transaction_Structure.jpg> <./
+Images/UTXO_transactions_example.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+<Images/Merkle_tree.jpg, id=81, 722.7pt x 460.03192pt>
+File: Images/Merkle_tree.jpg Graphic file (type jpg)
+<use Images/Merkle_tree.jpg>
+Package pdftex.def Info: Images/Merkle_tree.jpg  used on input line 137.
+(pdftex.def)             Requested size: 418.25555pt x 266.23607pt.
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+[9 <./Images/Merkle_tree.jpg>]
+<Images/Merkle_proof.jpg, id=104, 555.11172pt x 276.11853pt>
+File: Images/Merkle_proof.jpg Graphic file (type jpg)
+<use Images/Merkle_proof.jpg>
+Package pdftex.def Info: Images/Merkle_proof.jpg  used on input line 159.
+(pdftex.def)             Requested size: 418.25555pt x 208.049pt.
+ [10 <./Images/Merkle_proof.jpg>]
+<Images/Balanced_binary_tree.png, id=114, 571.53525pt x 409.53pt>
+File: Images/Balanced_binary_tree.png Graphic file (type png)
+<use Images/Balanced_binary_tree.png>
+Package pdftex.def Info: Images/Balanced_binary_tree.png  used on input line 18
+8.
+(pdftex.def)             Requested size: 418.25555pt x 299.69803pt.
+ [11 <./Images/Balanced_binary_tree.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--215
+
+ []
+
+
+Underfull \hbox (badness 4193) in paragraph at lines 228--228
+[]|\OT1/cmr/bx/n/10.95 Throughput (trans-ac-
+ []
+
+<Images/DAG.jpg, id=124, 193.31335pt x 157.71237pt>
+File: Images/DAG.jpg Graphic file (type jpg)
+<use Images/DAG.jpg>
+Package pdftex.def Info: Images/DAG.jpg  used on input line 235.
+(pdftex.def)             Requested size: 418.25555pt x 341.22878pt.
+[12] [13 <./Images/DAG.jpg>] [14
+
+
+]
+chapter 2.
+<Images/Block_class.jpg, id=141, 486.98862pt x 275.73784pt>
+File: Images/Block_class.jpg Graphic file (type jpg)
+<use Images/Block_class.jpg>
+Package pdftex.def Info: Images/Block_class.jpg  used on input line 258.
+(pdftex.def)             Requested size: 209.12778pt x 118.40927pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 265.
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+
+ []
+
+[15 <./Images/Block_class.jpg>]
+<Images/Previous_block_hash.jpg, id=150, 468.72256pt x 274.626pt>
+File: Images/Previous_block_hash.jpg Graphic file (type jpg)
+<use Images/Previous_block_hash.jpg>
+Package pdftex.def Info: Images/Previous_block_hash.jpg  used on input line 271
+.
+(pdftex.def)             Requested size: 209.12778pt x 122.52875pt.
+<Images/Calculate_hash.jpg, id=151, 236.2673pt x 104.23558pt>
+File: Images/Calculate_hash.jpg Graphic file (type jpg)
+<use Images/Calculate_hash.jpg>
+Package pdftex.def Info: Images/Calculate_hash.jpg  used on input line 278.
+(pdftex.def)             Requested size: 209.12778pt x 92.262pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
+
+ []
+
+
+Overfull \hbox (21.40628pt too wide) in paragraph at lines 289--290
+[]\OT1/cmr/m/n/10 Now, let us ex-pose the Python im-ple-men-ta-tion of the Merk
+le Tree re-fer-ring to the file []merkle[]tree.py[]. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 289--290
+
+ []
+
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
+g1.sty
+File: lstlang1.sty 2025/10/06 1.11 listings language file
+) [16 <./Images/Previous_block_hash.jpg> <./Images/Calculate_hash.jpg>]
+Overfull \hbox (25.74896pt too wide) in paragraph at lines 295--296
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 3
+16.
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
+File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 316.
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
+
+ []
+
+[18]
+Overfull \hbox (61.74933pt too wide) in paragraph at lines 386--387
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
+96.
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 396.
+
+Overfull \hbox (97.7497pt too wide) in paragraph at lines 396--397
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--408
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--412
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
+
+ []
+
+<Images/Owner_class.jpg, id=243, 290.58563pt x 154.32657pt>
+File: Images/Owner_class.jpg Graphic file (type jpg)
+<use Images/Owner_class.jpg>
+Package pdftex.def Info: Images/Owner_class.jpg  used on input line 437.
+(pdftex.def)             Requested size: 209.12778pt x 111.06557pt.
+<Images/Initialize_walet.jpg, id=245, 373.73914pt x 152.11115pt>
+File: Images/Initialize_walet.jpg Graphic file (type jpg)
+<use Images/Initialize_walet.jpg>
+Package pdftex.def Info: Images/Initialize_walet.jpg  used on input line 448.
+(pdftex.def)             Requested size: 209.12778pt x 85.11433pt.
+[20 <./Images/Owner_class.jpg>]
+<Images/Transaction.jpg, id=256, 641.39626pt x 396.7322pt>
+File: Images/Transaction.jpg Graphic file (type jpg)
+<use Images/Transaction.jpg>
+Package pdftex.def Info: Images/Transaction.jpg  used on input line 462.
+(pdftex.def)             Requested size: 209.12778pt x 129.35413pt.
+ [21 <./Images/Initialize_walet.jpg> <./Images/Transaction.jpg>]
+<Images/Transaction_input.jpg, id=267, 303.38344pt x 184.43906pt>
+File: Images/Transaction_input.jpg Graphic file (type jpg)
+<use Images/Transaction_input.jpg>
+Package pdftex.def Info: Images/Transaction_input.jpg  used on input line 494.
+(pdftex.def)             Requested size: 209.12778pt x 127.13925pt.
+<Images/Transaction_output.jpg, id=268, 364.36125pt x 93.34875pt>
+File: Images/Transaction_output.jpg Graphic file (type jpg)
+<use Images/Transaction_output.jpg>
+Package pdftex.def Info: Images/Transaction_output.jpg  used on input line 501.
+
+(pdftex.def)             Requested size: 209.12778pt x 53.57825pt.
+ [22 <./Images/Transaction_input.jpg> <./Images/Transaction_output.jpg>] (Block
+chain data structures.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-10-24>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 17846 strings out of 467871
+ 337529 string characters out of 5414504
+ 1087331 words of memory out of 5000000
+ 46413 multiletter control sequences out of 15000+600000
+ 639986 words of font info for 87 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 108i,21n,107p,11286b,1971s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Gabriele_user\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\tcrm1000.pk><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Gabriele_user/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Ga
+briele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.
+pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Gabriele_user/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Gabriele_user/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/G
+abriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssb
+x10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Gabriele_user/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Gabriele_us
+er/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on "Blockchain data structures.pdf" (22 pages, 1045010 bytes).
+PDF statistics:
+ 403 PDF objects out of 1000 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
+ 180 words of extra memory for PDF output out of 10000 (max. 10000000)
+

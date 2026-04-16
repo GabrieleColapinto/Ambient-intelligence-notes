@@ -1,0 +1,63 @@
+\contentsline {chapter}{\numberline {1}The Constrained Application Protocol (CoAP)}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Context: From the Internet of Things to the Web of Things}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Limitations of HTTP for Constrained Devices}{5}{section.1.2}%
+\contentsline {chapter}{\numberline {2}CoAP: A RESTful Protocol for a Constrained Web}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}CoAP Design Requirements}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}The CoAP Message Architecture}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}General Message Structure}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Deconstructing the CoAP Header}{12}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Understanding CoAP Options and Delta Encoding}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Option Numbers and Delta Encoding}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Structure of a CoAP Option}{15}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Stateless Parsing of Options}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.4}URI Representation Through Options}{16}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Example: Encoding a GET Request Using Options}{17}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Why Options Are Always Present}{18}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Error Detection Through CoAP Options}{18}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Syntactic Errors}{18}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Semantic Errors in Options}{18}{subsection.5.7.2}%
+\contentsline {section}{\numberline {5.8}CoAP Option Flags and Semantics}{19}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Critical vs Elective Options}{19}{subsection.5.8.1}%
+\contentsline {paragraph}{\nonumberline How Criticality Is Determined}{20}{paragraph*.3}%
+\contentsline {subsection}{\numberline {5.8.2}Unsafe and NoCacheKey Flags}{20}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}Repeatable Options}{20}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}Choosing Option Properties}{21}{subsection.5.8.4}%
+\contentsline {subsection}{\numberline {5.8.5}Uri-Path vs Location-Path}{21}{subsection.5.8.5}%
+\contentsline {subsection}{\numberline {5.8.6}Uri-Query vs Location-Query}{21}{subsection.5.8.6}%
+\contentsline {section}{\numberline {5.9}Option Value Formats}{21}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Opaque Format}{22}{subsection.5.9.1}%
+\contentsline {subsection}{\numberline {5.9.2}String Format}{22}{subsection.5.9.2}%
+\contentsline {subsection}{\numberline {5.9.3}Unsigned Integer Format (\texttt {uint})}{22}{subsection.5.9.3}%
+\contentsline {subsection}{\numberline {5.9.4}Empty Format}{23}{subsection.5.9.4}%
+\contentsline {subsection}{\numberline {5.9.5}Rationale for Multiple Formats}{23}{subsection.5.9.5}%
+\contentsline {section}{\numberline {5.10}Summary}{23}{section.5.10}%
+\contentsline {chapter}{\numberline {6}CoAP Interaction Models and Reliability}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Message Types and Reliability Mechanism}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}The Piggybacked Response Model}{25}{section.6.2}%
+\contentsline {section}{\numberline {6.3}The Separate Response Model}{27}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Client and Server Responsibilities in CoAP Message Correlation}{28}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Stateless Nature of CoAP Interactions}{28}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Message ID and Token: Distinct Responsibilities}{28}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Who Decides Whether to Use a Token}{29}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}When TKL = 0 Is Correct}{29}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}When the Token Becomes Necessary}{29}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Server Behavior and Processing Strategy}{29}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.7}Design Implication}{30}{subsection.6.4.7}%
+\contentsline {section}{\numberline {6.5}Managing Unreliability: Handling Packet Loss}{30}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Enhancing Efficiency: Caching and Proxying}{33}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Advanced Interaction Patterns}{35}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Observe mechanism}{35}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Group communication}{35}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Resource Discovery with CoRE Link Format}{39}{chapter.9}%
+\contentsline {chapter}{\numberline {10}The CoAP Ecosystem: Tools and Implementations}{41}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Client--Proxy--Server Interaction in CoAP}{43}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Scenario Description}{43}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Role of the CoAP Proxy}{43}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Translation of the HTTP Request}{44}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Construction of the CoAP Request}{44}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Reception and Parsing at the CoAP Server}{44}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Resource Identification and Request Interpretation}{45}{section.11.6}%
+\contentsline {section}{\numberline {11.7}Response Generation}{45}{section.11.7}%
+\contentsline {section}{\numberline {11.8}Translation of the Response}{45}{section.11.8}%
+\contentsline {section}{\numberline {11.9}Conclusion}{46}{section.11.9}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

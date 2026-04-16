@@ -1,0 +1,24 @@
+\contentsline {chapter}{\numberline {1}The Ethereum Virtual Machine (EVM)}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Core Concepts and Architecture}{5}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}State, Accounts, and Transactions}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}The "Quasi-Turing-Complete" Nature of the EVM}{6}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}The Role and Functionality of Smart Contracts}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}EVM Execution Environment}{6}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Memory Areas: Stack, Memory, and Storage}{6}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}The EVM Instruction Set (Opcodes)}{6}{subsection.1.3.2}%
+\contentsline {subsubsection}{\nonumberline Stack Semantics and Memory Interaction}{7}{subsubsection*.3}%
+\contentsline {paragraph}{\nonumberline Stack manipulation instructions}{7}{paragraph*.5}%
+\contentsline {paragraph}{\nonumberline Arithmetic instructions}{8}{paragraph*.7}%
+\contentsline {paragraph}{\nonumberline Memory interaction}{8}{paragraph*.9}%
+\contentsline {paragraph}{\nonumberline Execution model}{9}{paragraph*.11}%
+\contentsline {paragraph}{\nonumberline Note on memory}{9}{paragraph*.13}%
+\contentsline {section}{\numberline {1.4}The Gas Mechanism: Fueling the EVM}{9}{section.1.4}%
+\contentsline {section}{\numberline {1.5}The EVM Security Model}{10}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Practical Example: EVM Bytecode Execution}{11}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Example 1: Summing Two Values}{11}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Example 2: Storing and Returning a Value}{12}{subsection.1.6.2}%
+\contentsline {section}{\numberline {1.7}Practical execution of the previous examples}{13}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Environment setup}{13}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Decompilation and debug of example 1}{13}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Decompilation and debug of example 2}{14}{subsection.1.7.3}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

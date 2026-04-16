@@ -1,0 +1,18 @@
+\contentsline {chapter}{\numberline {1}Defining Blockchain: A Distributed Digital Ledger}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}The Architecture of a Blockchain}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}The Lifecycle of a Transaction}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Achieving Agreement: Consensus Protocols}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The double spending problem}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Proof of Work (PoW)}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Specialized Hardware: ASICs}{14}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Maintaining Chain Integrity: Forks and Finality}{15}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Summary of Key Blockchain Properties}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Applications of Blockchain and DLTs}{19}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Smart contracts}{19}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Insurance}{19}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Notary Services}{20}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Digital Content Markets}{20}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Decentralized Storage}{20}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Internet of Things (IoT)}{20}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Anti-Counterfeit Solutions}{20}{section.7.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

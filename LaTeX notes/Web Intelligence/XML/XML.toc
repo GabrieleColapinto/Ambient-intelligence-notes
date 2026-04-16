@@ -1,0 +1,19 @@
+\contentsline {chapter}{\numberline {1}Core Concepts of XML}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Defining XML: Purpose and Design Goals}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Historical Context and Relationship to SGML and HTML}{5}{section.1.2}%
+\contentsline {chapter}{\numberline {2}The Structure of an XML Document}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}The XML Tree and Core Components}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Rules for Well-Formed XML}{8}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Achieving Interoperability}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Character Encoding}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Namespaces}{11}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Validating XML with Schemas}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction to Validation: DTD and XSD}{13}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Document Type Definition (DTD)}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}XML Schema Definition (XSD)}{14}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Simple Types and Restrictions (Facets)}{16}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Complex Types}{16}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Indicators for Controlling Structure}{17}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {5}The Broader XML Ecosystem}{19}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Case Study: The Rise and Fall of XHTML}{21}{chapter.6}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

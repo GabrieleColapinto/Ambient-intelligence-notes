@@ -1,0 +1,27 @@
+\contentsline {chapter}{\numberline {1}The Foundation of the Web: Defining HTML and its Core Principles}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}The Evolution of HTML Standards}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Anatomy of an HTML Document}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}The Document Type Declaration (DOCTYPE)}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}HTML 4.01 DTDs}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}The Modern HTML5 DOCTYPE}{12}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Core Concepts: Tags, Elements, Entities, and Attributes}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Elements and Tags}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}HTML Entities}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Attributes}{13}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Event Attributes}{14}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Document Layout: Block and Inline Elements}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Semantic HTML: Writing for Meaning}{17}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Essential Content Elements}{19}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Headings}{19}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Paragraphs}{19}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Anchors}{19}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Lists}{19}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Hyperlinks}{20}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Images}{20}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Object}{20}{section.8.7}%
+\contentsline {section}{\numberline {8.8}Tables}{21}{section.8.8}%
+\contentsline {section}{\numberline {8.9}Forms}{22}{section.8.9}%
+\contentsline {section}{\numberline {8.10}Integrated Multimedia: Audio and Video}{23}{section.8.10}%
+\contentsline {section}{\numberline {8.11}Advanced Graphics: SVG and Canvas}{24}{section.8.11}%
+\contentsline {chapter}{\numberline {9}HTML5 guidelines to write a well-formed document}{25}{chapter.9}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
