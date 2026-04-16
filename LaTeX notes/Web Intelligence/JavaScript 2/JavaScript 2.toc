@@ -1,0 +1,97 @@
+\contentsline {chapter}{\numberline {1}The Core of JavaScript Objects: Prototypes}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}\texttt {prototype} vs. \texttt {\_\_proto\_\_}}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Class-based vs Prototype-based Inheritance}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Class-based Inheritance}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Prototype-based Inheritance}{8}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Dynamic vs Static Nature}{9}{subsection.1.2.3}%
+\contentsline {subsubsection}{\nonumberline Prototype-based (dynamic):}{9}{subsubsection*.3}%
+\contentsline {subsubsection}{\nonumberline Class-based (static):}{9}{subsubsection*.5}%
+\contentsline {subsection}{\numberline {1.2.4}Object Structure and Evolution}{9}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Memory Usage}{9}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Performance Considerations}{10}{subsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.2.7}Flexibility vs Safety}{10}{subsection.1.2.7}%
+\contentsline {subsection}{\numberline {1.2.8}Why JavaScript Uses Prototype-based Inheritance}{10}{subsection.1.2.8}%
+\contentsline {subsection}{\numberline {1.2.9}Summary}{11}{subsection.1.2.9}%
+\contentsline {chapter}{\numberline {2}The Mechanism of Inheritance: The Prototype Chain}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Property Lookup Process}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}The Mystery of Primitives}{14}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Practical Implementation: Creating and Linking Objects}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Delegation via Object.create()}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Copying via \texttt {Object.assign()}}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Comparative Analysis: create vs. assign}{16}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Interaction between the this keyword and the prototype chain}{17}{section.3.4}%
+\contentsline {chapter}{\numberline {4}The Compiler's First Pass: Hoisting}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Temporal Dead Zone (TDZ)}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Examples: comparing \texttt {var}, \texttt {let}, and \texttt {const}}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Why TDZ Exists}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Two-Pass Execution Model}{20}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Modern Abstraction: ES6 Classes as Syntactic Sugar}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Deconstructing "Syntactic Sugar"}{23}{section.5.1}%
+\contentsline {chapter}{\numberline {6}The Core Execution Engine: How JavaScript Runs Code}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The JavaScript Runtime Environment}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Memory Management: The Heap and The Call Stack}{25}{section.6.2}%
+\contentsline {section}{\numberline {6.3}The Execution Context (EC) and Hoisting}{26}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Global Execution Context}{26}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Two Phases of Execution Context Creation}{26}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Internal Structure of an Execution Context}{27}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Example: Memory creation phase and execution phase of a simple print function}{27}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Visual Model}{28}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Call Stack Behavior}{28}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}Key Observations}{29}{subsection.6.3.7}%
+\contentsline {chapter}{\numberline {7}The Concurrency Model: Event Loop and Queues}{31}{chapter.7}%
+\contentsline {section}{\numberline {7.1}The Problem with a Single Thread}{31}{section.7.1}%
+\contentsline {section}{\numberline {7.2}The Components of Asynchronous Execution}{31}{section.7.2}%
+\contentsline {section}{\numberline {7.3}The Order of Operations}{32}{section.7.3}%
+\contentsline {paragraph}{\nonumberline Starvation of macrotasks}{32}{paragraph*.7}%
+\contentsline {section}{\numberline {7.4}Example of synchronous code execution}{33}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Example of asynchronous code execution}{34}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Managing Scope and State: Closures}{37}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Lexical Scoping}{37}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Defining a Closure}{38}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Practical Application of Closures}{38}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Asynchronous Operations with Promises}{39}{chapter.9}%
+\contentsline {section}{\numberline {9.1}The Promise Object and its States}{39}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Creating and Consuming Promises}{39}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Creating a Promise}{39}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Consuming a Promise}{40}{subsection.9.2.2}%
+\contentsline {section}{\numberline {9.3}Promise Chaining and async/await}{40}{section.9.3}%
+\contentsline {paragraph}{\nonumberline Correct promise chaining}{40}{paragraph*.9}%
+\contentsline {paragraph}{\nonumberline Floating promise (incorrect chaining)}{41}{paragraph*.11}%
+\contentsline {paragraph}{\nonumberline Using async/await}{41}{paragraph*.13}%
+\contentsline {section}{\numberline {9.4}Advanced Promise Patterns}{41}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Concurrent Operations}{42}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}Advanced Error Handling}{42}{subsection.9.4.2}%
+\contentsline {section}{\numberline {9.5}Example: Call Stack, Microtasks, and Macrotasks}{42}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Expected Output}{43}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Step-by-Step Execution}{43}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Key Observations}{43}{subsection.9.5.3}%
+\contentsline {chapter}{\numberline {10}Structuring Code: Object Creation Patterns}{45}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Foundations of Design Patterns in JavaScript}{45}{section.10.1}%
+\contentsline {section}{\numberline {10.2}The Object Decorator Pattern}{45}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Example of decorator pattern usage}{46}{subsection.10.2.1}%
+\contentsline {section}{\numberline {10.3}Functional Classes}{47}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Example of functional class usage}{48}{subsection.10.3.1}%
+\contentsline {section}{\numberline {10.4}Functional shared pattern}{48}{section.10.4}%
+\contentsline {subsection}{\numberline {10.4.1}Example of functional shared pattern usage}{49}{subsection.10.4.1}%
+\contentsline {section}{\numberline {10.5}Functional Shared Pattern with Closure (Hybrid Pattern)}{50}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}Example of hybrid pattern usage}{50}{subsection.10.5.1}%
+\contentsline {section}{\numberline {10.6}Prototypal Classes}{51}{section.10.6}%
+\contentsline {subsection}{\numberline {10.6.1}Example of prototypal class usage}{52}{subsection.10.6.1}%
+\contentsline {subsection}{\numberline {10.6.2}Example of prototypal class usage with official conventions}{52}{subsection.10.6.2}%
+\contentsline {section}{\numberline {10.7}The Pseudoclassical Pattern}{53}{section.10.7}%
+\contentsline {subsection}{\numberline {10.7.1}Example of pseudoclassical pattern usage}{54}{subsection.10.7.1}%
+\contentsline {section}{\numberline {10.8}Superclasses and Subclasses}{55}{section.10.8}%
+\contentsline {subsection}{\numberline {10.8.1}Example of superclasses and subclasses usage}{55}{subsection.10.8.1}%
+\contentsline {section}{\numberline {10.9}Pseudoclassical Subclasses}{57}{section.10.9}%
+\contentsline {subsection}{\numberline {10.9.1}Example of pseudoclassical subclasses usage}{57}{subsection.10.9.1}%
+\contentsline {subsubsection}{\nonumberline Pseudoclassical pattern problems analysis}{57}{subsubsection*.15}%
+\contentsline {subsubsection}{\nonumberline Setting the execution context using the Superclass.call function}{58}{subsubsection*.17}%
+\contentsline {subsubsection}{\nonumberline Fixing the prototype chain}{60}{subsubsection*.19}%
+\contentsline {section}{\numberline {10.10}The ES6 Class-based Pattern}{62}{section.10.10}%
+\contentsline {subsection}{\numberline {10.10.1}Example of Class-Based Pattern usage}{63}{subsection.10.10.1}%
+\contentsline {section}{\numberline {10.11}Synthesis and Pattern Comparison Summary}{64}{section.10.11}%
+\contentsline {subsection}{\numberline {10.11.1}Architectural Comparison Matrix}{64}{subsection.10.11.1}%
+\contentsline {subsection}{\numberline {10.11.2}Decision Matrix for Architects}{64}{subsection.10.11.2}%
+\contentsline {subsection}{\numberline {10.11.3}Conceptual Unification}{64}{subsection.10.11.3}%
+\contentsline {subsection}{\numberline {10.11.4}Final Remarks}{65}{subsection.10.11.4}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
