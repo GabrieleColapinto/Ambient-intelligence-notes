@@ -84,7 +84,7 @@
 \contentsline {subsection}{\numberline {6.1.2}Example of \texttt {map()} usage}{38}{subsection.6.1.2}%
 \contentsline {section}{\numberline {6.2}Objects}{38}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Creating an object}{39}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Methods}{39}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.2}Methods}{40}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Common objects}{40}{subsection.6.2.3}%
 \contentsline {chapter}{\numberline {7}Advanced Concepts: this and Symbol}{43}{chapter.7}%
 \contentsline {section}{\numberline {7.1}The \texttt {this} Keyword: Understanding Context}{43}{section.7.1}%

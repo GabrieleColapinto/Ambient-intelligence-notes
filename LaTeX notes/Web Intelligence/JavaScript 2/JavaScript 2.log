@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.4.16)  16 APR 2026 15:52
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.16)  27 APR 2026 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -65,7 +65,7 @@ File: scrsize11pt.clo 2025/09/09 v3.48 KOMA-Script font size class option (11pt
 earea.sty
 Package: typearea 2025/09/09 v3.48 KOMA-Script package (type area)
 \ta@bcor=\skip50
-\ta@div=\count275
+\ta@div=\count271
 \ta@hblk=\skip51
 \ta@vblk=\skip52
 \ta@temp=\skip53
@@ -88,13 +88,13 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \baselineskip   = 13.6pt
 (typearea)              on input line 1807.
 )
-\c@part=\count276
-\c@chapter=\count277
-\c@section=\count278
-\c@subsection=\count279
-\c@subsubsection=\count280
-\c@paragraph=\count281
-\c@subparagraph=\count282
+\c@part=\count272
+\c@chapter=\count273
+\c@section=\count274
+\c@subsection=\count275
+\c@subsubsection=\count276
+\c@paragraph=\count277
+\c@subparagraph=\count278
 \scr@dte@chapter@maxnumwidth=\skip55
 Class scrbook Info: using compatibility default `afterindent=bysign'
 (scrbook)           for `\chapter on input line 6076.
@@ -133,12 +133,12 @@ Package tocbasic Info: omitting babel extension for `lof'
 (tocbasic)             because of feature `nobabel' available
 (tocbasic)             for `lof' on input line 7350.
 \scr@dte@figure@maxnumwidth=\skip64
-\c@figure=\count283
+\c@figure=\count279
 Package tocbasic Info: omitting babel extension for `lot'
 (tocbasic)             because of feature `nobabel' available
 (tocbasic)             for `lot' on input line 7363.
 \scr@dte@table@maxnumwidth=\skip65
-\c@table=\count284
+\c@table=\count280
 Class scrbook Info: Redefining `\numberline' on input line 7534.
 \bibindent=\dimen148
 )
@@ -158,11 +158,11 @@ Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 aphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
+Package graphics Info: Driver file: xetex.def on input line 106.
 
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
-ftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xe
+tex.def
+File: xetex.def 2025/11/01 v5.0p Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen149
 \Gin@req@width=\dimen150
@@ -186,7 +186,7 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \TX@old@col=\dimen155
 \TX@target=\dimen156
 \TX@delta=\dimen157
-\TX@cols=\count285
+\TX@cols=\count281
 \TX@ftn=\toks19
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scr
@@ -243,7 +243,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package pdftexcmds Info: \pdfdraftmode not found.
 ))
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor
 .sty
@@ -265,12 +265,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 ions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count286
+\c@section@level=\count282
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolb
 ox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count287
+\etb@tempcnta=\count283
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\str
 ingenc.sty
@@ -278,26 +278,22 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
 \@linkdim=\dimen158
-\Hy@linkcounter=\count288
-\Hy@pagecounter=\count289
+\Hy@linkcounter=\count284
+\Hy@pagecounter=\count285
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc
 .def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intca
 lc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count290
+\Hy@SavedSpaceFactor=\count286
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.
 def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Hyper figures OFF on input line 4195.
 Package hyperref Info: Link nesting OFF on input line 4200.
@@ -306,7 +302,7 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count291
+\c@Hy@tempcnt=\count287
 LaTeX Info: Redefining \url on input line 4801.
 \XeTeXLinkMargin=\dimen159
 
@@ -319,7 +315,7 @@ gintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count292
+\Fld@menulength=\count288
 \Field@Width=\dimen160
 \Fld@charsize=\dimen161
 Package hyperref Info: Hyper figures OFF on input line 6078.
@@ -329,17 +325,20 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count293
-\c@Item=\count294
-\c@Hfootnote=\count295
+\Hy@abspage=\count289
+\c@Item=\count290
+\c@Hfootnote=\count291
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+Package hyperref Info: Driver (autodetected): hxetex.
 
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdfte
-x.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count296
-\c@bookmark@seq@number=\count297
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxetex
+.def
+File: hxetex.def 2025-07-12 v7.01o Hyperref driver for XeTeX
+\pdfm@box=\box57
+\c@Hy@AnnotLevel=\count292
+\HyField@AnnotCount=\count293
+\Fld@listcount=\count294
+\c@bookmark@seq@number=\count295
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\
 rerunfilecheck.sty
@@ -356,7 +355,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
 gs.sty \lstset,
-\lst@mode=\count298
+\lst@mode=\count296
  
 new hook `InitVars',
 
@@ -367,14 +366,14 @@ new hook `ExitVars',
 new hook `ModeTrue',
 
 new hook `EOL',
-\lst@gtempboxa=\box57
+\lst@gtempboxa=\box58
 \lst@token=\toks20
-\lst@length=\count299
+\lst@length=\count297
 
 new hook `InitVarsBOL',
 \lst@currlwidth=\dimen162
-\lst@column=\count300
-\lst@pos=\count301
+\lst@column=\count298
+\lst@pos=\count299
 \lst@lostspace=\dimen163
 \lst@width=\dimen164
 basewidth, 
@@ -386,7 +385,7 @@ new hook `OutputBox',
 
 new hook `InitBOL',
 columns, flexiblecolumns,
-\lst@newlines=\count302
+\lst@newlines=\count300
  
 new hook `OnNewLine',
 emptylines, 
@@ -408,7 +407,7 @@ new hook `SelectCharTable',
 excludedelims, delim, moredelim, deletedelim, literate, basicstyle,
 inputencoding, multicols, 
 new hook `EveryLine',
-\lst@lineno=\count303
+\lst@lineno=\count301
 print, firstline, lastline, 
 new hook `PreSet',
 nolol, linerange, consecutivenumbers, rangeprefix, rangesuffix,
@@ -486,8 +485,8 @@ Allocs: none
 
 Define lst-aspect `labels': numbers, stepnumber, numberfirstline, numberstyle,
 numbersep, numberblanklines, firstnumber,
-\c@lstnumber=\count304
-\lst@skipnumbers=\count305
+\c@lstnumber=\count302
+\lst@skipnumbers=\count303
  
 Allocs: 2\count, 
 
@@ -501,7 +500,7 @@ Allocs: none
 Define lst-aspect `frames': framexleftmargin, framexrightmargin,
 framextopmargin, framexbottommargin, backgroundcolor, fillcolor, rulecolor,
 rulesepcolor, rulesep, framerule, framesep, frameshape, frameround, frame,
-\lst@framebox=\box58
+\lst@framebox=\box59
 
 
 Allocs: 1\box, 
@@ -527,15 +526,15 @@ Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
-\calc@Acount=\count306
-\calc@Bcount=\count307
+\calc@Acount=\count304
+\calc@Bcount=\count305
 \calc@Adimen=\dimen166
 \calc@Bdimen=\dimen167
 \calc@Askip=\skip69
 \calc@Bskip=\skip70
 LaTeX Info: Redefining \setlength on input line 86.
 LaTeX Info: Redefining \addtolength on input line 87.
-\calc@Ccount=\count308
+\calc@Ccount=\count306
 \calc@Cskip=\skip71
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhset
@@ -568,19 +567,19 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count309
+\inf@bad=\count307
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count310
-\leftroot@=\count311
+\uproot@=\count308
+\leftroot@=\count309
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count312
-\DOTSCASE@=\count313
+\classnum@=\count310
+\DOTSCASE@=\count311
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box59
-\strutbox@=\box60
+\Mathstrutbox@=\box60
+\strutbox@=\box61
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
@@ -588,20 +587,20 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen170
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count314
+\macc@depth=\count312
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count315
+\c@MaxMatrixCols=\count313
 \dotsspace@=\muskip18
-\c@parentequation=\count316
-\dspbrk@lvl=\count317
+\c@parentequation=\count314
+\dspbrk@lvl=\count315
 \tag@help=\toks22
-\row@=\count318
-\column@=\count319
-\maxfields@=\count320
+\row@=\count316
+\column@=\count317
+\maxfields@=\count318
 \andhelp@=\toks23
 \eqnshift@=\dimen171
 \alignsep@=\dimen172
@@ -616,7 +615,7 @@ LaTeX Info: Redefining \Relbar on input line 970.
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 )
-\g_MT_multlinerow_int=\count321
+\g_MT_multlinerow_int=\count319
 \l_MT_multwidth_dim=\dimen177
 \origjot=\skip75
 \l_MT_shortvdotswithinadjustabove_dim=\dimen178
@@ -625,7 +624,7 @@ LaTeX Info: Redefining \] on input line 2951.
 \l_MT_below_intertext_sep=\dimen181
 \l_MT_above_shortintertext_sep=\dimen182
 \l_MT_below_shortintertext_sep=\dimen183
-\xmathstrut@box=\box61
+\xmathstrut@box=\box62
 \xmathstrut@dim=\dimen184
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlay
@@ -642,7 +641,7 @@ gfrcs.sty
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities
 \pgfutil-latex.def
-\pgfutil@abb=\box62
+\pgfutil@abb=\box63
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities
 \pgfrcs.code.tex
@@ -681,34 +680,40 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@yd=\dimen196
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count322
-\c@pgf@countb=\count323
-\c@pgf@countc=\count324
-\c@pgf@countd=\count325
+\c@pgf@counta=\count320
+\c@pgf@countb=\count321
+\c@pgf@countc=\count322
+\c@pgf@countd=\count323
 \t@pgf@toka=\toks30
 \t@pgf@tokb=\toks31
 \t@pgf@tokc=\toks32
-\pgf@sys@id@count=\count326
+\pgf@sys@id@count=\count324
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlay
 er\pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
-Driver file for pgf: pgfsys-pdftex.def
+Driver file for pgf: pgfsys-xetex.def
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlay
-er\pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+er\pgfsys-xetex.def
+File: pgfsys-xetex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlay
+er\pgfsys-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2025-08-29 v3.1.11a (3.1.11a)
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlay
 er\pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+)
+\pgfsys@objnum=\count325
 )))
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlay
 er\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count327
-\pgfsyssoftpath@bigbuffer@items=\count328
+\pgfsyssoftpath@smallbuffer@items=\count326
+\pgfsyssoftpath@bigbuffer@items=\count327
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlay
 er\pgfsysprotocol.code.tex
@@ -722,12 +727,11 @@ Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 lor.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 274.
+Package xcolor Info: Driver file: xetex.def on input line 274.
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
 lor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
@@ -747,8 +751,8 @@ athutil.code.tex)
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfm
 athparser.code.tex
 \pgfmath@dimen=\dimen197
-\pgfmath@count=\count329
-\pgfmath@box=\box63
+\pgfmath@count=\count328
+\pgfmath@box=\box64
 \pgfmath@toks=\toks33
 \pgfmath@stack@operand=\toks34
 \pgfmath@stack@operation=\toks35
@@ -775,7 +779,7 @@ athfunctions.integerarithmetics.code.tex)
 athcalc.code.tex)
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfm
 athfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count330
+\c@pgfmathroundto@lastzeros=\count329
 ))
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfi
 nt.code.tex)
@@ -812,10 +816,10 @@ File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclaye
 r\pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfpic=\box64
-\pgf@hbox=\box65
-\pgf@layerbox@main=\box66
-\pgf@picture@serial@count=\count331
+\pgfpic=\box65
+\pgf@hbox=\box66
+\pgf@layerbox@main=\box67
+\pgf@picture@serial@count=\count330
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclaye
 r\pgfcoregraphicstate.code.tex
@@ -850,8 +854,8 @@ File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 r\pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen277
-\pgf@sys@shading@range@num=\count332
-\pgf@shadingcount=\count333
+\pgf@sys@shading@range@num=\count331
+\pgf@shadingcount=\count332
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclaye
 r\pgfcoreimage.code.tex
@@ -860,7 +864,7 @@ File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclaye
 r\pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfexternal@startupbox=\box67
+\pgfexternal@startupbox=\box68
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclaye
 r\pgfcorelayers.code.tex
@@ -881,7 +885,7 @@ File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\p
 gfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodeparttextbox=\box68
+\pgfnodeparttextbox=\box69
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\p
 gfmoduleplot.code.tex
@@ -922,7 +926,7 @@ Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries
 \pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count334
+\pgf@plot@mark@count=\count333
 \pgfplotmarksize=\dimen282
 )
 \tikz@lastx=\dimen283
@@ -933,23 +937,23 @@ File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@lastmovetoy=\dimen288
 \tikzleveldistance=\dimen289
 \tikzsiblingdistance=\dimen290
-\tikz@figbox=\box69
-\tikz@figbox@bg=\box70
-\tikz@tempbox=\box71
-\tikz@tempbox@bg=\box72
-\tikztreelevel=\count335
-\tikznumberofchildren=\count336
-\tikznumberofcurrentchild=\count337
-\tikz@fig@count=\count338
+\tikz@figbox=\box70
+\tikz@figbox@bg=\box71
+\tikz@tempbox=\box72
+\tikz@tempbox@bg=\box73
+\tikztreelevel=\count334
+\tikznumberofchildren=\count335
+\tikznumberofcurrentchild=\count336
+\tikz@fig@count=\count337
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\p
 gfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count339
-\pgfmatrixcurrentcolumn=\count340
-\pgf@matrix@numberofcolumns=\count341
+\pgfmatrixcurrentrow=\count338
+\pgfmatrixcurrentcolumn=\count339
+\pgf@matrix@numberofcolumns=\count340
 )
-\tikz@expandcount=\count342
+\tikz@expandcount=\count341
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendl
 ayer/tikz/libraries\tikzlibrarytopaths.code.tex
@@ -961,9 +965,9 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip76
 \enit@outerparindent=\dimen291
 \enit@toks=\toks38
-\enit@inbox=\box73
-\enit@count@id=\count343
-\enitdp@description=\count344
+\enit@inbox=\box74
+\enit@count@id=\count342
+\enitdp@description=\count343
 )
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\inc
 onsolata.sty
@@ -985,10 +989,10 @@ ils.tex
 \XKV@toks=\toks39
 \XKV@tempa@toks=\toks40
 )
-\XKV@depth=\count345
+\XKV@depth=\count344
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\zifour@ocount=\count346
+\zifour@ocount=\count345
 )
 Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           Using `bookmark' together with `hyperref' is recommended,
@@ -1003,16 +1007,17 @@ Class scrbook Info: loading recommended package `bookmark'.
 rk.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pd
-ftex.def
-File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
-)
-\BKM@id=\count347
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-dv
+ipdfm.def
+File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
+\BKM@id=\count346
 ))
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
-kend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count348
+kend-xetex.def
+File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
+\g__graphics_track_int=\count347
+\g__pdfannot_backend_int=\count348
+\g__pdfannot_backend_link_int=\count349
 ) (JavaScript 2.aux)
 \openout1 = `"JavaScript 2.aux"'.
 
@@ -1025,6 +1030,8 @@ LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
@@ -1044,37 +1051,15 @@ Package scrbase Info: activating english \listfigurename on input line 27.
 Package scrbase Info: activating english \listtablename on input line 27.
 Package scrbase Info: activating english \bibname on input line 27.
 Package scrbase Info: activating english \indexname on input line 27.
-
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
-p-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count349
-\scratchdimen=\dimen292
-\scratchbox=\box74
-\nofMPsegments=\count350
-\nofMParguments=\count351
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count352
-\MPscratchDim=\dimen293
-\MPnumerator=\count353
-\makeMPintoPDFobject=\count354
-\everyMPtoPDFconversion=\toks42
-)
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
-stopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
-df-sys.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))
 Package hyperref Info: Link coloring OFF on input line 27.
-\c@lstlisting=\count355
+\c@lstlisting=\count350
 Package tocbasic Info: omitting babel extension for `lol'
 (tocbasic)             because of missing \bbl@set@language on input line 27.
 \scr@dte@lstlisting@maxnumwidth=\skip77
+LaTeX Encoding Info:    Undeclare text command \textquotesingle (encoding TU) o
+n input line 27.
+LaTeX Encoding Info:    Redeclaring text symbol \textquotesingle (encoding TS1)
+ on input line 27.
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote
 .sty
@@ -1084,26 +1069,21 @@ tim
 
 
 
-{C:/Users/Gabriele_user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 3
-6.
+]
+LaTeX Font Info:    Trying to load font information for TU+zi4 on input line 36
+.
+LaTeX Font Info:    No file TUzi4.fd. on input line 36.
 
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\ot1
-zi4.fd
-File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
-)
-LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 36.
 
-Overfull \hbox (10.95003pt too wide) in paragraph at lines 39--42
+LaTeX Font Warning: Font shape `TU/zi4/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 36.
+
+
+Overfull \hbox (10.95pt too wide) in paragraph at lines 39--42
 [][]
  []
 
-[2{C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/inconso
-lata/i4-ot1-0.enc}] (JavaScript 2.toc
-LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 2.
- [3
+[2] (JavaScript 2.toc [3
 
 
 
@@ -1121,24 +1101,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
-LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
-(Font)              scaled to size 14.4pt on input line 53.
-LaTeX Font Info:    Font shape `OT1/zi4/b/n' will be
-(Font)              scaled to size 10.0pt on input line 62.
+
+LaTeX Font Warning: Font shape `TU/zi4/b/n' undefined
+(Font)              using `TU/zi4/m/n' instead on input line 53.
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
-[7]
-Overfull \hbox (34.74432pt too wide) in paragraph at lines 91--92
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[8]
-Overfull \hbox (1.92859pt too wide) in paragraph at lines 185--187
-[]\OT1/cmr/bx/n/10 Important: \OT1/cmr/m/n/10 Both paradigms can be memory-effi
-cient if used cor-rectly. How-ever, in JavaScript: 
+[7] [8]
+Overfull \hbox (1.90147pt too wide) in paragraph at lines 185--187
+[]\TU/lmr/bx/n/10 Important: \TU/zi4/b/n/10 Both paradigms can be memory-effici
+ent if used correctly. However, in JavaScript: 
  []
 
 [9] [10] [11] [12
@@ -1156,18 +1131,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 309--310
 
  []
 
-<Images/Prototype chain.png, id=296, 992.20688pt x 179.92218pt>
-File: Images/Prototype chain.png Graphic file (type png)
-<use Images/Prototype chain.png>
-Package pdftex.def Info: Images/Prototype chain.png  used on input line 313.
-(pdftex.def)             Requested size: 418.25555pt x 75.84407pt.
+File: Images/Prototype chain.png Graphic file (type bmp)
+<Images/Prototype chain.png>
 [13]
-Overfull \hbox (16.83891pt too wide) in paragraph at lines 326--327
-[]\OT1/cmr/m/n/10 It tem-porar-ily wraps the prim-i-tive value in a cor-re-spon
-d-ing ob-ject (e.g., \OT1/zi4/m/n/10 new String("value")\OT1/cmr/m/n/10 ). 
+Overfull \hbox (9.13145pt too wide) in paragraph at lines 326--327
+[]\TU/zi4/b/n/10 It temporarily wraps the primitive value in a corresponding ob
+ject (e.g., new String(”value”)). 
  []
 
-[14 <./Images/Prototype chain.png>]
+
+Overfull \hbox (2.35944pt too wide) in paragraph at lines 329--330
+[]\TU/zi4/b/n/10 This temporary object’s __proto__ points to the appropriate pr
+ototype (String.prototype,
+ []
+
+[14]
 chapter 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 346--347
@@ -1194,22 +1172,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 407--407
-[]|\OT1/cmr/bx/n/10 Relationship
+[]|\TU/lmr/bx/n/10 Relationship
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 409--409
-[]|\OT1/cmr/m/n/10 High ef-fi-ciency; cre-ates a
+[]|\TU/zi4/b/n/10 High efficiency; creates a
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 409--409
-\OT1/cmr/m/n/10 lightweight ref-er-ence to the
+\TU/zi4/b/n/10 lightweight reference to the
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 411--411
-[]|\OT1/cmr/bx/n/10 Primary Use
+[]|\TU/lmr/bx/n/10 Primary Use
  []
 
 
@@ -1217,11 +1195,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--420
 
  []
 
-
-Underfull \vbox (badness 1571) has occurred while \output is active []
-
- [16]
-[17] [18
+[16] [17] [18
 
 
 ]
@@ -1241,82 +1215,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 550--551
 
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+zi4 on input line 5
-60.
-
-(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/inconsolata\ts1
-zi4.fd
-File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
-)
-LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 560.
-
-Overfull \hbox (14.74432pt too wide) in paragraph at lines 589--590
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 593--594
 
  []
 
-[23{C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/incons
-olata/i4-ts1.enc}] [24]
+[23] [24]
 chapter 6.
 [25
 
 
 ] [26]
-<Images/Function execution 1.png, id=483, 716.6775pt x 385.44pt>
-File: Images/Function execution 1.png Graphic file (type png)
-<use Images/Function execution 1.png>
-Package pdftex.def Info: Images/Function execution 1.png  used on input line 71
-0.
-(pdftex.def)             Requested size: 209.12778pt x 112.46873pt.
-<Images/Function execution 2.png, id=484, 952.7595pt x 365.56575pt>
-File: Images/Function execution 2.png Graphic file (type png)
-<use Images/Function execution 2.png>
-Package pdftex.def Info: Images/Function execution 2.png  used on input line 71
-7.
-(pdftex.def)             Requested size: 418.25555pt x 160.48126pt.
- [27 <./Images/Function execution 1.png> <./Images/Function execution 2.png>]
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family zi4 in TS1 encoding.
-            Default family used instead on input line 760.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family zi4 in TS1 encoding.
-            Default family used instead on input line 762.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family zi4 in TS1 encoding.
-            Default family used instead on input line 764.
- [28] [29] [30
+File: Images/Function execution 1.png Graphic file (type bmp)
+<Images/Function execution 1.png>
+File: Images/Function execution 2.png Graphic file (type bmp)
+<Images/Function execution 2.png>
+ [27] [28] [29] [30
 
 
 ]
 chapter 7.
-<Images/JS_runtime_environment.png, id=536, 1156.32pt x 722.7pt>
-File: Images/JS_runtime_environment.png Graphic file (type png)
-<use Images/JS_runtime_environment.png>
-Package pdftex.def Info: Images/JS_runtime_environment.png  used on input line 
-840.
-(pdftex.def)             Requested size: 418.25555pt x 261.40688pt.
+File: Images/JS_runtime_environment.png Graphic file (type bmp)
+<Images/JS_runtime_environment.png>
 [31]
 Underfull \hbox (badness 10000) in paragraph at lines 888--889
 
  []
 
-<Images/Syncronous code execution cut.png, id=544, 1081.641pt x 240.29774pt>
-File: Images/Syncronous code execution cut.png Graphic file (type png)
-<use Images/Syncronous code execution cut.png>
-Package pdftex.def Info: Images/Syncronous code execution cut.png  used on inpu
-t line 894.
-(pdftex.def)             Requested size: 418.25555pt x 92.92007pt.
-[32 <./Images/JS_runtime_environment.png>]
+File: Images/Syncronous code execution cut.png Graphic file (type bmp)
+<Images/Syncronous code execution cut.png>
+[32]
 Underfull \hbox (badness 10000) in paragraph at lines 914--915
 
  []
 
-[33 <./Images/Syncronous code execution cut.png>]
+[33]
 Underfull \hbox (badness 10000) in paragraph at lines 941--942
 
  []
@@ -1331,12 +1264,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 945--946
 
  []
 
-<Images/Macrotask execution.png, id=575, 952.7595pt x 436.63126pt>
-File: Images/Macrotask execution.png Graphic file (type png)
-<use Images/Macrotask execution.png>
-Package pdftex.def Info: Images/Macrotask execution.png  used on input line 953
-.
-(pdftex.def)             Requested size: 418.25555pt x 191.67862pt.
+File: Images/Macrotask execution.png Graphic file (type bmp)
+<Images/Macrotask execution.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 958--959
 
@@ -1352,15 +1281,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 994--995
 
  []
 
-[35 <./Images/Macrotask execution.png>] [36
+[35] [36
 
 
 ]
 chapter 8.
 
-Overfull \hbox (3.99261pt too wide) in paragraph at lines 1004--1005
-\OT1/cmr/bx/n/10 Scope \OT1/cmr/m/n/10 de-fines the con-text that de-ter-mines 
-where vari-ables and func-tions are ac-ces-si-ble. JavaScript
+Overfull \hbox (3.97447pt too wide) in paragraph at lines 1004--1005
+\TU/lmr/bx/n/10 Scope \TU/zi4/b/n/10 defines the context that determines where 
+variables and functions are accessible. JavaScript
  []
 
 
@@ -1369,13 +1298,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
  []
 
 [37]
-Overfull \hbox (2.37437pt too wide) in paragraph at lines 1062--1063
-\OT1/cmr/m/n/10 turns \OT1/zi4/m/n/10 innerFunction\OT1/cmr/m/n/10 , which is a
-s-signed to the con-stant \OT1/zi4/m/n/10 myInnerFunction\OT1/cmr/m/n/10 . Be-c
-ause \OT1/zi4/m/n/10 innerFunction
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1062--1063
 
  []
@@ -1411,9 +1333,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1330--1331
  []
 
 
-Overfull \hbox (10.90273pt too wide) in paragraph at lines 1332--1333
-\OT1/cmr/m/n/10 plex-i-ties of in-stan-ti-a-tion. Un-like class-based lan-guage
-s that rely on for-mal ``blueprints,'' JavaScript's
+Overfull \hbox (10.37646pt too wide) in paragraph at lines 1332--1333
+\TU/zi4/b/n/10 plexities of instantiation. Unlike class-based languages that re
+ly on formal “blueprints,” JavaScript’s
  []
 
 
@@ -1427,35 +1349,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 1338--1339
  []
 
 [45]
-LaTeX Font Info:    Trying to load font information for OMS+zi4 on input line 1
-388.
-LaTeX Font Info:    No file OMSzi4.fd. on input line 1388.
-
-
-LaTeX Font Warning: Font shape `OMS/zi4/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 1388.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1388--1389
 
  []
 
-<Images/Decorator 1.png, id=787, 2680.0125pt x 389.455pt>
-File: Images/Decorator 1.png Graphic file (type png)
-<use Images/Decorator 1.png>
-Package pdftex.def Info: Images/Decorator 1.png  used on input line 1392.
-(pdftex.def)             Requested size: 418.25555pt x 60.77493pt.
+File: Images/Decorator 1.png Graphic file (type bmp)
+<Images/Decorator 1.png>
 [46]
 Underfull \hbox (badness 10000) in paragraph at lines 1413--1414
 
  []
 
-<Images/Decorator 2.png, id=812, 2262.4525pt x 451.6875pt>
-File: Images/Decorator 2.png Graphic file (type png)
-<use Images/Decorator 2.png>
-Package pdftex.def Info: Images/Decorator 2.png  used on input line 1417.
-(pdftex.def)             Requested size: 418.25555pt x 83.49884pt.
+File: Images/Decorator 2.png Graphic file (type bmp)
+<Images/Decorator 2.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 1426--1427
 
@@ -1466,24 +1372,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1428--1429
 
  []
 
-[47 <./Images/Decorator 1.png> <./Images/Decorator 2.png>]
-Overfull \hbox (51.70972pt too wide) in paragraph at lines 1445--1446
-[]\OT1/cmr/m/n/10 Fails the \OT1/zi4/m/n/10 instanceof \OT1/cmr/m/n/10 test be-
-cause \OT1/zi4/m/n/10 Object.getPrototypeOf() \OT1/cmr/m/n/10 re-turns a generi
-c \OT1/zi4/m/n/10 Object.prototype\OT1/cmr/m/n/10 ; 
- []
-
-
+[47]
 Underfull \hbox (badness 10000) in paragraph at lines 1474--1475
 
  []
 
-<Images/Functional classes.png, id=827, 1466.47874pt x 327.2225pt>
-File: Images/Functional classes.png Graphic file (type png)
-<use Images/Functional classes.png>
-Package pdftex.def Info: Images/Functional classes.png  used on input line 1478
-.
-(pdftex.def)             Requested size: 418.25555pt x 93.32428pt.
+File: Images/Functional classes.png Graphic file (type bmp)
+<Images/Functional classes.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 1485--1486
 
@@ -1494,41 +1389,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 1523--1524
 
  []
 
-<Images/Functional shared pattern.png, id=845, 2299.59125pt x 389.455pt>
-File: Images/Functional shared pattern.png Graphic file (type png)
-<use Images/Functional shared pattern.png>
-Package pdftex.def Info: Images/Functional shared pattern.png  used on input li
-ne 1527.
-(pdftex.def)             Requested size: 418.25555pt x 70.83575pt.
+File: Images/Functional shared pattern.png Graphic file (type bmp)
+<Images/Functional shared pattern.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 1532--1533
 
  []
 
-[49 <./Images/Functional classes.png>] [50 <./Images/Functional shared pattern.
-png>]
+[49] [50]
 Underfull \hbox (badness 10000) in paragraph at lines 1581--1582
 
  []
 
-<Images/Hybrid pattern.png, id=905, 2374.8725pt x 907.39pt>
-File: Images/Hybrid pattern.png Graphic file (type png)
-<use Images/Hybrid pattern.png>
-Package pdftex.def Info: Images/Hybrid pattern.png  used on input line 1587.
-(pdftex.def)             Requested size: 418.25555pt x 159.80635pt.
-
-Overfull \hbox (11.16144pt too wide) in paragraph at lines 1594--1595
-\OT1/cmr/m/n/10 men-ta-tion uses \OT1/zi4/m/n/10 Object.create(prototypeObject)
- \OT1/cmr/m/n/10 to link the new in-stance's in-ter-nal \OT1/zi4/m/n/10 [[Proto
-type]]
- []
-
+File: Images/Hybrid pattern.png Graphic file (type bmp)
+<Images/Hybrid pattern.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 1594--1595
 
  []
 
-[51 <./Images/Hybrid pattern.png>]
+[51]
 Underfull \hbox (badness 10000) in paragraph at lines 1645--1646
 
  []
@@ -1538,30 +1418,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 1647--1648
 
  []
 
-<Images/Prototypal classes.png, id=926, 1526.70375pt x 916.42375pt>
-File: Images/Prototypal classes.png Graphic file (type png)
-<use Images/Prototypal classes.png>
-Package pdftex.def Info: Images/Prototypal classes.png  used on input line 1651
-.
-(pdftex.def)             Requested size: 209.12778pt x 125.52972pt.
+File: Images/Prototypal classes.png Graphic file (type bmp)
+<Images/Prototypal classes.png>
 [52]
-<Images/Prototypal classes official.png, id=953, 1526.70375pt x 991.705pt>
-File: Images/Prototypal classes official.png Graphic file (type png)
-<use Images/Prototypal classes official.png>
-Package pdftex.def Info: Images/Prototypal classes official.png  used on input 
-line 1687.
-(pdftex.def)             Requested size: 209.12778pt x 135.84158pt.
+File: Images/Prototypal classes official.png Graphic file (type bmp)
+<Images/Prototypal classes official.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 1694--1695
 
  []
 
-[53 <./Images/Prototypal classes.png>]
+[53]
 Underfull \hbox (badness 10000) in paragraph at lines 1705--1706
 
  []
 
-[54 <./Images/Prototypal classes official.png>]
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 1747--1748
 
  []
@@ -1572,12 +1444,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 1780--1781
  []
 
 [55]
-<Images/Superclasses and subclasses.png, id=1025, 1589.94pt x 1383.1675pt>
-File: Images/Superclasses and subclasses.png Graphic file (type png)
-<use Images/Superclasses and subclasses.png>
-Package pdftex.def Info: Images/Superclasses and subclasses.png  used on input 
-line 1810.
-(pdftex.def)             Requested size: 209.12778pt x 181.92862pt.
+File: Images/Superclasses and subclasses.png Graphic file (type bmp)
+<Images/Superclasses and subclasses.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 1817--1818
 
@@ -1586,7 +1454,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 1817--1818
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [56 <./Images/Superclasses and subclasses.png>] [57]
+ [56]
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 1883--1884
 
  []
@@ -1596,19 +1465,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 1885--1886
 
  []
 
-<Images/Pseudoclassical subclasses 1.png, id=1083, 1563.8425pt x 1520.68124pt>
-File: Images/Pseudoclassical subclasses 1.png Graphic file (type png)
-<use Images/Pseudoclassical subclasses 1.png>
-Package pdftex.def Info: Images/Pseudoclassical subclasses 1.png  used on input
- line 1889.
-(pdftex.def)             Requested size: 209.12778pt x 203.35721pt.
-
-Overfull \hbox (13.21721pt too wide) in paragraph at lines 1896--1897
-\OT1/cmr/m/n/10 We can par-tially ad-dress the prob-lems of the pseu-do-clas-si
--cal pat-tern by us-ing \OT1/zi4/m/n/10 Superclass.call(this
- []
-
-[58 <./Images/Pseudoclassical subclasses 1.png>]
+File: Images/Pseudoclassical subclasses 1.png Graphic file (type bmp)
+<Images/Pseudoclassical subclasses 1.png>
+[58]
 Underfull \hbox (badness 10000) in paragraph at lines 1932--1933
 
  []
@@ -1623,13 +1482,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1936--1937
 
  []
 
-<Images/Pseudoclassical subclasses 2.png, id=1107, 3258.1725pt x 989.6975pt>
-File: Images/Pseudoclassical subclasses 2.png Graphic file (type png)
-<use Images/Pseudoclassical subclasses 2.png>
-Package pdftex.def Info: Images/Pseudoclassical subclasses 2.png  used on input
- line 1942.
-(pdftex.def)             Requested size: 418.25555pt x 127.03423pt.
-[59] [60 <./Images/Pseudoclassical subclasses 2.png>]
+File: Images/Pseudoclassical subclasses 2.png Graphic file (type bmp)
+<Images/Pseudoclassical subclasses 2.png>
+
+Underfull \vbox (badness 1496) has occurred while \output is active []
+
+ [59]
+[60]
 Underfull \hbox (badness 10000) in paragraph at lines 1996--1997
 
  []
@@ -1639,29 +1498,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 2006--2007
 
  []
 
-<Images/Pseudoclassical subclasses 3.png, id=1178, 3258.1725pt x 989.6975pt>
-File: Images/Pseudoclassical subclasses 3.png Graphic file (type png)
-<use Images/Pseudoclassical subclasses 3.png>
-Package pdftex.def Info: Images/Pseudoclassical subclasses 3.png  used on input
- line 2010.
-(pdftex.def)             Requested size: 418.25555pt x 127.03423pt.
+File: Images/Pseudoclassical subclasses 3.png Graphic file (type bmp)
+<Images/Pseudoclassical subclasses 3.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 2015--2016
 
  []
 
-<Images/Pseudoclassical subclasses 4.png, id=1180, 3258.1725pt x 989.6975pt>
-File: Images/Pseudoclassical subclasses 4.png Graphic file (type png)
-<use Images/Pseudoclassical subclasses 4.png>
-Package pdftex.def Info: Images/Pseudoclassical subclasses 4.png  used on input
- line 2021.
-(pdftex.def)             Requested size: 418.25555pt x 127.03423pt.
+File: Images/Pseudoclassical subclasses 4.png Graphic file (type bmp)
+<Images/Pseudoclassical subclasses 4.png>
 
 Underfull \hbox (badness 10000) in paragraph at lines 2028--2029
 
  []
 
-[61 <./Images/Pseudoclassical subclasses 3.png>]
+[61]
 Underfull \hbox (badness 10000) in paragraph at lines 2030--2031
 
  []
@@ -1671,30 +1522,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 2041--2042
 
  []
 
-[62 <./Images/Pseudoclassical subclasses 4.png>] [63]
+[62] [63]
 Underfull \hbox (badness 10000) in paragraph at lines 2154--2154
-[]|\OT1/cmr/bx/n/6 Memory Ef-fi-
+[]|\TU/lmr/bx/n/6 Memory Effi-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2154--2154
-[]|\OT1/cmr/bx/n/6 Inheritance
+[]|\TU/lmr/bx/n/6 Inheritance
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 2154--2154
-[]|\OT1/cmr/m/n/6 Functional
+[]|\TU/lmr/m/n/6 Functional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2154--2154
-[]|\OT1/cmr/m/n/6 Hybrid (Clo-sure
+Underfull \hbox (badness 7851) in paragraph at lines 2154--2154
+[]|\TU/lmr/m/n/6 Hybrid (Closure
  []
 
 
-Overfull \hbox (1.72209pt too wide) in paragraph at lines 2164--2165
-[]\OT1/cmr/bx/n/10 Use Func-tional Classes: \OT1/cmr/m/n/10 When strong en-cap-
-su-la-tion and pri-vate state are non-negotiable
+Overfull \hbox (1.74113pt too wide) in paragraph at lines 2164--2165
+[]\TU/lmr/bx/n/10 Use Functional Classes: \TU/zi4/b/n/10 When strong encapsulat
+ion and private state are non-negotiable
  []
 
 [64] [65] (JavaScript 2.aux)
@@ -1708,36 +1559,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 28879 strings out of 467871
- 579629 string characters out of 5414504
- 1128173 words of memory out of 5000000
- 56467 multiletter control sequences out of 15000+600000
- 639013 words of font info for 80 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 108i,21n,107p,11272b,1991s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Gabriele_user\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\tctt1000.pk> <C:\Users\Gabriele_user\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\tcrm1000.pk><C:/Users/Gabriele_user/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb><C:/Users/Gabriele_use
-r/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r
-.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Gabriele_user/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/Gabriele_user/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/U
-sers/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmmi10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Gabriele_user/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Gabriele_u
-ser/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:
-/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmssbx10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Gabriele_user/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "JavaScript 2.pdf" (65 pages, 1203818 bytes).
-PDF statistics:
- 1785 PDF objects out of 2073 (max. 8388607)
- 894 named destinations out of 1000 (max. 500000)
- 799 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 27112 strings out of 402987
+ 544251 string characters out of 5446868
+ 1104867 words of memory out of 5000000
+ 55444 multiletter control sequences out of 15000+600000
+ 633229 words of font info for 77 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 108i,21n,107p,11272b,1862s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+Output written on JavaScript 2.pdf (65 pages).

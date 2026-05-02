@@ -7,12 +7,15 @@
 \usepackage{listings} % Required for the code snippets
 \usepackage{mathtools} % Required for the system of equations
 
-\usepackage{inconsolata}
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono} % Overleaf has this font pre-installed
+
 % Put the caption of the snippets at the bottom
 \lstset{
     captionpos=b,
     basicstyle=\ttfamily\small,
-    columns=fullflexible
+    columns=fullflexible,
+    keepspaces=true
 }
 
 
