@@ -1,42 +1,55 @@
 \contentsline {chapter}{\numberline {1}Fundamentals of Data Exchange: JavaScript Object Notation (JSON)}{5}{chapter.1}%
 \contentsline {section}{\numberline {1.1}JSON serialization, field order and unsupported values}{7}{section.1.1}%
-\contentsline {chapter}{\numberline {2}Web API}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}The Browser Environment: BOM and DOM Architectures}{9}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}The Browser Object Model (BOM)}{9}{subsection.2.1.1}%
-\contentsline {subsubsection}{\nonumberline Example of BOM usage}{10}{subsubsection*.3}%
-\contentsline {subsection}{\numberline {2.1.2}The Document Object Model (DOM)}{11}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}The Document Object: Attributes and Methods}{11}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Document Attributes}{12}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Document Methods}{12}{subsection.2.2.2}%
-\contentsline {subsubsection}{\nonumberline Selecting Elements}{12}{subsubsection*.5}%
-\contentsline {subsubsection}{\nonumberline Creating Elements}{13}{subsubsection*.7}%
-\contentsline {subsection}{\numberline {2.2.3}Event Handlers}{13}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Example of DOM manipulation and event handling}{13}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}The Element Interface: Attributes and Methods}{14}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Element attributes}{14}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Element methods}{15}{subsection.2.3.2}%
-\contentsline {chapter}{\numberline {3}Optimized Resource Execution: Script Loading Strategies}{17}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Other key Web APIs}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Client-Side Persistence: Web Storage vs.\ Cookies}{19}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Comparison: Web Storage vs.\ Cookies}{19}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Geolocation API}{19}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Asynchronous JavaScript (AJAX) and Network Interaction}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Synchronous requests vs asynchronous requests}{21}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Race Conditions in Search Inputs}{22}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}SEO and User Experience}{24}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}AJAX endpoints as attack surfaces and security considerations}{24}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}AJAX endpoints as vulnerability points}{24}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Same-Origin Policy and CORS}{24}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Defense Mechanisms}{25}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Example of a Complete CORS Header Configuration}{25}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}The \texttt {XMLHttpRequest} (XHR) and the Fetch API}{26}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}XHR Lifecycle and readyState property}{26}{subsection.5.3.1}%
-\contentsline {subsubsection}{\nonumberline XHR request lifecycle example}{27}{subsubsection*.9}%
-\contentsline {subsection}{\numberline {5.3.2}XHR Methods and Execution Flow}{27}{subsection.5.3.2}%
-\contentsline {subsubsection}{\nonumberline Why is \texttt {open()} required before \texttt {send()}?}{28}{subsubsection*.11}%
-\contentsline {subsection}{\numberline {5.3.3}XHR properties}{28}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}Example of XMLHttpRequest}{30}{subsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.3.5}Fetch API: A Modern Approach}{31}{subsection.5.3.5}%
-\contentsline {subsection}{\numberline {5.3.6}Example of request using the fetch API}{31}{subsection.5.3.6}%
-\contentsline {subsection}{\numberline {5.3.7}XHR vs Fetch: Key Differences}{32}{subsection.5.3.7}%
+\contentsline {section}{\numberline {1.2}JSON Schema}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Purpose and Motivation}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Basic Structure}{9}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Common Keywords}{9}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Example with Validation Constraints}{10}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Advantages}{10}{subsection.1.2.5}%
+\contentsline {section}{\numberline {1.3}JSON vs XML: Structure, Validation, and Performance}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Structural Differences}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Example and Space Comparison}{11}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Validation Mechanisms}{11}{subsection.1.3.3}%
+\contentsline {paragraph}{\nonumberline XML Validation}{11}{paragraph*.3}%
+\contentsline {paragraph}{\nonumberline JSON Validation}{12}{paragraph*.5}%
+\contentsline {subsection}{\numberline {1.3.4}Summary of Differences}{12}{subsection.1.3.4}%
+\contentsline {chapter}{\numberline {2}Web API}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}The Browser Environment: BOM and DOM Architectures}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}The Browser Object Model (BOM)}{13}{subsection.2.1.1}%
+\contentsline {subsubsection}{\nonumberline Example of BOM usage}{14}{subsubsection*.7}%
+\contentsline {subsection}{\numberline {2.1.2}The Document Object Model (DOM)}{15}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}The Document Object: Attributes and Methods}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Document Attributes}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Document Methods}{16}{subsection.2.2.2}%
+\contentsline {subsubsection}{\nonumberline Selecting Elements}{16}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline Creating Elements}{17}{subsubsection*.11}%
+\contentsline {subsection}{\numberline {2.2.3}Event Handlers}{17}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Example of DOM manipulation and event handling}{17}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}The Element Interface: Attributes and Methods}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Element attributes}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Element methods}{19}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Optimized Resource Execution: Script Loading Strategies}{21}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Other key Web APIs}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Client-Side Persistence: Web Storage vs.\ Cookies}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Comparison: Web Storage vs.\ Cookies}{23}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Geolocation API}{23}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Asynchronous JavaScript (AJAX) and Network Interaction}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Synchronous requests vs asynchronous requests}{25}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Race Conditions in Search Inputs}{26}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}SEO and User Experience}{28}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}AJAX endpoints as attack surfaces and security considerations}{28}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}AJAX endpoints as vulnerability points}{28}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Same-Origin Policy and CORS}{28}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Defense Mechanisms}{29}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Example of a Complete CORS Header Configuration}{29}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}The \texttt {XMLHttpRequest} (XHR) and the Fetch API}{30}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}XHR Lifecycle and readyState property}{30}{subsection.5.3.1}%
+\contentsline {subsubsection}{\nonumberline XHR request lifecycle example}{31}{subsubsection*.13}%
+\contentsline {subsection}{\numberline {5.3.2}XHR Methods and Execution Flow}{31}{subsection.5.3.2}%
+\contentsline {subsubsection}{\nonumberline Why is \texttt {open()} required before \texttt {send()}?}{32}{subsubsection*.15}%
+\contentsline {subsection}{\numberline {5.3.3}XHR properties}{32}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Example of XMLHttpRequest}{34}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Fetch API: A Modern Approach}{35}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Example of request using the fetch API}{35}{subsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.3.7}XHR vs Fetch: Key Differences}{36}{subsection.5.3.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

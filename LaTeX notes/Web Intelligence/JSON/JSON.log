@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.16)  2 MAY 2026 19:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.16)  3 MAY 2026 18:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -823,18 +823,15 @@ Overfull \hbox (10.95pt too wide) in paragraph at lines 40--43
 [][]
  []
 
-[2] (JSON.toc)
+[2] (JSON.toc [3
+
+
+
+])
 \tf@toc=\write3
 \openout3 = `JSON.toc'.
 
- [3
-
-
-
-] [4
-
-
-]
+ [4]
 chapter 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
@@ -865,7 +862,10 @@ File: Images/object_structure.jpg Graphic file (type bmp)
 <Images/object_structure.jpg>
 File: Images/array_structure.jpg Graphic file (type bmp)
 <Images/array_structure.jpg>
-[5]
+[5
+
+
+]
 File: Images/data_types.jpg Graphic file (type bmp)
 <Images/data_types.jpg>
 
@@ -903,126 +903,126 @@ Underfull \hbox (badness 10000) in paragraph at lines 196--197
 
  []
 
-[8]
+[8] [9] [10] [11] [12]
 chapter 2.
 
-Overfull \hbox (4.82658pt too wide) in paragraph at lines 228--229
+Overfull \hbox (4.82658pt too wide) in paragraph at lines 416--417
 \TU/lmr/m/n/10 action as when the user clicks the browser’s \TU/lmr/bx/n/10 Bac
 k \TU/lmr/m/n/10 button. Equivalent to \TU/DejaVuSansMono(0)/m/n/10 history.go(
 -1)\TU/lmr/m/n/10 . 
  []
 
-[9
+[13
 
 
 ]
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 258--259
+Overfull \hbox (15.22101pt too wide) in paragraph at lines 446--447
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--281
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
+ [14]
 File: Images/DOM.png Graphic file (type bmp)
 <Images/DOM.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 310--311
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 316--317
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--338
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
 
  []
 
-[12]
-Overfull \hbox (5.86191pt too wide) in paragraph at lines 387--412
+[16]
+Overfull \hbox (5.86191pt too wide) in paragraph at lines 575--600
  [][] 
  []
 
-[13]
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 441--442
+[17]
+Overfull \hbox (9.2005pt too wide) in paragraph at lines 629--630
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 443--444
+Overfull \hbox (15.22101pt too wide) in paragraph at lines 631--632
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--454
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 459--460
+Underfull \hbox (badness 10000) in paragraph at lines 647--648
 
  []
 
-[14] [15] [16]
+[18] [19] [20]
 chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--532
+Underfull \hbox (badness 10000) in paragraph at lines 719--720
 
  []
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 545--545
+Underfull \hbox (badness 1342) in paragraph at lines 733--733
 []|\TU/lmr/m/n/10.95 No. Executes as soon as
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--551
+Underfull \hbox (badness 10000) in paragraph at lines 738--739
 
  []
 
 File: Images/normal vs async vs defer.png Graphic file (type bmp)
 <Images/normal vs async vs defer.png>
-[17
+[21
 
 
-] [18]
+] [22]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--599
+Underfull \hbox (badness 10000) in paragraph at lines 786--787
 []|\TU/lmr/bx/n/10.95 Web Storage
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 598--599
+Underfull \hbox (badness 10000) in paragraph at lines 786--787
 \TU/lmr/bx/n/10.95 (\TU/DejaVuSansMono(0)/b/n/10.95 localStorage \TU/lmr/bx/n/1
 0.95 and
  []
 
 
-Underfull \hbox (badness 3724) in paragraph at lines 602--603
+Underfull \hbox (badness 3724) in paragraph at lines 790--791
 []|\TU/lmr/m/n/10.95 Serialized strings (typically
  []
 
@@ -1030,187 +1030,187 @@ Underfull \hbox (badness 3724) in paragraph at lines 602--603
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--616
+Underfull \hbox (badness 10000) in paragraph at lines 803--804
 
  []
 
-[19
+[23
 
 
 ]
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 635--636
+Overfull \hbox (9.2005pt too wide) in paragraph at lines 823--824
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
-[20]
+[24]
 chapter 5.
 File: Images/Synchronous request.jpg Graphic file (type bmp)
 <Images/Synchronous request.jpg>
 File: Images/Asynchronous request.jpg Graphic file (type bmp)
 <Images/Asynchronous request.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 672--673
+Underfull \hbox (badness 10000) in paragraph at lines 860--861
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 683--684
+Underfull \hbox (badness 10000) in paragraph at lines 871--872
 
  []
 
-[21
+[25
 
 
-] [22] [23]
-Overfull \hbox (23.26315pt too wide) in paragraph at lines 702--703
+] [26] [27]
+Overfull \hbox (23.26315pt too wide) in paragraph at lines 890--891
 \TU/lmr/bx/n/10 Search Engine Indexing\TU/lmr/m/n/10 , as crawlers primarily re
 ad initial HTML, and breaks \TU/lmr/bx/n/10 Bookmark/History
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
+Underfull \hbox (badness 10000) in paragraph at lines 890--891
 
  []
 
 
-Overfull \hbox (0.89171pt too wide) in paragraph at lines 707--708
+Overfull \hbox (0.89171pt too wide) in paragraph at lines 895--896
 []\TU/lmr/bx/n/10 History API: \TU/lmr/m/n/10 The industry standard for program
 matically updating the URL and browser
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 718--719
+Underfull \hbox (badness 10000) in paragraph at lines 906--907
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 736--737
+Underfull \hbox (badness 10000) in paragraph at lines 924--925
 
  []
 
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 747--748
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 935--936
 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 804--805
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 992--993
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--829
+Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
 
  []
 
-[26]
-Overfull \hbox (3.18pt too wide) in paragraph at lines 842--843
+[30]
+Overfull \hbox (3.18pt too wide) in paragraph at lines 1030--1031
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 870--872
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1060
 
  []
 
 
-Overfull \hbox (0.45244pt too wide) in paragraph at lines 876--877
+Overfull \hbox (0.45244pt too wide) in paragraph at lines 1064--1065
 [][][][][][][][][][][][][][][][][][] 
  []
 
 LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/sl' in size <10.95> not 
 available
 (Font)              Font shape `TU/DejaVuSansMono(0)/m/it' tried instead on inp
-ut line 885.
-[27]
-Overfull \hbox (26.36066pt too wide) in paragraph at lines 923--924
+ut line 1073.
+[31]
+Overfull \hbox (26.36066pt too wide) in paragraph at lines 1111--1112
 \TU/lmr/m/n/10 In addition to the \TU/DejaVuSansMono(0)/m/n/10 readyState \TU/l
 mr/m/n/10 property, which tracks the lifecycle of a request, the \TU/DejaVuSans
 Mono(0)/m/n/10 XMLHttpRequest
  []
 
-[28]
-Overfull \hbox (22.03459pt too wide) in paragraph at lines 938--939
+[32]
+Overfull \hbox (22.03459pt too wide) in paragraph at lines 1126--1127
 []\TU/DejaVuSansMono(0)/m/n/10 response\TU/lmr/m/n/10 : contains the response d
 ata in a format consistent with the value of \TU/DejaVuSansMono(0)/m/n/10 respo
 nseType\TU/lmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 944--945
+Underfull \hbox (badness 10000) in paragraph at lines 1132--1133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 946--947
+Underfull \hbox (badness 10000) in paragraph at lines 1134--1135
 
  []
 
 
-Overfull \hbox (5.67308pt too wide) in paragraph at lines 948--949
+Overfull \hbox (5.67308pt too wide) in paragraph at lines 1136--1137
 \TU/DejaVuSansMono(0)/m/n/10 === 4 \TU/lmr/m/n/10 or, alternatively, \TU/DejaVu
 SansMono(0)/m/n/10 xhr.readyState === XMLHttpRequest.DONE \TU/lmr/m/n/10 as XHR
  ready
  []
 
 
-Overfull \hbox (42.596pt too wide) in paragraph at lines 954--955
+Overfull \hbox (42.596pt too wide) in paragraph at lines 1142--1143
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (42.596pt too wide) in paragraph at lines 955--956
+Overfull \hbox (42.596pt too wide) in paragraph at lines 1143--1144
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (6.47295pt too wide) in paragraph at lines 958--959
+Overfull \hbox (6.47295pt too wide) in paragraph at lines 1146--1147
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (60.65752pt too wide) in paragraph at lines 959--960
+Overfull \hbox (60.65752pt too wide) in paragraph at lines 1147--1148
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 965--966
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1154
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 974--975
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
 
  []
 
-[29]
-Overfull \hbox (27.26202pt too wide) in paragraph at lines 981--982
+[33]
+Overfull \hbox (27.26202pt too wide) in paragraph at lines 1169--1170
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 1017--1018
+Overfull \hbox (15.22101pt too wide) in paragraph at lines 1205--1206
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1030
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1217--1218
 
  []
 
-[31] [32] (JSON.aux)
+[35] [36] (JSON.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 18535 strings out of 402987
- 396900 string characters out of 5446868
+ 18556 strings out of 402987
+ 397358 string characters out of 5446868
  1040008 words of memory out of 5000000
- 47051 multiletter control sequences out of 15000+600000
+ 47072 multiletter control sequences out of 15000+600000
  633365 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,20n,107p,11262b,2028s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on JSON.pdf (32 pages).
+Output written on JSON.pdf (36 pages).

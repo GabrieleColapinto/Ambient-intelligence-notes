@@ -201,6 +201,194 @@
 		\item string keys $\rightarrow$ insertion order order
 	\end{itemize}
 	
+	\section{JSON Schema}
+	
+	JSON Schema is a vocabulary that allows defining the structure, constraints, and validation rules for JSON data. It is used to describe the expected format of JSON documents and to ensure that the data exchanged between systems is consistent and valid.
+	
+	\subsection{Purpose and Motivation}
+	
+	In many web applications, JSON is used as the primary format for data exchange. However, JSON by itself does not enforce any structure or constraints. JSON Schema addresses this limitation by:
+	
+	\begin{itemize}
+		\item defining the expected structure of JSON data;
+		\item validating data before processing it;
+		\item improving interoperability between systems;
+		\item providing documentation for APIs and data models.
+	\end{itemize}
+	
+	\subsection{Basic Structure}
+	
+	A JSON Schema is itself a JSON document that describes the structure of another JSON object. A simple example is shown below:
+	
+	\begin{lstlisting}
+	{
+	  "type": "object",
+	  "properties": {
+		"name": { "type": "string" },
+		"age":  { "type": "number" }
+	  },
+	  "required": ["name"]
+	}
+	\end{lstlisting}
+	
+	This schema specifies that:
+	\begin{itemize}
+		\item the data must be an object;
+		\item it may contain \texttt{name} and \texttt{age} properties;
+		\item the \texttt{name} property is mandatory;
+		\item \texttt{name} must be a string, while \texttt{age} must be a number.
+	\end{itemize}
+	
+	\subsection{Common Keywords}
+	
+	JSON Schema provides several keywords to define constraints:
+	
+	\begin{itemize}
+		\item \texttt{type}: specifies the data type (e.g., \texttt{string}, \texttt{number}, \texttt{object}, \texttt{array}, \texttt{boolean}, \texttt{null});
+		
+		\item \texttt{properties}: defines the properties of an object and their respective schemas;
+		
+		\item \texttt{required}: lists the mandatory properties;
+		
+		\item \texttt{items}: defines the schema for elements in an array;
+		
+		\item \texttt{enum}: restricts values to a predefined set;
+		
+		\item \texttt{minimum}, \texttt{maximum}: define numeric constraints;
+		
+		\item \texttt{minLength}, \texttt{maxLength}: define constraints for string length;
+		
+		\item \texttt{pattern}: specifies a regular expression that a string must match.
+	\end{itemize}
+	
+	\subsection{Example with Validation Constraints}
+	
+	\begin{lstlisting}
+	{
+	  "type": "object",
+	  "properties": {
+		"username": {
+		  "type": "string",
+		  "minLength": 3
+		},
+		"password": {
+		  "type": "string",
+		  "minLength": 8
+		},
+		"age": {
+		  "type": "number",
+		  "minimum": 18
+		}
+	  },
+	  "required": ["username", "password"]
+	}
+	\end{lstlisting}
+	
+	This schema enforces constraints on the structure and content of the JSON data, ensuring that only valid inputs are accepted.
+	
+	\subsection{Advantages}
+	
+	\begin{itemize}
+		\item Improves data reliability by enforcing constraints;
+		\item Reduces runtime errors;
+		\item Provides a formal and machine-readable specification of data formats;
+		\item Facilitates integration between heterogeneous systems.
+	\end{itemize}
+	
+	In summary, JSON Schema is a powerful tool for defining and validating the structure of JSON data, making it essential in modern web development and API design.
+	
+	\section{JSON vs XML: Structure, Validation, and Performance}
+	
+	JSON (JavaScript Object Notation) and XML (eXtensible Markup Language) are two widely used formats for data representation and exchange. While both serve similar purposes, they differ significantly in syntax, structure, validation mechanisms, and performance.
+	
+	\subsection{Structural Differences}
+	
+	\begin{itemize}
+		\item \textbf{Syntax:} JSON uses a lightweight, key-value pair syntax, while XML relies on a tag-based structure with opening and closing tags.
+		
+		\item \textbf{Readability:} JSON is generally more concise and easier to read, whereas XML is more verbose due to repeated tags.
+		
+		\item \textbf{Data Representation:} JSON directly supports data types such as numbers, strings, arrays, and booleans. XML represents all data as text and requires additional parsing to interpret types.
+		
+		\item \textbf{Parsing:} JSON is natively supported in JavaScript and can be parsed quickly. XML requires a parser (e.g., DOM or SAX), making it more complex to process.
+	\end{itemize}
+	
+	\subsection{Example and Space Comparison}
+	
+	Consider the following data describing a user:
+	
+	\begin{lstlisting}[caption={JSON representation}]
+	{
+	  "user": {
+		"name": "Alice",
+		"age": 25,
+		"email": "alice@example.com"
+	  }
+	}
+	\end{lstlisting}
+	
+	\begin{lstlisting}[caption={XML representation}]
+	<user>
+	  <name>Alice</name>
+	  <age>25</age>
+	  <email>alice@example.com</email>
+	</user>
+	\end{lstlisting}
+	
+	The XML version is more verbose because each field requires both opening and closing tags. As a result:
+	
+	\begin{itemize}
+		\item XML typically occupies \textbf{more disk space} than JSON;
+		\item Larger size implies \textbf{higher bandwidth usage};
+		\item This leads to \textbf{longer data transfer times}, especially in networked applications such as web services.
+	\end{itemize}
+	
+	For this reason, JSON is generally preferred in modern web applications where efficiency and speed are critical.
+	
+	\subsection{Validation Mechanisms}
+	
+	Both JSON and XML support validation, but they use different approaches.
+	
+	\paragraph{XML Validation}
+	
+	XML validation is traditionally performed using:
+	
+	\begin{itemize}
+		\item \textbf{DTD (Document Type Definition)};
+		\item \textbf{XML Schema (XSD)}.
+	\end{itemize}
+	
+	These mechanisms define the allowed structure, elements, attributes, and data types. XML validation is highly expressive and supports complex constraints, namespaces, and strict typing.
+	
+	\paragraph{JSON Validation}
+	
+	JSON validation is typically performed using \textbf{JSON Schema}, which defines:
+	
+	\begin{itemize}
+		\item required properties;
+		\item data types;
+		\item constraints (e.g., ranges, string length, patterns).
+	\end{itemize}
+	
+	Compared to XML Schema:
+	
+	\begin{itemize}
+		\item JSON Schema is generally \textbf{simpler and more lightweight};
+		\item it is easier to read and integrate with modern web technologies;
+		\item however, it may be less expressive than XML Schema in very complex scenarios.
+	\end{itemize}
+	
+	\subsection{Summary of Differences}
+	
+	\begin{itemize}
+		\item JSON is more \textbf{compact}, while XML is more \textbf{verbose};
+		\item JSON is easier to \textbf{parse} and more suitable for web applications;
+		\item XML provides more \textbf{advanced validation} and extensibility features;
+		\item JSON leads to better \textbf{performance} in terms of storage, bandwidth, and transmission time.
+	\end{itemize}
+	
+	In conclusion, JSON is generally preferred for lightweight data exchange and web APIs, while XML is still used in contexts where strict validation, document structure, and extensibility are required.
+	
 	\chapter{Web API}
 	
 	The Web API in JavaScript provides a set of interfaces that allow interaction with the browser environment, enabling dynamic web content.
