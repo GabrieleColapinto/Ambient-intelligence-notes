@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.16)  3 MAY 2026 19:00
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.16)  3 MAY 2026 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./JSON.tex
-(JSON.tex
+**./NginX.tex
+(NginX.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
 
@@ -717,8 +717,8 @@ Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 ipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 \BKM@id=\count336
-)) (JSON.aux)
-\openout1 = `JSON.aux'.
+)) (NginX.aux)
+\openout1 = `NginX.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
 LaTeX Font Info:    ... okay on input line 28.
@@ -823,394 +823,77 @@ Overfull \hbox (10.95pt too wide) in paragraph at lines 40--43
 [][]
  []
 
-[2] (JSON.toc [3
-
-
-
-])
+[2] (NginX.toc)
 \tf@toc=\write3
-\openout3 = `JSON.toc'.
+\openout3 = `NginX.toc'.
 
- [4]
+ [3
+
+
+
+] [4
+
+
+]
 chapter 1.
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-
- []
-
-
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 58--59
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 3657) in paragraph at lines 77--77
-[]|\TU/lmr/m/n/10.95 An unordered set of
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 79--80
-[]|\TU/lmr/m/n/10.95 Maintaining sequences, vec-
- []
-
-
-Overfull \hbox (16.06728pt too wide) in paragraph at lines 73--82
- [][] 
- []
-
-File: Images/object_structure.jpg Graphic file (type bmp)
-<Images/object_structure.jpg>
-File: Images/array_structure.jpg Graphic file (type bmp)
-<Images/array_structure.jpg>
-[5
-
-
-]
-File: Images/data_types.jpg Graphic file (type bmp)
-<Images/data_types.jpg>
-
-Overfull \hbox (3.18pt too wide) in paragraph at lines 139--140
-[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (27.26202pt too wide) in paragraph at lines 143--144
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[6] [7]
-Overfull \hbox (21.24152pt too wide) in paragraph at lines 181--182
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 190--193
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
-
- []
-
-[8] [9] [10] [11] [12]
+[5] [6]
 chapter 2.
-
-Overfull \hbox (4.82658pt too wide) in paragraph at lines 416--417
-\TU/lmr/m/n/10 action as when the user clicks the browser’s \TU/lmr/bx/n/10 Bac
-k \TU/lmr/m/n/10 button. Equivalent to \TU/DejaVuSansMono(0)/m/n/10 history.go(
--1)\TU/lmr/m/n/10 . 
- []
-
-[13
+[7
 
 
-]
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 446--447
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14]
-File: Images/DOM.png Graphic file (type bmp)
-<Images/DOM.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
-[16]
-Overfull \hbox (5.86191pt too wide) in paragraph at lines 575--600
- [][] 
- []
-
-[17]
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 629--630
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 631--632
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 647--648
-
- []
-
-[18] [19] [20]
+] [8]
 chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
-
- []
+[9
 
 
-Underfull \hbox (badness 1342) in paragraph at lines 733--733
-[]|\TU/lmr/m/n/10.95 No. Executes as soon as
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
-
- []
-
-File: Images/normal vs async vs defer.png Graphic file (type bmp)
-<Images/normal vs async vs defer.png>
-[21
-
-
-] [22]
-chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--787
-[]|\TU/lmr/bx/n/10.95 Web Storage
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--787
-\TU/lmr/bx/n/10.95 (\TU/DejaVuSansMono(0)/b/n/10.95 localStorage \TU/lmr/bx/n/1
-0.95 and
- []
-
-
-Underfull \hbox (badness 3724) in paragraph at lines 790--791
-[]|\TU/lmr/m/n/10.95 Serialized strings (typically
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 803--804
-
- []
-
-[23
+] [10
 
 
 ]
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 823--824
-[][][][][][][][][][][][][][][][][][][][] 
- []
+chapter 4.
+[11] [12
 
-[24]
+
+]
 chapter 5.
-File: Images/Synchronous request.jpg Graphic file (type bmp)
-<Images/Synchronous request.jpg>
-File: Images/Asynchronous request.jpg Graphic file (type bmp)
-<Images/Asynchronous request.jpg>
+[13] [14
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
 
+]
+chapter 6.
+
+Overfull \hbox (211.5401pt too wide) in paragraph at lines 223--234
+ [] 
  []
 
+[15] [16
 
-Underfull \hbox (badness 10000) in paragraph at lines 871--872
 
+]
+chapter 7.
+
+Overfull \hbox (3.18pt too wide) in paragraph at lines 284--285
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[25
+[17] [18
 
 
-] [26] [27]
-Overfull \hbox (23.26315pt too wide) in paragraph at lines 890--891
-\TU/lmr/bx/n/10 Search Engine Indexing\TU/lmr/m/n/10 , as crawlers primarily re
-ad initial HTML, and breaks \TU/lmr/bx/n/10 Bookmark/History
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 890--891
-
- []
-
-
-Overfull \hbox (0.89171pt too wide) in paragraph at lines 895--896
-[]\TU/lmr/bx/n/10 History API: \TU/lmr/m/n/10 The industry standard for program
-matically updating the URL and browser
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 906--907
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 924--925
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 935--936
-
- []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
-
- []
-
-[30]
-Overfull \hbox (3.18pt too wide) in paragraph at lines 1030--1031
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1060
-
- []
-
-
-Overfull \hbox (0.45244pt too wide) in paragraph at lines 1064--1065
-[][][][][][][][][][][][][][][][][][] 
- []
-
-LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/sl' in size <10.95> not 
-available
-(Font)              Font shape `TU/DejaVuSansMono(0)/m/it' tried instead on inp
-ut line 1073.
-[31]
-Overfull \hbox (26.36066pt too wide) in paragraph at lines 1111--1112
-\TU/lmr/m/n/10 In addition to the \TU/DejaVuSansMono(0)/m/n/10 readyState \TU/l
-mr/m/n/10 property, which tracks the lifecycle of a request, the \TU/DejaVuSans
-Mono(0)/m/n/10 XMLHttpRequest
- []
-
-[32]
-Overfull \hbox (22.03459pt too wide) in paragraph at lines 1126--1127
-[]\TU/DejaVuSansMono(0)/m/n/10 response\TU/lmr/m/n/10 : contains the response d
-ata in a format consistent with the value of \TU/DejaVuSansMono(0)/m/n/10 respo
-nseType\TU/lmr/m/n/10 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1133
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1134--1135
-
- []
-
-
-Overfull \hbox (5.67308pt too wide) in paragraph at lines 1136--1137
-\TU/DejaVuSansMono(0)/m/n/10 === 4 \TU/lmr/m/n/10 or, alternatively, \TU/DejaVu
-SansMono(0)/m/n/10 xhr.readyState === XMLHttpRequest.DONE \TU/lmr/m/n/10 as XHR
- ready
- []
-
-
-Overfull \hbox (42.596pt too wide) in paragraph at lines 1142--1143
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (42.596pt too wide) in paragraph at lines 1143--1144
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (6.47295pt too wide) in paragraph at lines 1146--1147
-[][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (60.65752pt too wide) in paragraph at lines 1147--1148
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1153--1154
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
-
- []
-
-[33]
-Overfull \hbox (27.26202pt too wide) in paragraph at lines 1169--1170
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 1205--1206
-[][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1217--1218
-
- []
-
-[35] [36] (JSON.aux)
+]
+chapter 8.
+[19] (NginX.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 18556 strings out of 402987
- 397358 string characters out of 5446868
- 1040008 words of memory out of 5000000
- 47072 multiletter control sequences out of 15000+600000
- 633365 words of font info for 94 fonts, out of 8000000 for 9000
+ 18396 strings out of 402987
+ 392865 string characters out of 5446868
+ 1023014 words of memory out of 5000000
+ 46927 multiletter control sequences out of 15000+600000
+ 633333 words of font info for 90 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,20n,107p,11262b,2028s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,20n,107p,11263b,1864s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on JSON.pdf (36 pages).
+Output written on NginX.pdf (19 pages).

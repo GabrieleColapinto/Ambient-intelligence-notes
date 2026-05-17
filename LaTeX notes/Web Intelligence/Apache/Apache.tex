@@ -1,0 +1,2884 @@
+\documentclass{scrbook}
+\setcounter{secnumdepth}{5}
+
+\RedeclareSectionCommand[
+beforeskip=1.0\baselineskip,
+afterskip=0.5\baselineskip
+]{paragraph}
+
+\RedeclareSectionCommand[
+beforeskip=1.0\baselineskip,
+afterskip=0.5\baselineskip
+]{subparagraph}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularx} % Required for fixed width tables
+\usepackage{scrlayer-scrpage} % Required for the subtitles
+\usepackage{url} % Required for the URLs
+\usepackage{hyperref} % Required for the URLs
+\usepackage{listings} % Required for the code snippets
+\usepackage{mathtools} % Required for the system of equations
+\usepackage{enumitem} % Required for list styling
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono} % Overleaf has this font pre-installed
+
+% Put the caption of the snippets at the bottom
+\lstset{
+	captionpos=b,
+	basicstyle=\ttfamily\small,
+	columns=fullflexible,
+	keepspaces=true
+}
+
+
+\title{Apache HTTP Server}
+\subtitle{Ambient intelligence course (A.Y. 2025/2026)\\Topic taught by Prof. Floriano Scioscia}
+\author{Gabriele Colapinto}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{empty}
+	
+	{\Large\textbf{License}} \\
+	{Notes from Ambient intelligence (A.Y. 2025/2026) by Gabriele Colapinto. 
+		Course taught by professors Michele Ruta, Floriano Scioscia, Arnaldo Tomasino, Davide Loconte — 
+		Licensed under CC BY-NC 4.0.\\
+		\url{https://creativecommons.org/licenses/by-nc/4.0/}}
+	
+	\vspace*{\fill}
+	\rule{\textwidth}{0.2pt}
+	\small{© 2025 Gabriele Colapinto \\
+		Released under the \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution–NonCommercial 4.0 International License}}
+	
+	\clearpage
+	
+	\tableofcontents
+
+	\chapter{Fundamentals of Web Server Configuration}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{Images/Web_server_market_share.jpg}
+		\caption{Web server market share throughout the years}
+		\label{fig:web_server_market_share}
+	\end{figure}
+	
+	Web servers like Apache and Nginx are the backbone of the modern internet, but their power
+	and flexibility are unlocked through configuration. These servers rely on text-based
+	configuration files to control their behavior, governing every aspect of its behavior, from
+	how to serve simple static files to managing complex, dynamic applications. For any web
+	developer or systems administrator, understanding the fundamentals of how to read, write,
+	and manage these configurations is a crucial and foundational skill (see figure \ref{fig:web_server_market_share}).
+	
+	\section{Core Configuration Concepts: Directives and Contexts}
+	
+	At the heart of web server configuration lie two simple but powerful concepts: directives
+	and contexts. Understanding this relationship is the first step toward mastering server
+	management.
+	
+	\begin{enumerate}
+	    \item \textbf{Directives}: These are the basic commands or settings that instruct the
+	        server on how to behave. A directive is a specific instruction, such as setting the
+	        location of a log file, defining a security rule, or enabling a specific feature
+	        module.
+	    \item \textbf{Contexts}: Directives are not applied arbitrarily; they exist within
+	        specific scopes or ``contexts.'' A directive might apply globally to the entire
+	        server, to a particular website (known as a virtual host), or to a more granular
+	        scope like a specific directory or URL path.
+	\end{enumerate}
+	
+	\section{Understanding Apache's Configuration Structure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{"Images/Configuration files.png"}
+		\caption{Figure showing the global configuration file in the root folder and the local configuration files in the directories \texttt{/dir1} and \texttt{/dir1/dir1\_1}. The figure also highlights the fact that the directives in the configuration file of the \texttt{/dir1/dir1\_1} folder override the directives in the \texttt{/dir1} folder which, in turn, override the directives in the global configuration file.}
+		\label{fig:configuration_files}
+	\end{figure}
+	
+	Apache provides two primary methods for applying configuration directives: a centralized,
+	global file and decentralized, per-directory files. The choice between them has significant
+	implications for performance, security, and manageability.
+	
+	\begin{enumerate}
+		\item \textbf{Main Configuration Files (\texttt{httpd.conf})}: This is the central,
+		global configuration file where server-wide settings and security policies are best
+		established. Directives placed here are loaded once when the server starts,
+		providing optimal performance and a single, authoritative source for server
+		behavior. Centralized management makes it easier to maintain a consistent security
+		posture across the entire server.
+		
+		\item \textbf{.htaccess Files}: These are decentralized configuration files co-located
+		with web content within the document root. They were originally designed to allow
+		individual users on multi-user systems to manage their personal web spaces without
+		needing access to the main server configuration. A directive in an \texttt{.htaccess}
+		file can override settings from parent directories or the global configuration (see figure \ref{fig:configuration_files}).
+	\end{enumerate}
+	
+	Table \ref{tbl:centralized_vs_decentralized} evaluates the trade-offs between these two approaches.\\
+	
+	\begin{table}[h]
+		\centering
+		\tiny
+		\begin{tabularx}{\linewidth}{|p{3cm}|X|X|}
+			\hline
+			\textbf{Feature} & \textbf{httpd.conf (Centralized)} & \textbf{.htaccess (Decentralized)} \\
+			\hline
+			
+			\textbf{Performance} &
+			\textbf{High.} Configuration is loaded once at server startup. &
+			\textbf{Lower.} The server must check for \texttt{.htaccess} files on
+			\textit{every single request}. This triggers a recursive file system search in
+			the requested directory and all of its parent directories up to the web root,
+			creating a significant and often misunderstood source of I/O overhead. \\
+			\hline
+			
+			\textbf{Security Management} &
+			\textbf{High.} Security policies are centralized, making them easier to manage,
+			audit, and enforce consistently. &
+			\textbf{Lower.} Over-distributing security rules across many \texttt{.htaccess}
+			files can make the server's security posture difficult to manage and prone to
+			conflicts or oversights. \\
+			\hline
+			
+			\textbf{Ease of Use} &
+			\textbf{System Administrator Focused.} Requires root or administrator access to
+			the main server files. &
+			\textbf{User Focused.} Allows individual users or developers to make localized
+			configuration changes without server-level access. \\
+			\hline
+			
+			\textbf{When to Use} &
+			For global server settings, security policies, performance tuning, and any
+			configuration that should apply server-wide or to an entire virtual host. &
+			Sparingly, for specific, localized overrides when centralized configuration is
+			not feasible, such as content-specific access rules. \\
+			\hline
+		\end{tabularx}
+		\caption{"Comparison of centralized and decentralized configuration"}
+		\label{tbl:centralized_vs_decentralized}
+	\end{table}
+	
+	For optimal performance and manageable security, the architectural best practice is to
+	centralize configuration as much as possible in \texttt{httpd.conf} and its included
+	files. The use of \texttt{.htaccess} files should be limited to specific corner cases where
+	localized overrides are absolutely necessary.\\
+	
+	This document will first explore these concepts in detail through the Apache HTTP Server,
+	one of the most historically significant and widely used web servers in the world.
+	
+	\chapter{The Web Server: A Deep Dive into Apache HTTP Server}
+	
+	\section{Introduction to Apache}
+	
+	The Apache HTTP Server is a robust, cross-platform, open-source web server that has played
+	a foundational role in the growth of the World Wide Web. First released in 1995, it remains a significant force in the market with a market share just under 20\% for the top one million websites, placing	it as one of the top two most-used web servers alongside Nginx. Governed by the Apache
+	Software Foundation, it is known for its stability, flexibility, and extensive feature set.\\
+	
+	Apache's primary features include:
+	
+	\begin{itemize}
+		\item \textbf{Concurrency:} The server's architecture places no inherent limits on the
+		number of concurrent client connections it can handle; the practical limit is
+		determined solely by the available hardware and operating system resources.
+		
+		\item \textbf{Modular Architecture:} Functionality is implemented through a system of
+		modules that can be enabled or disabled as needed. This allows administrators to
+		customize the server, loading only the features required for a specific application
+		domain, thereby optimizing resource usage. The modularity of the architecture also allows the development of functionalities as add-on modules for specific domains and their addition to the server.
+		
+		\item \textbf{Portability:} Apache runs on a wide variety of operating systems,
+		including Unix-like platforms and Windows. This is achieved through the
+		\textbf{Apache Portable Runtime (APR)}, an abstraction library that smooths over
+		the differences in operating system APIs for tasks like file and network access and also provides platform specific tuning and optimization.
+	\end{itemize}
+	
+	\section{Apache's Architectural Evolution: From Processes to MPMs}
+	
+	A significant architectural shift occurred with the release of Apache 2.0, which introduced
+	a more flexible model for handling requests.
+	
+	\begin{itemize}
+		\item \textbf{Legacy Process-Based Model (Pre-2.0):} In earlier versions (e.g., 1.3),
+		Apache operated on a purely process-based model. At startup, it would fork a number
+		of child processes, with each process capable of handling one client connection at a
+		time. This model suffered from two key limitations: the high overhead of creating
+		and context-switching between OS-level processes, and high memory consumption, as
+		isolated processes could not easily share code or data.
+		\item \textbf{Modern Multi-Processing Modules (MPMs) Model (2.0+):} Apache 2.0
+		introduced \textbf{Multi-Processing Modules (MPMs)}, which abstract the
+		request-handling architecture. This allows administrators to configure the server in
+		different modes: a pure process-based model (for legacy compatibility), a pure
+		multi-threaded model, or a hybrid model combining both. Threads inside processes run simultaneously, are more lightweight than processes, they offer faster context switching and the ability to share code and data.
+		On the one hand threaded servers generally scale better than process based servers but, on the other hand, this comes with a trade-off in reliability and security; if one thread misbehaves, it can corrupt data shared by other threads within the same process, potentially impacting multiple independent client connections.
+	\end{itemize}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{"Images/Apache HTTP server architecture.jpg"}
+		\caption{Apache HTTP server architecture}
+		\label{fig:apache_http_server_architecture}
+	\end{figure}
+	
+	Figure \ref{fig:apache_http_server_architecture} shows the architecture of an Apache HTTP server. In the picture we can see the lines starting from a component and terminating in a circle. Those are the components endpoints represented using the UML standard. Those endpoints are paired with a label indicating the protocol used in the communication and a label indicating the type of communication paired with a direction. The label 'R' means request and the arrow points from the requesting entity to the receiver of the request. We don't have to interpret the communications as unidirectional because requesting components expect a response from the consulted entity so, the arrow shows the direction of the first message from the entity initiating the conversation to an entity providing a service. Now, let us move on to the actual figure description.\\
+	
+	On the top of the figure we can see the users using their web browser to send HTTP requests to the Apache Web Server. In the center of the figure we can see the server machine hosting a set of collaborating entities. The entity on top is the Apache HTTP Server which is the entity the users and the administrator interface to.\\
+	In the middle there is the content which can be divided in static and dynamic.
+	\begin{itemize}
+		\item The files section includes both static documents and executable scripts stored on disk:
+		\begin{itemize}
+			\item \textbf{Documents}: for example hosted files in content distribution platforms such as videos, PDF documents, images, HTML documents, etc...;
+			\item \textbf{Configuration files}: global configuration \texttt{httpd.conf} file and local configuration \texttt{.htaccess} files; 
+			\item \textbf{Scripts}: Source files of the scripts which generate dynamic content when executed.
+		\end{itemize}
+		
+		\item Dynamic content is the content generated at runtime changing across the different requests according to data availability, user requests, user preferences, etc... This content is generated by the \textbf{information processor and provider} and is divided in:
+		\begin{itemize}
+			\item \textbf{Script programs / Compiled programs}: Dynamic content generated programmatically at runtime. Script programs are interpreted during execution, while compiled programs are translated into machine code before being executed. This corresponds to the traditional distinction between interpreted and compiled languages;
+			
+			\item \textbf{Apache server extensions}: Dynamically loadable modules extending the functionalities of the Apache HTTP server, such as SSL/TLS support, URL rewriting, proxying, authentication, or scripting language integration.
+		\end{itemize}
+	\end{itemize}
+	
+	The Apache HTTP Server interacts with the information processor and provider by using server APIs and Common Gateway Interfaces (CGIs). The Common Gateway Interface (CGI) is a standardized protocol that enables web servers to execute external programs or scripts (CGI scripts) to generate dynamic web content, such as processing form data or querying databases. It acts as middleware, allowing HTTP servers to pass user requests to applications and return the output to the user.\\
+	
+	At the bottom of the server machine we can see that it can host additional backend services providing any other type of service and the information processor and provider can interact with the hosted services using a specific protocol for each.\\
+	
+	At the left of the server machine we can see that the server administrator can interact with it and they can use their privileged access to change the statically hosted files and at the right we can see that the server machine can make external calls to other services.\\
+	
+	We can see that the Apache HTTP server can forward requests to other HTTP servers and act as an HTTP proxy. This functionality is used to make the Apache HTTP server act as a middleman to:
+	\begin{itemize}
+		\item Mask the external server IP address for security;
+		\item Act as a proxy to provide cached content;
+		\item Act as a gateway to the users;
+		\item Balance the loads across other servers to ensure reliability.
+	\end{itemize}
+	
+	We can also see that the information processor and provider can make external calls to other servers like the ones it can make to other locally hosted services. This basically means that, from the perspective of the information processor and provider, it makes no difference to receive data from an internally hosted or externally hosted server and the decision to host a server in the machine or delegate the hosting to another company becomes a deployment and infrastructure management decision.
+	
+	\chapter{Configuration and Administration}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{"Images/Apache HTTP server configuration.jpg"}
+		\caption{Apache HTTP server configuration}
+		\label{fig:apache_http_server_configuration}
+	\end{figure}
+	
+	Apache's behavior is governed by a system of configuration files containing directives that
+	control its functionality.\\
+	
+	Figure \ref{fig:apache_http_server_configuration} shows how the three different categories of users interact with the web server.
+	\begin{itemize}
+		\item \textbf{Administrator}: The administrator is responsible for the generation and management of the global configuration files;
+		
+		\item \textbf{Authors}: The authors upload documents and static scripts inside their allocated space on the server which is generally a directory. Inside their directory, they can define access policies for their content in a local \textbf{.httpaccess} configuration file;
+		
+		\item \textbf{Users}: Users can only send HTTP requests to the server to receive its response. They are the consumers of the content and cannot create, edit or delete configuration files.
+	\end{itemize}
+	
+	\section{Installing and Managing Apache HTTP Server on Ubuntu}
+	
+	Due to its widespread adoption and importance in modern web infrastructures, Apache HTTP Server is included in the official Ubuntu repositories and can be installed and managed through the Ubuntu package management system based on \texttt{apt}.
+	
+	\subsection{Installing Apache}
+	
+	Apache HTTP Server, together with its documentation and utility programs, can be installed using the following command:
+	
+	\begin{lstlisting}
+	sudo apt-get install apache2 apache2-doc apache2-utils
+	\end{lstlisting}
+	
+	The installed packages provide:
+	\begin{itemize}
+		\item \texttt{apache2}: the Apache HTTP Server software;
+		
+		\item \texttt{apache2-doc}: the official server documentation;
+		
+		\item \texttt{apache2-utils}: a collection of utilities and administrative tools.
+	\end{itemize}
+	
+	After installation, the server configuration files are typically stored in the directory:
+	
+	\begin{lstlisting}
+	/etc/apache2
+	\end{lstlisting}
+	
+	while the default web content directory is:
+	
+	\begin{lstlisting}
+	/var/www/html
+	\end{lstlisting}
+	
+	\subsection{Starting the Apache Service}
+	
+	The Apache service can be started using the Ubuntu service manager:
+	
+	\begin{lstlisting}
+	sudo service apache2 start
+	\end{lstlisting}
+	
+	Alternatively, the lower-level Apache control utility can be used:
+	
+	\begin{lstlisting}
+	sudo apache2ctl -k start
+	\end{lstlisting}
+	
+	If Apache is configured to listen on privileged ports, such as port 80 or port 443, the server must initially be started with root privileges because Unix-like operating systems restrict access to ports below 1024 to privileged users.\\
+	
+	For security reasons, however, Apache does not continue serving requests as the root user. After startup, the parent process spawns worker processes running under the unprivileged user:
+	
+	\begin{lstlisting}
+	www-data
+	\end{lstlisting}
+	
+	which belongs to the group:
+	
+	\begin{lstlisting}
+	www-data
+	\end{lstlisting}
+	
+	This privilege separation mechanism reduces the impact of possible vulnerabilities in the web server or hosted applications.
+	
+	\subsection{Stopping the Apache Service}
+	
+	The Apache service can be stopped with:
+	
+	\begin{lstlisting}
+	sudo service apache2 stop
+	\end{lstlisting}
+	
+	or equivalently:
+	
+	\begin{lstlisting}
+	sudo apache2ctl -k stop
+	\end{lstlisting}
+	
+	This operation sends a termination signal to the Apache parent process, causing it to immediately terminate all child worker processes.	As a consequence:
+	\begin{itemize}
+		\item any requests currently being processed are interrupted;
+		
+		\item no additional client requests are accepted or served.
+	\end{itemize}
+	
+	This type of shutdown is abrupt and may disrupt active client connections.
+	
+	\subsection{Restarting the Apache Service}
+	
+	Apache can be restarted using:
+	
+	\begin{lstlisting}
+	sudo service apache2 restart
+	\end{lstlisting}
+	
+	or:
+	
+	\begin{lstlisting}
+	sudo apache2ctl -k restart
+	\end{lstlisting}
+	
+	A restart operation:
+	\begin{enumerate}
+		\item terminates the currently running worker processes;
+		
+		\item reloads the configuration files;
+		
+		\item reopens log files;
+		
+		\item spawns a new generation of worker processes.
+	\end{enumerate}
+	
+	Unlike a stop operation, the Apache parent process itself does not terminate. Instead, it remains active and supervises the transition between the old and new worker processes. Before performing the restart, Apache automatically executes a syntax check on the configuration files to ensure that no configuration errors are present.
+	
+	\subsection{Graceful Reload and Graceful Stop}
+	
+	Apache also supports graceful management operations designed to minimize service interruptions and avoid abruptly terminating active client requests.
+	
+	\subsubsection{Graceful Reload}
+	
+	A graceful reload can be performed using:
+	
+	\begin{lstlisting}
+	sudo service apache2 reload
+	\end{lstlisting}
+	
+	or:
+	
+	\begin{lstlisting}
+	sudo apache2ctl -k graceful
+	\end{lstlisting}
+	
+	During a graceful reload:
+	\begin{itemize}
+		\item The parent process reloads the configuration files and reopens the log files;
+		
+		\item Existing worker processes are instructed to terminate only after completing their current requests;
+		
+		\item As soon as one of the children worker processes of the previous run terminates, the parent process spawns another with the new configuration. 
+	\end{itemize}
+	
+	This mechanism allows Apache to update its configuration without interrupting active connections. As with a normal restart, Apache first performs a configuration syntax validation before applying the new configuration.
+	
+	\subsubsection{Graceful Stop}
+	
+	A graceful shutdown can be performed using:
+	
+	\begin{lstlisting}
+	sudo -k service graceful-stop
+	\end{lstlisting}
+	
+	or:
+	
+	\begin{lstlisting}
+	sudo apache2ctl -k graceful-stop
+	\end{lstlisting}
+	
+	In this mode:
+	\begin{itemize}
+		\item the parent process stops accepting new incoming connections;
+		
+		\item currently running worker processes continue serving their active requests;
+		
+		\item worker processes terminate only after completing their requests;
+		
+		\item once all workers have terminated, the parent process also exits.
+	\end{itemize}
+	
+	If some worker processes do not terminate within the configured timeout period, Apache forcibly terminates them using the \texttt{TERM} signal.\\
+	
+	Graceful shutdown procedures are particularly important in production systems because they reduce service interruptions and prevent clients from experiencing incomplete or abruptly interrupted responses.	
+	
+	\section{File System Structure}
+	
+	On an Ubuntu system, the main files and directories of an Apache HTTP Server installation are organized as follows:
+	
+	\begin{table}[!h]
+		\centering
+		\tiny
+		\begin{tabularx}{\linewidth}{|p{17em}|X|}
+			\hline
+			\textbf{Path} & \textbf{Description} \\
+			\hline
+			
+			\texttt{/usr/sbin/apache2} & Main Apache HTTP Server executable binary. This program starts the web server process and manages incoming HTTP requests.\\
+			\hline
+			
+			\texttt{/etc/apache2} & Main directory containing the Apache server configuration files, including global settings, module configurations, and virtual host definitions.\\
+			\hline
+			
+			\texttt{/etc/apache2/conf-available} & Directory containing additional configuration files that can be optionally enabled or disabled. These files are typically used to configure server features, modules, or custom behaviors.\\
+			\hline
+			
+			\texttt{/etc/apache2/conf-enabled} & Directory containing symbolic links to configuration files stored in \texttt{conf-available}. Only linked configurations are loaded by Apache at runtime.\\
+			\hline
+			
+			\texttt{/etc/apache2/sites-available} & Directory containing configuration files for all available virtual hosts. Each file usually defines the configuration of a specific website or domain hosted by the server.\\
+			\hline
+			
+			\texttt{/etc/apache2/sites-enabled} & Directory containing symbolic links to virtual host configuration files stored in \texttt{sites-available}. Only the linked virtual hosts are enabled and served by Apache.\\
+			\hline
+			
+			\texttt{/etc/envvars} & File containing environment variables used by Apache during execution, such as user information, process settings, and runtime paths.\\
+			\hline
+			
+			\texttt{/var/log/apache2} & Default directory containing Apache log files, such as \texttt{access.log} and \texttt{error.log}, used for monitoring server activity and debugging errors.\\
+			\hline
+			
+			\texttt{/var/www/html} & Default document root directory containing publicly accessible web resources, such as HTML pages, images, CSS files, JavaScript files, and other static content served by the web server.\\
+			\hline
+			
+		\end{tabularx}
+	\end{table}
+	
+	\section{Configuration Hierarchy}
+	
+	There are four ways to configure an Apache Web Server
+	
+	\begin{enumerate}
+		\item \textbf{During building / installation}: Configuring Apache by choosing modules, setting the compiler and flags used for building, selecting the installation path and so on;
+		
+		\item \textbf{At startup}: It is possible to configure the Apache Web Server at startup using command-line options available in the documentation; 
+		
+		\item \textbf{Global Configuration:} These are the main server configuration files (e.g., \texttt{httpd.conf}) that are processed once at server startup.
+		
+		\item \textbf{Local Configuration:} These are per-directory configuration files named \texttt{.htaccess}. These files are processed during a request and allow content authors to customize server behavior for their specific web-space without needing administrative access to the global files.
+	\end{enumerate}
+	
+	\section{Apache Configuration File Syntax}
+	
+	Apache HTTP Server behavior is controlled through configuration files containing a set of instructions called \textbf{configuration directives}. These directives define how the server handles requests, manages modules, serves content, and interacts with clients and backend services.\\
+	
+	Apache configuration files are processed sequentially, line by line. Empty lines are ignored, while lines beginning with the character \texttt{\#} are treated as comments and are not interpreted by the server.\\
+	
+	A configuration directive generally consists of:
+	\begin{itemize}
+		\item the \textbf{name of the directive};
+		\item one or more \textbf{parameters} associated with the directive.
+	\end{itemize}
+	
+	For example:
+	\begin{lstlisting}
+		Listen 80
+	\end{lstlisting}
+	
+	In this case:
+	\begin{itemize}
+		\item \texttt{Listen} is the directive name;
+		\item \texttt{80} is the parameter specifying the TCP port used by the server.
+	\end{itemize}
+	
+	Apache supports two main types of directives:
+	\begin{itemize}
+		\item \textbf{Simple directives}: single-line instructions composed of a directive name followed by parameters;
+		
+		\item \textbf{Sectioning directives}: block directives used to define a configuration context containing nested directives. These sections are typically delimited by opening and closing tags.
+	\end{itemize}
+	
+	For example:
+	\begin{lstlisting}
+	<Directory "/var/www/html">
+		Options Indexes FollowSymLinks
+		AllowOverride None
+	</Directory>
+	\end{lstlisting}
+	
+	In this example:
+	\begin{itemize}
+		\item \texttt{<Directory>} is a sectioning directive;
+		\item the enclosed directives apply only to the specified directory.
+	\end{itemize}
+	
+	If a directive requires many parameters, they can be continued onto the next line using the backslash character \texttt{\textbackslash} at the end of a line. This improves readability for long configurations.\\
+	
+	For example:
+	\begin{lstlisting}
+	LogFormat "%h %l %u %t \"%r\" %>s %b" \
+	combined
+	\end{lstlisting}
+	
+	Apache configuration directives can only be used within specific \textbf{contexts}. A context defines where a directive is valid and where its effects apply. Examples of contexts include:
+	\begin{itemize}
+		\item the global server configuration;
+		\item virtual host definitions;
+		\item directory-specific configurations;
+		\item file-specific configurations.
+	\end{itemize}
+	
+	Each directive is only allowed within a predefined set of contexts. Attempting to use a directive in an invalid context causes Apache to generate a configuration error during startup or reload.
+	
+	\section{Configuration Contexts and Directives}
+	
+	To provide fine-grained control, directives are applied within specific \textbf{contexts}, which limit their scope. These contexts are divided into per-server contexts and per-directory contexts.
+	
+	\subsection{Per-server context}
+	Per-server contexts are defined by following sectioning directives:
+	
+	\begin{itemize}
+		\item
+		\texttt{<VirtualHost>}: Applies directives to a specific virtual server (website). The syntax of this directive is:
+		\begin{lstlisting}
+	<VirtualHost addr[:port] [addr[:port]] ...> ... </VirtualHost>
+		\end{lstlisting}
+		The address can be one of the following entities:
+		\begin{itemize}
+			\item The IP address of the virtual host (IPv4 or IPv6 enclosed in square braces);
+			
+			\item A fully qualified domain name (FQDN) for the IP address of the virtual host. Using domain names inside the \texttt{<VirtualHost>} directive is not recommended because it requires Apache to perform DNS resolution during startup or configuration reload. This introduces a dependency on the DNS infrastructure, potentially causing delays, configuration errors, or unpredictable behavior if the domain name cannot be resolved correctly. For this reason, specifying explicit IP addresses or using the wildcard character \texttt{*} is generally preferred;
+			
+			\item The character \texttt{*}, used as a wildcard to match all available IP addresses on the specified port. This is commonly used in name-based virtual hosting configurations.
+		\end{itemize}
+		
+		\item
+		\texttt{<Directory>}: Applies directives to a specific file system directory and its subdirectories. The syntax of this directive is:
+		\begin{lstlisting}
+	<Directory full-directory-path> ... </Directory>
+		\end{lstlisting}
+		The main limitation of this directive is that it applies its child directives only to the directory passed as the argument so, to apply the same directives to a set of directories, we would have to copy the same directives for each. To solve this problem, the \texttt{<Directory>} has a regular-expression-based counterpart, namely \texttt{<DirectoryMatch>}, whose argument is a regular expression instead of a full path.
+		
+		\item
+		\texttt{<Files>}: Applies directives to specific files by name. It is comparable to \texttt{<Directory>} and has the following syntax:
+		\begin{lstlisting}
+	<Files filename> ... </Files>
+		\end{lstlisting}
+		\texttt{<Files>} can be nested inside \texttt{<Directory>} sections to restrict the portion of the filesystem they apply to and they are processed in the order in which they appear in the configuration file. Also the \texttt{<Files>} directive has a regular-expression-based counterpart to address to the same limitations of the \texttt{<Directory>} directive which is called \texttt{<FilesMatch>}.
+		
+		\item
+		\texttt{<Location>}: Applies directives to a specific URL path and its sub-paths. It is comparable to \texttt{<Directory>} and has the following syntax:
+		\begin{lstlisting}
+	<Location URL-path|URL> ... </Location>
+		\end{lstlisting}
+		\texttt{<Location>} sections are processed in the order they appear in the configuration file, after the \texttt{<Directory>} sections and \texttt{.htaccess} files are read, and after the \texttt{<Files>} sections.\\
+		
+		\texttt{<Location>} sections operate completely outside the filesystem. This has several consequences. Most importantly, \texttt{<Location>} directives should not be used to control access to filesystem locations. Since several different URLs may map to the same filesystem location, such access controls may be circumvented.\\
+		
+		The enclosed directives will be applied to the request if the path component of the URL meets any of the following criteria:
+		\begin{itemize}
+			\item The specified location matches exactly the path component of the URL;
+			\item The specified location, which ends in a forward slash, is a prefix of the path component of the URL (treated as a context root);
+			\item The specified location, with the addition of a trailing slash, is a prefix of the path component of the URL (also treated as a context root).
+		\end{itemize}
+		
+		Also the \texttt{<Location>} directive has a regular-expression-based counterpart called \texttt{<LocationMatch>} that addresses the same limitations of the \texttt{<Directory>} and \texttt{<Files>} directives.
+	\end{itemize}
+	
+	\subsubsection{Directive Processing Order and Configuration Merging in the per-server context}
+	
+	When multiple configuration sections apply to the same request, Apache combines their directives according to a well-defined processing and merging order. Understanding this priority system is important because the final server behavior depends on how directives from different contexts interact.\\
+	
+	In general, Apache processes configuration sections in the following order:
+	
+	\begin{enumerate}
+		\item \texttt{<Directory>} sections and \texttt{.htaccess} files;
+		
+		\item \texttt{<Files>} sections;
+		
+		\item \texttt{<Location>} sections.
+	\end{enumerate}
+	
+	This means that:
+	\begin{itemize}
+		\item filesystem-based access control is evaluated before URL-based access control;
+		
+		\item directives applied to specific files override more general directory configurations;
+		
+		\item URL-based configurations are processed last.
+	\end{itemize}
+	
+	\paragraph{Directory Context Processing}
+	
+	Among \texttt{<Directory>} sections, Apache processes shorter and more general paths first, followed by more specific nested paths.\\
+	
+	For example:
+	
+	\begin{lstlisting}
+	<Directory "/var/www">
+		...
+	</Directory>
+		
+	<Directory "/var/www/private">
+		...
+	</Directory>
+	\end{lstlisting}
+	
+	In this case, directives defined for \texttt{/var/www/private} override conflicting directives inherited from \texttt{/var/www}.\\
+	
+	If enabled, \texttt{.htaccess} files are processed after the corresponding \texttt{<Directory>} sections and can further override configuration settings depending on the value of the \texttt{AllowOverride} directive.
+	
+	\paragraph{Files Context Processing}
+	
+	After directory-based processing, Apache evaluates \texttt{<Files>} and \texttt{<FilesMatch>} sections. These directives apply to specific filenames independently of the directory hierarchy.\\
+	
+	For example:
+	
+	\begin{lstlisting}
+	<Files "secret.txt">
+		Require all denied
+	</Files>
+	\end{lstlisting}
+	
+	This configuration applies to every file named \texttt{secret.txt} within the directories affected by the current request.
+	
+	\paragraph{Location Context Processing}
+	
+	Finally, Apache evaluates \texttt{<Location>} and \texttt{<LocationMatch>} sections. These directives operate on URL paths rather than filesystem paths.\\
+	
+	Since multiple URLs may map to the same filesystem resource, \texttt{<Location>} sections should generally not be used for filesystem security restrictions. Instead, they are more appropriate for configuring web application endpoints, proxies, or dynamically generated resources.
+	
+	\paragraph{Nested Sections}
+	
+	Apache also supports nested configuration sections. In nested configurations, the inner section inherits the directives of the outer section and may override them when conflicts occur.\\
+	
+	For example:
+	
+	\begin{lstlisting}
+	<Directory "/var/www">
+		Require all granted
+		
+		<Files "admin.txt">
+			Require all denied
+		</Files>
+	</Directory>
+	\end{lstlisting}
+	
+	In this case:
+	\begin{itemize}
+		\item all files in \texttt{/var/www} are accessible;
+		
+		\item except the file \texttt{admin.txt}, whose access is explicitly denied.
+	\end{itemize}
+	
+	\subsection{Per-Directory Contexts and \texttt{.htaccess} Files}
+	
+	Apache HTTP Server supports a special per-directory configuration mechanism through the use of \texttt{.htaccess} files. These files allow local configuration changes to be applied to a specific directory and all of its subdirectories without modifying the main server configuration files.\\
+	
+	The \texttt{.htaccess} files follow the same syntax rules as the main Apache configuration files:
+	\begin{itemize}
+		\item configuration directives are processed line by line;
+		\item empty lines are ignored;
+		\item lines beginning with the character \texttt{\#} are treated as comments;
+		\item directives may be either simple directives or sectioning directives.
+	\end{itemize}
+	
+	Directives defined inside a \texttt{.htaccess} file apply only to the directory in which the file is placed and to all of its descendant subdirectories.
+	
+	\subsubsection{Directory Walk and Configuration Merging}
+	
+	Whenever Apache determines that the requested resource corresponds to a file stored on the filesystem, it starts an internal procedure known as the \textbf{directory walk}. During this process, Apache traverses the directory hierarchy associated with the requested resource in order to determine all configuration directives that apply to the request. The purpose of the directory walk is to collect and merge configuration settings originating from:
+	\begin{itemize}
+		\item
+		the global Apache configuration files;
+		
+		\item
+		\texttt{<Directory>} configuration containers;
+		
+		\item
+		possible \texttt{.htaccess} files encountered along the filesystem path.
+	\end{itemize}
+	
+	Apache conceptually starts from the root directory of the filesystem and progressively descends through each directory composing the resource path until it reaches the directory containing the requested file. For example, if the requested resource is:
+	
+	\begin{lstlisting}
+	/var/www/html/project/index.php
+	\end{lstlisting}
+	
+	Apache evaluates the configuration associated with:
+	\begin{lstlisting}
+	/ 
+	/var
+	/var/www
+	/var/www/html
+	/var/www/html/project
+	\end{lstlisting}
+	
+	At each step, Apache checks:
+	\begin{itemize}
+		\item
+		whether matching \texttt{<Directory>} directives exist in the global configuration files;
+		
+		\item
+		whether a \texttt{.htaccess} file is present and allowed by the current server configuration.
+	\end{itemize}
+	
+	Whenever Apache encounters a new applicable configuration context, the newly discovered directives are merged with the configuration state accumulated so far. Consequently, the final configuration applied to the requested resource is the result of combining:
+	\begin{itemize}
+		\item
+		global server directives;
+		
+		\item
+		parent directory configurations;
+		
+		\item
+		subdirectory-specific overrides;
+		
+		\item
+		local \texttt{.htaccess} directives.
+	\end{itemize}
+	
+	This mechanism allows configuration inheritance along the filesystem hierarchy. Therefore, directives defined in subdirectories may override or extend directives inherited from ancestor directories, enabling fine-grained customization of server behavior for specific portions of a website.\\
+	
+	The directory walk mechanism is one of the key features that makes Apache highly flexible, although extensive use of \texttt{.htaccess} files may negatively impact performance because Apache must repeatedly search for and parse these files during request processing.
+	
+	\subsubsection{The \texttt{AllowOverride} Directive}
+	
+	The server administrator controls whether \texttt{.htaccess} files are allowed and which categories of directives may be used inside them through the global \texttt{AllowOverride} directive configured in the main Apache configuration files.\\
+	
+	The \texttt{AllowOverride} directive specifies which groups of directives are permitted within per-directory contexts. The main categories are:
+	
+	\begin{itemize}
+		\item \textbf{AuthConfig}: directives controlling authentication and authorization mechanisms;
+		
+		\item \textbf{Limit}: directives controlling access restrictions and request authorization;
+		
+		\item \textbf{Options}: directives controlling specific directory features and behaviors. If multiple options could apply to a directory, then the most specific one is used and the others are ignored. The options are not merged by default unless they are preceded by a \texttt{+} or \texttt{-} symbol.
+		
+		\item \textbf{FileInfo}: directives controlling document metadata, MIME types, URL rewriting, and other file-related attributes;
+		
+		\item \textbf{Indexes}: directives controlling automatic directory indexing behavior.
+	\end{itemize}
+	
+	For example:
+	\begin{lstlisting}
+	<Directory "/var/www/html">
+		AllowOverride AuthConfig Indexes
+	</Directory>
+	\end{lstlisting}
+	
+	In this case, only authentication-related and indexing-related directives may be used inside \texttt{.htaccess} files located within the specified directory hierarchy.\\
+	
+	If \texttt{AllowOverride None} is specified, Apache completely ignores all \texttt{.htaccess} files in that directory tree.
+	
+	\paragraph{Merging \texttt{Options} Directives}
+	
+	The \texttt{Options} directive deserves special attention because its behavior differs from most Apache directives. Consider the following configuration:
+	
+	\begin{lstlisting}
+	<Directory "/var/www">
+		Options Indexes FollowSymLinks
+	</Directory>
+		
+	<Directory "/var/www/private">
+		Options ExecCGI
+	</Directory>
+	\end{lstlisting}
+	
+	In this case, the second \texttt{Options} directive completely replaces the inherited one for the \texttt{/var/www/private} directory. Therefore, only \texttt{ExecCGI} remains active inside \texttt{/var/www/private}, while \texttt{Indexes} and \texttt{FollowSymLinks} are discarded.\\
+	
+	To explicitly merge or remove inherited options, the \texttt{+} and \texttt{-} prefixes can be used. For example:
+	
+	\begin{lstlisting}
+	<Directory "/var/www">
+		Options Indexes FollowSymLinks
+	</Directory>
+		
+	<Directory "/var/www/private">
+		Options +ExecCGI -Indexes
+	</Directory>
+	\end{lstlisting}
+	
+	In this configuration:
+	\begin{itemize}
+		\item \texttt{+ExecCGI} adds the \texttt{ExecCGI} option to the inherited configuration;
+		
+		\item \texttt{-Indexes} removes the \texttt{Indexes} option from the inherited configuration;
+		
+		\item \texttt{FollowSymLinks} remains enabled because it is inherited and not explicitly removed.
+	\end{itemize}
+	
+	As a result, the final active options for \texttt{/var/www/private} become:
+	
+	\begin{itemize}
+		\item \texttt{FollowSymLinks};
+		\item \texttt{ExecCGI}.
+	\end{itemize}
+	
+	\subsubsection{Directory Indexing}
+	
+	When a client requests a resource corresponding to a directory rather than a specific file, Apache may automatically generate and return a page containing the list of files and subdirectories stored inside that directory. This behavior is controlled by the \texttt{Indexes} option. For example:
+	
+	\begin{lstlisting}
+	Options Indexes
+	\end{lstlisting}
+	
+	If directory indexing is enabled and no default index file (such as \texttt{index.html}) is present, Apache generates an HTML page listing the directory contents.\\
+	
+	For security reasons, directory indexing is often disabled in production environments because it may expose sensitive files or internal application structures.
+	
+	\subsubsection{Access Control Mechanisms}
+	
+	Apache provides several mechanisms to control access to resources. In Apache 2.2, access control was primarily managed using the combination of the \texttt{Order}, \texttt{Allow}, and \texttt{Deny} directives.\\
+	
+	For example:
+	\begin{lstlisting}
+	Order deny,allow
+	Deny from all
+	Allow from example.org
+	\end{lstlisting}
+	
+	This configuration denies access to all clients except those originating from the domain \texttt{example.org}.\\
+	
+	Apache 2.4 introduced the more flexible and expressive \texttt{Require} directive, which simplifies authorization management and replaces most uses of the older access control directives. Examples include:
+	
+	\begin{itemize}
+		\item \texttt{Require all granted}: grants access to all clients;
+		
+		\item \texttt{Require all denied}: denies access to all clients;
+		
+		\item \texttt{Require host example.org}: grants access only to clients originating from the specified hostname;
+		
+		\item \texttt{Require ip 192.168.1.1}: grants access only to the specified IP address.
+	\end{itemize}
+	
+	For example:
+	
+	\begin{lstlisting}
+	<Directory "/var/www/private">
+		Require all denied
+	</Directory>
+	\end{lstlisting}
+	
+	In this case, all access requests targeting the specified directory are denied.\\
+	
+	The introduction of the \texttt{Require} directive significantly simplified Apache authorization management by providing a more readable and extensible syntax. For example, in \texttt{apache2.conf} the following lines prevent \texttt{.htaccess} and \texttt{.htpasswd} files from being viewed by Web clients.
+	
+	\begin{lstlisting}
+	<FilesMatch"^\.ht">
+		Require all denied
+	</FilesMatch>
+	\end{lstlisting}
+	
+	\subsection{Example Apache Configuration File}
+	
+	The following example shows a simplified Apache configuration file containing comments, simple directives, sectioning directives, multiline directives, and different configuration contexts.
+	
+	\begin{lstlisting}
+		# Global server configuration
+		
+		ServerRoot "/etc/apache2"
+		
+		# Apache listens on TCP port 80
+		Listen 80
+		
+		# Load a module
+		LoadModule rewrite_module modules/mod_rewrite.so
+		
+		# Multiline directive example
+		LogFormat "%h %l %u %t \"%r\" %>s %b" \
+		combined
+		
+		# Default document root
+		DocumentRoot "/var/www/html"
+		
+		# Directory-specific configuration
+		<Directory "/var/www/html">
+		# Enable symbolic links
+		Options Indexes FollowSymLinks
+		
+		# Disable .htaccess overrides
+		AllowOverride None
+		
+		# Grant access permissions
+		Require all granted
+		</Directory>
+		
+		# Virtual host configuration
+		<VirtualHost *:80>
+		ServerName example.com
+		
+		DocumentRoot "/var/www/example"
+		
+		ErrorLog ${APACHE_LOG_DIR}/example_error.log
+		
+		CustomLog ${APACHE_LOG_DIR}/example_access.log combined
+		</VirtualHost>
+	\end{lstlisting}
+	
+	\section{Global configuration directives}
+	
+	Apache HTTP Server behavior is primarily controlled through a set of global configuration directives defined in the main configuration files. These directives affect the overall behavior of the server and define parameters related to resource locations, connection management, logging, request handling, and configuration modularity.
+	
+	\subsection{\texttt{ServerRoot}}
+	
+	The \texttt{ServerRoot} directive specifies the root directory of the Apache server installation and defines the base path used to locate configuration files, log files, runtime resources, and server modules. For example:
+	
+	\begin{lstlisting}
+	ServerRoot "/etc/apache2"
+	\end{lstlisting}
+	
+	On Ubuntu systems, the default value is typically:
+	
+	\begin{lstlisting}
+	/etc/apache2
+	\end{lstlisting}
+	
+	This directory usually contains:
+	\begin{itemize}
+		\item the main configuration files;
+		\item module configurations;
+		\item virtual host definitions;
+		\item symbolic links enabling sites and modules;
+		\item auxiliary configuration resources.
+	\end{itemize}
+	
+	Several relative paths used throughout the Apache configuration are resolved with respect to the \texttt{ServerRoot} directory.
+	
+	\subsection{\texttt{Timeout}}
+	
+	The \texttt{Timeout} directive defines the maximum amount of time Apache waits for specific network operations before considering the request failed. For example:
+	\begin{lstlisting}
+	Timeout 300
+	\end{lstlisting}
+	
+	In this example, Apache waits up to 300 seconds before aborting stalled operations.\\
+	
+	The timeout applies to several situations, including:
+	\begin{itemize}
+		\item receiving client requests;
+		\item transmitting responses;
+		\item communication with backend services or CGI scripts.
+	\end{itemize}
+	
+	A timeout value that is too low may prematurely interrupt slow connections, while a value that is too high may cause server resources to remain occupied for excessive periods of time.
+	
+	\subsection{\texttt{KeepAlive}}
+	
+	HTTP is built on top of TCP, and establishing a new TCP connection for every HTTP request introduces additional communication overhead. The \texttt{KeepAlive} mechanism allows multiple HTTP requests and responses to reuse the same TCP connection. For example:
+	\begin{lstlisting}
+	KeepAlive On
+	\end{lstlisting}
+	
+	When enabled:
+	\begin{itemize}
+		\item clients can send multiple requests over a single connection;
+		\item the overhead of repeatedly opening and closing TCP connections is reduced;
+		\item page loading performance improves, especially for webpages containing many resources such as images, CSS files, and JavaScript files.
+	\end{itemize}
+	
+	If disabled:
+	\begin{lstlisting}
+	KeepAlive Off
+	\end{lstlisting}
+	
+	Apache closes the TCP connection immediately after serving each request.\\
+	
+	Persistent connections are particularly important for modern web applications because browsers commonly download multiple resources concurrently from the same server.
+	
+	\subsection{\texttt{KeepAliveTimeout}}
+	
+	The \texttt{KeepAliveTimeout} directive specifies how long Apache keeps an idle persistent connection open while waiting for additional requests from the same client. For example:
+	\begin{lstlisting}
+	KeepAliveTimeout 5
+	\end{lstlisting}
+	
+	In this configuration:
+	\begin{itemize}
+		\item Apache waits 5 seconds for a subsequent request;
+		\item if no additional request arrives within that period, the connection is closed.
+	\end{itemize}
+	
+	Choosing an appropriate timeout value is important:
+	\begin{itemize}
+		\item shorter timeouts reduce server resource consumption;
+		\item longer timeouts improve responsiveness for clients issuing multiple requests.
+	\end{itemize}
+	
+	\subsection{\texttt{MaxKeepAliveRequests}}
+	
+	The \texttt{MaxKeepAliveRequests} directive limits the maximum number of requests that may be served over a single persistent connection. For example:
+	\begin{lstlisting}
+	MaxKeepAliveRequests 100
+	\end{lstlisting}
+	
+	In this example, Apache closes the connection after serving 100 requests from the same client.\\
+	
+	This directive helps:
+	\begin{itemize}
+		\item prevent excessively long-lived connections;
+		\item balance resource usage among multiple clients;
+		\item reduce the risk of clients monopolizing server resources.
+	\end{itemize}
+	
+	If set to:
+	\begin{lstlisting}
+	MaxKeepAliveRequests 0
+	\end{lstlisting}
+	
+	Apache allows an unlimited number of requests per connection.
+	
+	\subsection{\texttt{ErrorLog}}
+	
+	The \texttt{ErrorLog} directive specifies the file where Apache stores diagnostic information, runtime warnings, and server errors. For example:
+	\begin{lstlisting}
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	\end{lstlisting}
+	
+	The error log typically contains:
+	\begin{itemize}
+		\item server startup and shutdown messages;
+		\item module loading errors;
+		\item configuration errors;
+		\item runtime failures;
+		\item CGI execution problems;
+		\item authentication and authorization failures.
+	\end{itemize}
+	
+	The \texttt{\$\{APACHE\_LOG\_DIR\}} variable is commonly defined in the Apache environment configuration and usually points to:
+	
+	\begin{lstlisting}
+	/var/log/apache2
+	\end{lstlisting}
+	
+	Error logs are fundamental for:
+	\begin{itemize}
+		\item debugging configuration issues;
+		\item monitoring server health;
+		\item troubleshooting application failures;
+		\item performing security analysis.
+	\end{itemize}
+	
+	\subsection{\texttt{Include}}
+	
+	The \texttt{Include} directive allows Apache to load additional configuration files from external paths. For example:
+	\begin{lstlisting}
+	Include conf/ssl.conf
+	\end{lstlisting}
+	
+	This mechanism improves configuration modularity by allowing the server configuration to be divided into multiple specialized files.\\
+	
+	The included files may contain:
+	\begin{itemize}
+		\item SSL/TLS configurations;
+		\item virtual host definitions;
+		\item module-specific settings;
+		\item authentication configurations;
+		\item proxy configurations.
+	\end{itemize}
+	
+	Apache processes included files as if their content were written directly inside the main configuration file.\\
+	
+	Modern Apache installations extensively use this modular configuration approach because it:
+	\begin{itemize}
+		\item improves maintainability;
+		\item simplifies administration;
+		\item enables dynamic activation and deactivation of features;
+		\item reduces configuration complexity.
+	\end{itemize}
+	
+	\subsection{Interaction Between \texttt{KeepAlive}, \texttt{KeepAliveTimeout}, and \texttt{MaxKeepAliveRequests}}
+	
+	Apache HTTP Server supports \textbf{persistent HTTP connections}, also called \textbf{Keep-Alive connections}. Persistent connections allow multiple HTTP requests and responses to be exchanged over the same TCP connection instead of opening a new TCP connection for every request.\\
+	
+	The behavior of persistent connections is controlled through the interaction of three directives:
+	\begin{itemize}
+		\item \texttt{KeepAlive};
+		\item \texttt{KeepAliveTimeout};
+		\item \texttt{MaxKeepAliveRequests}.
+	\end{itemize}
+	
+	These directives do not provide alternative mechanisms; instead, they cooperate to control:
+	\begin{itemize}
+		\item whether persistent connections are enabled;
+		\item how long idle connections remain open;
+		\item how many requests may be served through the same connection.
+	\end{itemize}
+	
+	\subsubsection{\texttt{KeepAlive}}
+	
+	The \texttt{KeepAlive} directive enables or disables persistent connections. For example:
+	\begin{lstlisting}
+	KeepAlive On
+	\end{lstlisting}
+	
+	When enabled, Apache allows clients to reuse the same TCP connection for multiple HTTP requests. For example:
+	\begin{lstlisting}
+	Browser ---- TCP Connection ---- Apache
+			|
+			|-- GET /index.html
+			|-- GET /style.css
+			|-- GET /logo.png
+			|-- GET /script.js
+	\end{lstlisting}
+	
+	All requests are transmitted over the same TCP connection. If instead:
+	\begin{lstlisting}
+	KeepAlive Off
+	\end{lstlisting}
+	
+	Apache closes the connection immediately after each response:
+	
+	\begin{lstlisting}
+	GET /index.html --> new TCP connection
+	GET /style.css  --> new TCP connection
+	GET /logo.png   --> new TCP connection
+	\end{lstlisting}
+	
+	Disabling persistent connections increases communication overhead because each request requires:
+	\begin{itemize}
+		\item a new TCP handshake;
+		\item additional socket allocation;
+		\item additional operating system resources.
+	\end{itemize}
+	
+	\subsubsection{\texttt{KeepAliveTimeout}}
+	
+	The \texttt{KeepAliveTimeout} directive specifies how long Apache keeps an idle persistent connection open while waiting for additional requests from the same client. For example:
+	\begin{lstlisting}
+	KeepAliveTimeout 5
+	\end{lstlisting}
+	
+	This means that Apache waits up to 5 seconds for another request before closing the connection.	For example:
+	\begin{lstlisting}
+	KeepAlive On
+	KeepAliveTimeout 5
+	\end{lstlisting}
+	
+	Possible interaction timeline:
+	
+	\begin{lstlisting}
+t = 0s  Client requests /index.html
+t = 1s  Apache sends the response
+	
+t = 2s  Client requests /style.css
+t = 3s  Apache sends the response
+	
+t = 8s  No additional requests received, Apache closes the connection
+	\end{lstlisting}
+	
+	Since the connection remained idle for 5 seconds after the last response, Apache terminates it.\\
+	
+	The \texttt{KeepAliveTimeout} directive is meaningful only when \texttt{KeepAlive} is enabled.
+	
+	\subsubsection{\texttt{MaxKeepAliveRequests}}
+	
+	The \texttt{MaxKeepAliveRequests} directive limits the maximum number of requests that may be served through a single persistent connection.\\
+	
+	Example:
+	\begin{lstlisting}
+	MaxKeepAliveRequests 100
+	\end{lstlisting}
+	
+	This configuration allows at most 100 requests over the same connection before Apache closes it. For example:
+	\begin{lstlisting}
+	KeepAlive On
+	MaxKeepAliveRequests 3
+	\end{lstlisting}
+	
+	Possible interaction:
+	\begin{lstlisting}
+	TCP connection opened
+		
+	Request 1 --> /index.html
+	Request 2 --> /style.css
+	Request 3 --> /logo.png
+		
+	Maximum request limit reached
+	Apache closes the connection
+	\end{lstlisting}
+	
+	Even if the connection is still active and the timeout has not expired, Apache terminates the connection after the configured request limit is reached. If:
+	\begin{lstlisting}
+	MaxKeepAliveRequests 0
+	\end{lstlisting}
+	
+	Apache allows an unlimited number of requests per connection.
+	
+	\subsubsection{Combined Interaction of the Three Directives}
+	
+	The three directives cooperate to fully define persistent connection behavior. For example:
+	
+	\begin{lstlisting}
+	KeepAlive On
+	KeepAliveTimeout 5
+	MaxKeepAliveRequests 100
+	\end{lstlisting}
+	
+	This configuration means:
+	
+	\begin{itemize}
+		\item persistent connections are enabled;
+		
+		\item Apache waits up to 5 seconds for additional requests after each response;
+		
+		\item a single TCP connection may serve at most 100 requests.
+	\end{itemize}
+	
+	The connection is closed when one of the following conditions occurs:
+	\begin{itemize}
+		\item the client remains idle longer than the configured timeout;
+		
+		\item the maximum number of requests is reached;
+		
+		\item the client explicitly closes the connection;
+		
+		\item the server terminates or reloads.
+	\end{itemize}
+	
+	\subsubsection{Example Scenarios}
+	
+	\paragraph{Scenario 1: Timeout-Based Connection Closure}
+	
+	\begin{lstlisting}
+	KeepAlive On
+	KeepAliveTimeout 3
+	MaxKeepAliveRequests 100
+	\end{lstlisting}
+	
+	Interaction:
+	
+	\begin{lstlisting}
+	Request 1 --> /index.html
+	Request 2 --> /style.css
+		
+	Client idle for 4 seconds
+	Apache closes the connection
+	\end{lstlisting}
+	
+	The connection is closed because the idle timeout expired before reaching the maximum request limit.
+	
+	\paragraph{Scenario 2: Request-Limit-Based Connection Closure}
+	
+	\begin{lstlisting}
+	KeepAlive On
+	KeepAliveTimeout 30
+	MaxKeepAliveRequests 2
+	\end{lstlisting}
+	
+	Interaction:
+	\begin{lstlisting}
+	Request 1 --> /index.html
+	Request 2 --> /style.css
+		
+	Maximum request limit reached	
+	Apache closes the connection
+	\end{lstlisting}
+	
+	In this case, the connection is closed because the request limit is reached, even though the timeout has not expired.
+	
+	\paragraph{Scenario 3: KeepAlive Disabled}
+	
+	\begin{lstlisting}
+	KeepAlive Off
+	KeepAliveTimeout 10
+	MaxKeepAliveRequests 100
+	\end{lstlisting}
+	
+	Behavior:
+	\begin{lstlisting}
+	Request 1 --> connection opened
+	Response sent --> connection closed
+		
+	Request 2 --> new connection opened
+	Response sent --> connection closed
+	\end{lstlisting}
+	
+	In this configuration:
+	\begin{itemize}
+		\item \texttt{KeepAliveTimeout} becomes irrelevant;
+		
+		\item \texttt{MaxKeepAliveRequests} becomes irrelevant;
+		
+		\item every request requires a new TCP connection.
+	\end{itemize}
+	
+	\subsubsection{Performance Considerations}
+	
+	Persistent connections significantly improve performance because they reduce the overhead associated with repeatedly establishing TCP connections. However, long-lived connections also consume server resources such as:
+	\begin{itemize}
+		\item memory;
+		\item sockets;
+		\item worker processes or threads.
+	\end{itemize}
+	
+	For this reason, configuring:
+	\begin{itemize}
+		\item excessively high timeout values may waste resources;
+		
+		\item excessively low timeout values may reduce the benefits of persistent connections.
+	\end{itemize}
+	
+	Choosing appropriate values for these directives therefore represents a trade-off between:
+	\begin{itemize}
+		\item responsiveness and performance;
+		\item scalability and resource utilization.
+	\end{itemize}
+	
+	\section{Authorization and Authentication Directives}
+	
+	Apache HTTP Server provides a flexible authentication and authorization framework that can be used to restrict access to specific web resources. These mechanisms are commonly configured inside \texttt{.htaccess} files to protect directories, webpages, or administrative areas from unauthorized access.\\
+	
+	Authentication verifies the identity of a client attempting to access a resource, while authorization determines whether the authenticated client is allowed to access the requested content.
+	
+	\subsection{The \texttt{AuthType} Directive}
+	
+	The \texttt{AuthType} directive specifies the authentication mechanism used to validate client credentials. For example:
+	
+	\begin{lstlisting}
+	AuthType Basic
+	\end{lstlisting}
+	
+	The keyword \texttt{Basic} enables the HTTP Basic Authentication mechanism. With Basic Authentication:
+	\begin{itemize}
+		\item the client sends a username and password to the server;
+		
+		\item the credentials are encoded using Base64;
+		
+		\item the encoded credentials are transmitted inside the HTTP request headers.
+	\end{itemize}
+	
+	For example:
+	
+	\begin{lstlisting}
+	Authorization: Basic dXNlcjpwYXNzd29yZA==
+	\end{lstlisting}
+	
+	Base64 is only an encoding mechanism and does not provide encryption or confidentiality protection. Consequently:
+	\begin{itemize}
+		\item credentials can be easily decoded if intercepted;
+		
+		\item Basic Authentication alone should not be considered secure for protecting confidential data;
+		
+		\item Basic Authentication should normally be used together with HTTPS/TLS encryption.
+	\end{itemize}
+	
+	Without HTTPS, an attacker monitoring network traffic could recover usernames and passwords.
+	
+	\subsection{The \texttt{AuthName} Directive}
+	
+	The \texttt{AuthName} directive specifies the authentication realm shown to the user during the login request. Example:
+	
+	\begin{lstlisting}
+	AuthName "Restricted webpage"
+	\end{lstlisting}
+	
+	The realm is displayed by the browser inside the authentication popup dialog and helps users understand which protected area they are trying to access.
+	
+	\subsection{\texttt{AuthBasicProvider}}
+	
+	The \texttt{AuthBasicProvider} directive specifies the backend provider used by Apache to validate user credentials. For example:
+	
+	\begin{lstlisting}
+	AuthBasicProvider file
+	\end{lstlisting}
+	
+	The keyword \texttt{file} indicates that credentials are stored inside a local password file. Apache also supports alternative authentication providers such as:
+	
+	\begin{itemize}
+		\item \textbf{dbm}: credentials are stored inside a DBM database file;
+		
+		\item \textbf{ldap}: credentials are validated through an LDAP directory service.
+	\end{itemize}
+	
+	\subsubsection{DBM Authentication}
+	
+	DBM (Database Manager) refers to a family of lightweight key-value database systems commonly used for fast local storage and retrieval of structured data. When used as an authentication provider:
+	\begin{itemize}
+		\item usernames act as keys;
+		
+		\item password hashes act as values;
+		
+		\item Apache performs fast credential lookups directly from the database file.
+	\end{itemize}
+	
+	DBM authentication is generally more efficient than plain text password files when managing large numbers of users.
+	
+	\subsubsection{LDAP Authentication}
+	
+	LDAP (Lightweight Directory Access Protocol) is a standardized protocol used to access centralized directory services containing information about users, groups, devices, and organizational resources. When LDAP authentication is enabled:
+	\begin{itemize}
+		\item Apache delegates credential validation to an external LDAP server;
+		
+		\item user accounts can be centrally managed across multiple systems;
+		
+		\item organizations can integrate Apache authentication with enterprise identity management infrastructures.
+	\end{itemize}
+	
+	LDAP authentication is commonly used in corporate environments together with services such as:
+	\begin{itemize}
+		\item OpenLDAP;
+		
+		\item Microsoft Active Directory.
+	\end{itemize}
+	
+	\subsection{\texttt{AuthUserFile}}
+	
+	The \texttt{AuthUserFile} directive specifies the path to the file containing usernames and password hashes. For example:
+	
+	\begin{lstlisting}
+	AuthUserFile /etc/httpd/conf/.htpasswd
+	\end{lstlisting}
+	
+	The referenced file typically stores:
+	\begin{itemize}
+		\item usernames;
+		
+		\item hashed passwords.
+	\end{itemize}
+	
+	A typical \texttt{.htpasswd} file may contain entries such as:
+	
+	\begin{lstlisting}
+	alice:$apr1$7F3s...$kP9...
+	bob:$apr1$Ab9x...$Lm2...
+	\end{lstlisting}
+	
+	Passwords are usually stored as cryptographic hashes rather than plain text. Apache provides utilities such as \texttt{htpasswd} to create and manage these authentication files.
+	
+	\subsection{\texttt{Require}}
+	
+	The \texttt{Require} directive defines the authorization policy applied after successful authentication. For example:
+	
+	\begin{lstlisting}
+	Require valid-user
+	\end{lstlisting}
+	
+	This directive specifies that:
+	\begin{itemize}
+		\item only successfully authenticated users may access the protected resource;
+		
+		\item any valid user account defined by the configured authentication provider is accepted.
+	\end{itemize}
+	
+	Apache also supports more restrictive authorization rules, such as:
+	\begin{itemize}
+		\item requiring specific usernames;
+		
+		\item requiring membership in specific groups;
+		
+		\item restricting access to particular hosts or IP addresses.
+	\end{itemize}
+	
+	\subsection{Example of Protected Directory Configuration}
+	
+	The following example shows a complete authentication and authorization configuration inside a \texttt{.htaccess} file:
+	
+	\begin{lstlisting}
+	AuthType Basic
+		
+	AuthName "Restricted webpage"
+		
+	AuthBasicProvider file
+		
+	AuthUserFile /etc/apache2/.htpasswd
+		
+	Require valid-user
+	\end{lstlisting}
+	
+	In this configuration:
+	\begin{itemize}
+		\item Apache enables HTTP Basic Authentication;
+		
+		\item users accessing the directory are prompted with the realm ``Restricted webpage'';
+		
+		\item credentials are validated using a local password file;
+		
+		\item only authenticated users are allowed to access the protected resources.
+	\end{itemize}
+	
+	When a client attempts to access the protected directory:
+	\begin{enumerate}
+		\item Apache requests authentication credentials;
+		
+		\item the browser displays a login dialog;
+		
+		\item the client sends the username and password;
+		
+		\item Apache validates the credentials;
+		
+		\item if authentication succeeds, access is granted.
+	\end{enumerate}
+	
+	\section{Managing Access Control and Authentication}
+	
+	Apache provides robust mechanisms for restricting access to specific directories or resources. A common, though now dated, method is Basic Access Authentication.
+	
+	\begin{enumerate}
+		\item \textbf{Basic Access Authentication}: This mechanism challenges the user for a username and password before granting access. It is typically configured in a \texttt{.htaccess} file using the following directives:
+		\begin{itemize}
+			\item \texttt{AuthType Basic}: Specifies the use of the Basic authentication mechanism.
+			
+			\item \texttt{AuthName "Realm Name"}: Sets the text that appears in the authentication prompt shown to the user. This ``realm'' name identifies the protected area and helps users understand which set of credentials they need to provide, for example, ``Corporate Intranet'' or ``Admin Section.''
+			
+			\item \texttt{AuthUserFile /path/to/.htpasswd}: Points to the file containing the list of valid usernames and their corresponding passwords.
+			
+			\item \texttt{Require valid-user}: Enforces the rule that a user must provide valid credentials from the specified \texttt{AuthUserFile} to access the resource.
+		\end{itemize}
+		
+		\item \textbf{Security Analysis}: \texttt{AuthType Basic} is considered \textbf{obsolete for protecting sensitive data}. The credentials are sent from the client to the server in plain text after being Base64 encoded. Base64 is an encoding scheme, not an encryption algorithm, meaning the credentials can be easily		decoded by anyone who intercepts the traffic.
+		
+		\item \textbf{Securing Configuration Files}: It is a critical security practice to prevent web clients from accessing configuration files like \texttt{.htaccess} and password files like \texttt{.htpasswd}. Since these files reside within the web root, they could be downloaded if not explicitly protected. The following directive, placed in the main \texttt{httpd.conf} file, uses a regular expression to deny all access to any file whose name begins with \texttt{.ht}.
+	\end{enumerate}
+	
+	\chapter{In-Depth Analysis: The Apache HTTP Server}
+	
+	The Apache HTTP Server is a highly modular, flexible, and historically dominant web server that has powered a significant portion of the web for decades. Its robust and extensible architecture allows administrators to fine-tune its behavior for a vast array of use cases. This chapter will deconstruct Apache's configuration model, from its modules to advanced capabilities like dynamic content generation, performance caching, and security enforcement.
+	
+	\section{Apache Modules}
+	
+	Apache HTTP Server provides a modular architecture that allows functionalities to be added or removed through components called \textbf{modules}. Modules extend the capabilities of the server beyond its minimal core functionalities and make Apache highly flexible and customizable.
+	
+	Through modules, Apache can support:
+	\begin{itemize}
+		\item HTTPS and SSL/TLS encryption;
+		
+		\item URL rewriting;
+		
+		\item proxying and load balancing;
+		
+		\item authentication and authorization mechanisms;
+		
+		\item scripting language integration;
+		
+		\item server-side includes;
+		
+		\item dynamic content generation;
+		
+		\item logging and monitoring functionalities.
+	\end{itemize}
+	
+	The modular architecture allows administrators to enable only the functionalities required by the deployed applications, reducing:
+	\begin{itemize}
+		\item memory usage;
+		
+		\item attack surface;
+		
+		\item configuration complexity.
+	\end{itemize}
+	
+	Apache modules are divided into two main categories:
+	\begin{itemize}
+		\item built-in (static) modules;
+		
+		\item loadable (shared) modules.
+	\end{itemize}
+	
+	\subsection{Built-in Modules}
+	
+	Built-in modules, also called \textbf{static modules}, are compiled directly into the Apache server binary during the build process. These modules:
+	\begin{itemize}
+		\item are permanently integrated into the Apache executable;
+		
+		\item are automatically loaded every time the server starts;
+		
+		\item cannot be disabled without recompiling Apache.
+	\end{itemize}
+	
+	Because they are embedded into the server binary:
+	\begin{itemize}
+		\item they do not require separate loading directives;
+		
+		\item they are always available during server execution.
+	\end{itemize}
+	
+	Static modules are typically used for:
+	\begin{itemize}
+		\item core functionalities;
+		
+		\item low-level request processing;
+		
+		\item essential server features.
+	\end{itemize}
+	
+	Examples of functionalities commonly implemented through static modules include:
+	\begin{itemize}
+		\item core HTTP request handling;
+		
+		\item configuration parsing;
+		
+		\item process management.
+	\end{itemize}
+	
+	\subsection{Loadable Modules}
+	
+	Loadable modules, also called \textbf{shared modules}, are dynamically loaded at runtime only when required. Unlike static modules:
+	\begin{itemize}
+		\item they are stored as separate shared object files;
+		
+		\item they can be enabled or disabled without recompiling Apache;
+		
+		\item they provide a more flexible configuration mechanism.
+	\end{itemize}
+	
+	On Linux systems, shared modules are typically stored as:
+	
+	\begin{lstlisting}
+	/usr/lib/apache2/modules/
+	\end{lstlisting}
+	
+	or:
+	
+	\begin{lstlisting}
+	/usr/lib/httpd/modules/
+	\end{lstlisting}
+	
+	depending on the distribution.\\
+	
+	Shared modules usually have the extension \texttt{.so} which stands for \textit{shared object}.
+	
+	\subsection{The \texttt{LoadModule} Directive}
+	
+	Shared modules are loaded through the \texttt{LoadModule} directive. For example:
+	
+	\begin{lstlisting}
+	LoadModule status_module modules/mod_status.so
+	\end{lstlisting}
+	
+	This directive specifies:
+	\begin{itemize}
+		\item the symbolic module identifier:
+		\begin{lstlisting}
+		status_module
+		\end{lstlisting}
+		
+		\item the path of the shared library implementing the module:
+		\begin{lstlisting}
+		modules/mod_status.so
+		\end{lstlisting}
+	\end{itemize}
+	
+	When Apache starts:
+	\begin{itemize}
+		\item the shared object file is loaded into memory;
+		
+		\item the module registers its functionalities inside the server.
+	\end{itemize}
+	
+	The \texttt{mod\_status} module shown in the example provides monitoring information about:
+	\begin{itemize}
+		\item active connections;
+		
+		\item worker processes;
+		
+		\item server load;
+		
+		\item request statistics.
+	\end{itemize}
+	
+	\subsection{Examples of Common Apache Modules}
+	
+	Apache provides a large number of optional modules. Some important examples are:
+	
+	\begin{itemize}
+		\item \texttt{mod\_ssl}: provides SSL/TLS support for HTTPS connections;
+		
+		\item \texttt{mod\_rewrite}: provides URL rewriting capabilities;
+		
+		\item \texttt{mod\_proxy}: enables proxy and reverse proxy functionalities;
+		
+		\item \texttt{mod\_php}: integrates the PHP interpreter with Apache;
+		
+		\item \texttt{mod\_status}: exposes server status information;
+		
+		\item \texttt{mod\_auth\_basic}: implements HTTP Basic Authentication;
+		
+		\item \texttt{mod\_cgi}: enables execution of CGI scripts.
+	\end{itemize}
+	
+	\subsection{Listing Loaded Modules}
+	
+	Apache provides command-line utilities to inspect the loaded modules.
+	
+	To display only the modules statically compiled into Apache:
+	
+	\begin{lstlisting}
+	apache2ctl -l
+	\end{lstlisting}
+	
+	The option:
+	
+	\begin{lstlisting}
+	-l
+	\end{lstlisting}
+	
+	stands for:
+	\begin{lstlisting}
+	compiled-in modules list
+	\end{lstlisting}
+	
+	To display all loaded modules, both static and shared:
+	
+	\begin{lstlisting}
+	apache2ctl -M
+	\end{lstlisting}
+	
+	This command shows:
+	\begin{itemize}
+		\item built-in modules;
+		
+		\item dynamically loaded modules;
+		
+		\item their loading type.
+	\end{itemize}
+	
+	Example output:
+	
+	\begin{lstlisting}
+	core_module (static)
+	so_module (static)
+	rewrite_module (shared)
+	ssl_module (shared)
+	status_module (shared)
+	\end{lstlisting}
+	
+	This information is useful for:
+	\begin{itemize}
+		\item debugging configuration issues;
+		
+		\item verifying module availability;
+		
+		\item checking whether specific functionalities are enabled.
+	\end{itemize}
+	
+	\subsection{Conditional Configuration with \texttt{<IfModule>}}
+	
+	Apache configurations may depend on the availability of specific modules. To avoid configuration errors when optional modules are absent, Apache provides the \texttt{<IfModule>} sectioning directive. For example:
+	
+	\begin{lstlisting}
+	<IfModule mod_status.c>
+		ExtendedStatus On
+	</IfModule>
+	\end{lstlisting}
+	
+	The enclosed directives are applied only if the specified module is currently loaded. In this example:
+	\begin{itemize}
+		\item the \texttt{ExtendedStatus} directive is activated only if the \texttt{mod\_status} module is available;
+		
+		\item if the module is missing, Apache ignores the enclosed directives instead of generating an error.
+	\end{itemize}
+	
+	This mechanism improves:
+	\begin{itemize}
+		\item configuration portability;
+		
+		\item modularity;
+		
+		\item compatibility across different Apache installations.
+	\end{itemize}
+	
+	The argument of the \texttt{<IfModule>} directive is usually:
+	\begin{itemize}
+		\item the module source filename;
+		
+		\item or the module identifier.
+	\end{itemize}
+	
+	For example:
+	
+	\begin{lstlisting}
+	<IfModule mod_ssl.c>
+	\end{lstlisting}
+	
+	checks whether the SSL/TLS module is loaded.
+	
+	\subsection{Advantages of Apache's Modular Architecture}
+	
+	Apache's modular architecture provides several important advantages:
+	
+	\begin{itemize}
+		\item flexibility: functionalities can be enabled only when needed;
+		
+		\item extensibility: third-party modules can be integrated easily;
+		
+		\item maintainability: features are isolated into independent components;
+		
+		\item security: unnecessary functionalities can be disabled;
+		
+		\item scalability: the server can be adapted to many different deployment scenarios.
+	\end{itemize}
+	
+	This architecture is one of the primary reasons why Apache became one of the most widely used web servers in both academic and industrial environments.
+	
+	\section{Serving Dynamic Content}
+	
+	While serving static files is a core function, the web's power comes from dynamic content.
+	Apache has evolved to support dynamic generation through two primary mechanisms:
+	\begin{enumerate}
+		\item Common Gateway Interface (CGI)
+		\item Server-Side Scripting with Embedded Modules
+	\end{enumerate}
+	
+	
+	\subsection{Common Gateway Interface (CGI)}
+	CGI was the original standard for a web server to interact with external programs also referred to as CGI programs or CGI scripts. Using the \texttt{ScriptAlias} directive, a URL path (e.g., \texttt{/cgi-bin/}) is mapped to a directory on the server containing executable scripts. For example:
+	        
+	\begin{lstlisting}
+	ScriptAlias "/cgi-bin/" "/usr/local/apache2/cgi-bin/"
+	\end{lstlisting}
+	        
+	This instruction binds the folder referenced using the URL \texttt{www.example.org/cgi-bin/} to the internal server path \texttt{/usr/local/apache2/cgi-bin}. Apache will assume that all the files contained in this folder are CGI scripts and will try to execute them when they are requested.\\	        
+	        
+	When a request for that URL arrives, the server executes the corresponding script and sends its output back to the client. This model, however, has a significant performance overhead, as the server must spawn a new process for the external program for every single request.
+	    
+	\subsection{Server-Side Scripting with Embedded Modules}
+	To address the performance limitations of CGI, a more efficient model emerged: embedding a language interpreter directly into the Apache server process via a module. PHP is a classic example of this approach. Using a module like \texttt{mod\_php}, the PHP interpreter becomes part of each Apache worker process spawned by the server. Consequently, every Apache worker is able to directly handle and execute PHP scripts without relying on external processes.
+	
+	This architecture provides several important advantages:
+	\begin{itemize}
+		\item
+		\textbf{Superior Performance}: By eliminating the need to create a separate process for each request, this model drastically reduces memory and CPU overhead. It is therefore particularly suitable for ``PHP-heavy'' websites, such as those based on WordPress, Drupal, or Joomla, where many requests involve PHP code execution.
+		
+		\item
+		\textbf{Simplified Development}: Server-side scripting languages like PHP allow developers to embed dynamic code snippets directly within standard HTML files. The server processes the file, executes the embedded code, and sends the resulting dynamically generated HTML page to the client, significantly simplifying the development workflow.
+	\end{itemize}
+	
+	Despite these benefits, embedding the interpreter inside Apache also introduces some drawbacks. Since the PHP interpreter is loaded into every Apache worker process, the web server requires more system resources, especially memory.
+	
+	\subsubsection{Integrating the PHP interpreter in the Apache Web Server}
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Images/PHP module.jpg"}
+		\caption{Execution of a PHP script using the embedded mod\_php module}
+		\label{fig:php_module}
+	\end{figure}
+	
+	Figure \ref{fig:php_module} shows the Apache Web Server handling an example of POST request. At the top of the figure we can see the Apache Web Server and the Web Client (browser) with a vertical line underneath each. Those vertical lines are temporal lines starting from the top of the figure and ending at the bottom of the latter.\\
+	
+	At the right of the figure there is a legend saying that the script files are represented using the UML document symbol with a green border and the binary executable components are represented using a red rectangle with rounded edges. At the left of the figure there are the document \texttt{Hoge.php} and the PHP interpreter.\\
+	
+	The fact that the module \texttt{mod\_php} is overlapped to the timeline of the web server is to highlight the fact that the module binary is integrated in Apache Web Server instead of being an external component.\\
+	
+	The client sends a POST request to the server requesting the file \texttt{hoge.php}. The web server receives the request and dispatches it to the \texttt{mod\_php} module which loads the file \texttt{Hoge.php} from the disk. At this point, the PHP file is parsed and executed by the PHP runtime which returns execution results, generated output and possible runtime errors to \texttt{mod\_php}. After completely executing the PHP script, the overall result of the operation is returned to the user in a response message.\\
+	
+	The figure is misleading because it treats the PHP interpreter and the \texttt{mod\_php} module as different components when, in reality, the PHP interpreter is inside the module to make it embedded. The arrows in the figure do not represent a message exchange between different components but, instead, they represent the execution of instructions and the returning of values, status codes, errors, etc... from the PHP interpreter.
+	
+	\subsubsection{Executing PHP scripts through the Common Gateway Interface}
+	
+	Historically, PHP scripts could also be executed through the Common Gateway Interface (CGI). In this legacy approach, each request requiring PHP execution caused the web server to spawn a new external process running the interpreter. While this model keeps code execution separated from the web server --- providing certain security advantages --- it is highly inefficient because of the overhead associated with process creation.
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Images/PHP CGI.jpg"}
+		\caption{Execution of a PHP script using a CGI script}
+		\label{fig:php_cgi}
+	\end{figure}
+	
+	Figure \ref{fig:php_cgi} shows the same scenario exposed in the previous subsection but, in this case, the PHP script is executed by an external process. In this case the POST request is forwarded to the external process \texttt{php-cgi} which parses and executes the PHP file using the PHP runtime. The figure highlights that the execution does not only involve the PHP file but also an argument vector. Let us clarify the execution process.
+	
+	\subsubsection{Argument Vector and Parameter Passing in CGI}
+	
+	In the CGI execution model, the web server executes external applications through operating system process creation primitives such as \texttt{execve()}. As a consequence, the CGI application receives the traditional Unix process execution parameters:
+	\begin{itemize}
+		\item
+		an \textbf{argument vector} (\texttt{argv[]});
+		
+		\item
+		a set of \textbf{environment variables};
+		
+		\item
+		standard input and output streams (\texttt{stdin}/\texttt{stdout}).
+	\end{itemize}
+	
+	The figure referring to \texttt{php-cgi} mentions the execution of PHP scripts using "\texttt{.php + Argv}". This means that Apache invokes the CGI executable while passing the target PHP script as an argument of the process. Conceptually, the invocation may resemble the following:
+	
+	\begin{lstlisting}
+	php-cgi /var/www/html/hoge.php
+	\end{lstlisting}
+	
+	Internally, this produces an argument vector similar to:
+	
+	\begin{lstlisting}
+	argv[0] = "php-cgi"
+	argv[1] = "/var/www/html/hoge.php"
+	\end{lstlisting}
+	
+	However, HTTP request parameters are not usually transmitted directly through the argument vector. Instead, the CGI specification maps HTTP information onto Unix process primitives in different ways.
+	
+	\paragraph{GET parameters}
+	
+	For HTTP GET requests, the query string contained in the URL is converted into an environment variable named \texttt{QUERY\_STRING}. For example, the request:
+	
+	\begin{lstlisting}
+	GET /hoge.php?name=alice&id=5
+	\end{lstlisting}
+	
+	is transformed by the server into:
+	
+	\begin{lstlisting}
+	QUERY_STRING="name=alice&id=5"
+	\end{lstlisting}
+	
+	The PHP interpreter then parses this information to construct the \texttt{\$\_GET} associative array.
+	
+	\paragraph{POST parameters}
+	
+	For POST requests, the request body is not passed through the argument vector nor through environment variables. Instead, Apache forwards the HTTP body to the CGI process using the standard input stream (\texttt{stdin}). The PHP interpreter reads the input stream and generates the \texttt{\$\_POST} array accordingly.
+	
+	\paragraph{HTTP headers}
+	
+	HTTP headers are generally converted into environment variables as well. For instance:
+	
+	\begin{lstlisting}
+	User-Agent: Firefox
+	\end{lstlisting}
+	
+	may become:
+	
+	\begin{lstlisting}
+	HTTP_USER_AGENT="Firefox"
+	\end{lstlisting}
+	
+	Therefore, although the figure refers to the "argument vector", the actual CGI communication model relies on a combination of:
+	\begin{itemize}
+		\item
+		process arguments;
+		
+		\item
+		environment variables;
+		
+		\item
+		standard input streams.
+	\end{itemize}
+	
+	This design reflects the Unix philosophy underlying CGI, where a web request is translated into the execution of a standard operating system process capable of communicating through conventional Unix I/O mechanisms.
+	
+	\subsubsection{Executing PHP scripts using FastCGI}
+	
+	To mitigate these inefficiencies while maintaining process separation, modern systems often adopt \textbf{FastCGI}. With FastCGI, PHP scripts are executed by persistent interpreter processes running outside the web server, reducing process creation overhead while still decoupling application execution from the web server itself.
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Images/PHP CGI script.jpg"}
+		\caption{Execution of a PHP script using a persistent external interpreter process}
+		\label{fig:php_cgi_script}
+	\end{figure}
+	
+	Figure \ref{fig:php_cgi_script} shows the same POST request as the previous subsections but, in this case, the request is handled by a persistent interpreter process which reads the file \texttt{Hoge.php} from disk, executes it and returns the overall response to the Apache Web Server process which, in turn, returns the overall result of the computation to the web client.\\
+	
+	If we pay attention to the figure we can notice a small error: the arrow between the file stored on disk and the PHP interpreter is bidirectional. This is wrong because the file stored on disk is a static entity and it doesn't make sense to communicate with it. The arrow connecting the file on disk and the PHP interpreter should point only to the PHP interpreter.\\
+	
+	FastCGI represents an evolution of the traditional CGI model.
+	Instead of spawning a new interpreter process for each request,
+	the web server communicates with persistent external interpreter
+	processes, significantly reducing process creation overhead while
+	maintaining process isolation. This is the foundation of modern high-performance web servers.
+	
+	\chapter{Advanced Apache Capabilities}
+	
+	A server's core duty is serving content, but its real power lies in managing the entire application delivery ecosystem: scaling horizontally with virtual hosting, optimizing delivery through caching, and routing traffic intelligently with proxies and redirects. Apache provides powerful features to address each of these domains.
+	
+	\section{URL Redirection}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{"Images/Redirection.png"}
+		\caption{Redirection of the request to the document \texttt{mydoc.html} from the folder \texttt{olddir} to the folder \texttt{newdir}. The server response contains a little error because there should be an opening anchor tag (\texttt{<a>}) before the word "here".}
+		\label{fig:redirection}
+	\end{figure}
+	
+	The \texttt{Redirect} directive is used to map an old URL to a new one, instructing the client that a resource has moved. When a client requests the old URL, the server responds with a status code (like \texttt{301 Moved Permanently}) and the new location in the \texttt{Location} header which is empty if the resource was deleted. The client is then responsible for making a new request to the updated URL. This is essential for maintaining links when site structures change.\\
+	
+	To implement a URL redirection, we can use the \texttt{Redirect} directive in a configuration file.
+	
+	\begin{lstlisting}
+	Redirect [status] [URL-path] URL
+	\end{lstlisting}
+	
+	The \texttt{status} argument is the status code of the redirection indicating the type of redirection of the resource. It is also possible to use some predefined strings as the \texttt{status} argument which are mapped to the corresponding numerical code. In fact, the most common status codes have a corresponding string for human readability. The possible values for the \texttt{status} argument are the following:
+	\begin{itemize}
+		\item
+		\textbf{permanent}: Returns a permanent redirect status (301) indicating that the resource has moved permanently;
+		
+		\item 
+		\textbf{temp}: Returns a temporary redirect status (302). This is the default;
+		
+		\item 
+		\textbf{seeother}: Returns a "See Other" status (303) indicating that the resource has been replaced;
+		
+		\item 
+		\textbf{gone}: Returns a "Gone" status (410) indicating that the resource has been permanently removed. When this status is used the URL argument should be omitted;
+		
+		\item 
+		Numbers in the range \textbf{300--399}: It is also possible to use codes in the range 300--399 other than 301, 302 and 303 but, in these cases, the URL argument must be present;
+		
+		\item 
+		Numbers \textbf{outside} the range \textbf{300--399}: It is also possible to use numbers outside the range 300--399 and, in these cases, the \emph{URL argument must be omitted}.
+	\end{itemize}
+	
+	The \texttt{URL-path} argument is the old absolute path of the document inside the machine which starts with a slash (\texttt{/}) indicating the root folder in the server.\\
+	
+	The \texttt{URL} argument is the new location of the resource. This can either be an absolute path inside the same machine which is expressed in the same format as the previous argument or, it can also be a location on a different machine or domain expressed using a URL.\\
+	
+	Figure \ref{fig:redirection} shows an example of user requesting a permanently moved resource. The user requests the resource referring to its previous location because they don't know about the redirection yet. The old location of the resource is \texttt{http://www.example.com/olddir/mydoc.html} and the new location of the resource is \texttt{http://www.example.com/newdir/mydoc.html}. When the user asks for the resource in its previous location, the server responds with a message saying that the resource was moved permanently to its new location. The directive that implements this mechanism in the configuration file is the following:
+	
+	\begin{lstlisting}
+	Redirect permanent "/olddir/mydoc.html" "/newdir/mydoc.html"
+	\end{lstlisting}
+	
+	\newpage
+	\section{Virtual Hosting}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{"Images/Virtual hosting.png"}
+		\caption{Figure showing the difference between the IP based virtual hosting and the name based virtual hosting. In the IP based virtual hosting, we have two different IP addresses for the two websites while, for the name based virtual hosting, the two websites share the same IP address and the server knows which resource to send according to the \texttt{Host} header in the client's HTTP request.}
+		\label{fig:virtual_hosting}
+	\end{figure}
+	
+	Virtual hosting is the practice of running multiple websites, each with its own domain name, on a single server machine. This is a foundational feature for web hosting and efficient server management. There are two ways of implementing this practice: IP based virtual hosting and name based virtual hosting. Table \ref{tbl:virtual_hosting} exposes the differences between them and figure \ref{fig:virtual_hosting} shows how both of them handle requests to two different websites.
+	
+	\begin{table}[!h]
+	    \centering
+	    \begin{tabularx}{\linewidth}{|p{3.5cm}|X|X|}
+	        \hline
+	        
+	        \textbf{Feature} & \textbf{IP-Based Virtual Hosting} & \textbf{Name-Based Virtual Hosting}\\
+	        \hline
+	        
+	        \textbf{Mechanism} &
+	        Each website is assigned its own unique IP address. The server determines which site to serve based on the IP address the request was sent to. &
+	        Multiple websites share a single IP address. The server uses the \texttt{Host} header in the client's HTTP request to determine which domain was requested.\\
+	        \hline
+	        
+	        \textbf{Primary Trade-Off} &
+	        \textbf{Disadvantage:} Requires a dedicated IP address for every website, which is inefficient, costly, administratively burdensome, and contributes to IPv4 address exhaustion. &
+	        \textbf{Advantage:} Highly efficient and scalable, allowing a nearly unlimited number of sites to run on a single IP address. This is the standard method for virtual hosting.\\
+	        \hline
+	    \end{tabularx}
+	    \caption{Differences between the IP based virtual hosting and the name based virtual hosting}
+	    \label{tbl:virtual_hosting}
+	\end{table}
+	
+	\subsection{Virtual Host Configuration in Apache}
+	
+	On Ubuntu and Debian systems, Apache adopts a modular configuration structure that simplifies the management of multiple websites hosted on the same server. Instead of placing all virtual host definitions inside a single configuration file, Apache separates site configurations into dedicated directories. The directory:
+	
+	\begin{lstlisting}
+	/etc/apache2/sites-available/
+	\end{lstlisting}
+	
+	contains the configuration files for all available websites that can potentially be served by Apache. Each website is typically associated with its own configuration file containing one or more \texttt{VirtualHost} blocks.\\
+	
+	Among these files, Ubuntu/Debian installations usually provide a default configuration file named:
+	
+	\begin{lstlisting}
+	000-default.conf
+	\end{lstlisting}
+	
+	This file defines the default virtual host loaded by Apache. A simplified version of the file is shown below:
+	
+	\begin{lstlisting}
+	<VirtualHost *:80>
+		ServerAdmin webmaster@localhost
+		DocumentRoot /var/www/html
+		
+		ErrorLog ${APACHE_LOG_DIR}/error.log
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+	</VirtualHost>
+	\end{lstlisting}
+	
+	We can substitute the asterisk in the snippet with an IP address for the IP based virtual hosting or with a name for the name based virtual hosting.\\
+	
+	The prefix \texttt{000-} is intentionally chosen so that the file is loaded before other virtual host configurations when Apache processes configuration files alphabetically. As a consequence, this configuration acts as the fallback website whenever no other virtual host matches the incoming request.\\
+	
+	The slides suggests that new virtual host configurations should be ``based on'' \texttt{000-default.conf}. This does not necessarily mean that the file itself must be modified. Instead, the common and recommended practice is to use it as a template for creating new configuration files dedicated to individual websites. For example, a new website configuration may be created as:
+	
+	\begin{lstlisting}
+	/etc/apache2/sites-available/example.conf
+	\end{lstlisting}
+	
+	containing:
+	
+	\begin{lstlisting}
+	<VirtualHost *:80>
+		ServerName example.com
+		ServerAlias www.example.com
+		
+		DocumentRoot /var/www/example
+		
+		ErrorLog ${APACHE_LOG_DIR}/example-error.log
+		CustomLog ${APACHE_LOG_DIR}/example-access.log combined
+	</VirtualHost>
+	\end{lstlisting}
+	
+	In this configuration:
+	\begin{itemize}
+		\item
+		\texttt{ServerName} specifies the primary domain handled by the virtual host;
+		
+		\item
+		\texttt{ServerAlias} specifies alternative domain names;
+		
+		\item
+		\texttt{DocumentRoot} indicates the directory containing the website files;
+		
+		\item
+		\texttt{ErrorLog} and \texttt{CustomLog} configure dedicated log files for the website.
+	\end{itemize}
+	
+	Apache distinguishes enabled websites from merely available ones using another directory:
+	
+	\begin{lstlisting}
+	/etc/apache2/sites-enabled/
+	\end{lstlisting}
+	
+	A website becomes active only after enabling its configuration through the command:
+	
+	\begin{lstlisting}
+	sudo a2ensite example.conf
+	\end{lstlisting}
+	
+	Internally, this command creates a symbolic link from the configuration file stored in \texttt{sites-available} to the \texttt{sites-enabled} directory. After enabling or modifying a virtual host, Apache must reload its configuration:
+	
+	\begin{lstlisting}
+	sudo systemctl reload apache2
+	\end{lstlisting}
+	
+	This modular organization provides several advantages:
+	\begin{itemize}
+		\item
+		each website remains isolated in its own configuration file;
+		
+		\item
+		websites can be enabled or disabled independently;
+		
+		\item
+		log management becomes simpler;
+		
+		\item
+		server maintenance and debugging are significantly easier.
+	\end{itemize}
+	
+	Therefore, although \texttt{000-default.conf} can technically be modified directly, production systems generally avoid using it for custom websites and instead create dedicated configuration files for each virtual host.
+	
+	\subsection{Request Processing Pipeline in Apache}
+	
+	After receiving an HTTP request, Apache performs a sequence of internal processing steps in order to determine:
+	\begin{itemize}
+		\item
+		which virtual host should handle the request;
+		
+		\item
+		which resource is being requested;
+		
+		\item
+		which configuration directives apply to the resource;
+		
+		\item
+		how the final response should be generated.
+	\end{itemize}
+	
+	This procedure is commonly referred to as the \textbf{request processing pipeline}.
+	
+	\subsubsection{Virtual Host Resolution}
+	
+	The first operation performed by Apache consists in determining the virtual host responsible for handling the incoming request. In name-based virtual hosting configurations, Apache analyzes the value of the HTTP \texttt{Host} header sent by the client and compares it with the configured \texttt{ServerName} and \texttt{ServerAlias} directives.\\
+	
+	Once the matching virtual host has been identified, Apache loads the corresponding configuration context associated with that website.
+	
+	\subsubsection{Initial Location Walk}
+	
+	Before translating the requested URI into an actual file on disk, Apache performs an initial \textbf{location walk}. During this phase, Apache evaluates all \texttt{<Location>} configuration blocks whose matching rules apply to the requested URI.\\
+	
+	Unlike \texttt{<Directory>} containers, which operate on filesystem paths, \texttt{<Location>} directives are applied directly to the URI namespace exposed by the web server. This distinction is important because, at this stage, Apache may not yet know whether the requested resource corresponds to a physical file, a dynamically generated resource, or a rewritten URL.
+	
+	\subsubsection{URI Translation}
+	
+	After processing the applicable \texttt{<Location>} directives, Apache attempts to translate the Request URI into an actual resource. Modules participating in this phase may:
+	\begin{itemize}
+		\item
+		map the URI to a file on disk;
+		
+		\item
+		redirect the request;
+		
+		\item
+		rewrite the URI;
+		
+		\item
+		forward the request to external handlers.
+	\end{itemize}
+	
+	One of the most common modules involved in this phase is \texttt{mod\_rewrite}, which allows Apache to dynamically transform incoming URLs according to configurable rewrite rules. For example, a request such as:
+	
+	\begin{lstlisting}
+	/products/15
+	\end{lstlisting}
+	
+	may internally be rewritten into:
+	
+	\begin{lstlisting}
+	/product.php?id=15
+	\end{lstlisting}
+	
+	without changing the URL visible to the client.
+	
+	\subsubsection{File Resolution and File Walk}
+	
+	Once URI translation has completed, Apache determines whether the request corresponds to a physical resource stored on the filesystem. If the target resource is a file, Apache retrieves the configuration directives specifically associated with that file. This phase is commonly referred to as the \textbf{file walk}. During this operation, Apache evaluates \texttt{<Files>} and related configuration containers that may apply to the selected resource. This mechanism allows administrators to configure rules that target:
+	\begin{itemize}
+		\item
+		specific filenames;
+		
+		\item
+		file extensions;
+		
+		\item
+		particular classes of resources.
+	\end{itemize}
+	
+	For example, Apache may:
+	\begin{itemize}
+		\item
+		restrict access to sensitive files;
+		
+		\item
+		apply authentication rules;
+		
+		\item
+		assign MIME types;
+		
+		\item
+		enable or disable script execution for certain extensions.
+	\end{itemize}
+	
+	\subsubsection{Repeated Location Walk}
+	
+	Some Apache modules may alter the Request URI during processing. When this happens, the rewritten URI may match different \texttt{<Location>} rules compared to the original request. Consequently, Apache may perform an additional location walk in order to reevaluate the configuration associated with the new URI. This guarantees that all directives affecting the rewritten request are correctly applied before the final response is generated. The overall request processing pipeline therefore combines:
+	\begin{itemize}
+		\item
+		virtual host selection;
+		
+		\item
+		URI-based configuration analysis;
+		
+		\item
+		resource translation;
+		
+		\item
+		filesystem-based configuration evaluation;
+		
+		\item
+		dynamic request rewriting.
+	\end{itemize}
+	
+	This layered architecture is one of the main reasons why Apache provides a highly flexible and extensible configuration model.
+	
+	\section{Performance Optimization with Caching}
+	
+	Apache includes a sophisticated, HTTP-aware caching system to improve server performance and reduce response times.
+	
+	\begin{enumerate}
+	    \item
+	    \textbf{The Three-State Cache}: A resource in Apache's cache can be in one of three states:
+	    \begin{itemize}
+	        \item \textbf{Fresh}: The content is valid and can be served directly from the cache without further checks.
+	        
+	        \item \textbf{Stale}: The content's Time-To-Live (TTL) has expired. The server must re-validate it with the origin source before serving.
+	        
+	        \item \textbf{Non-existent}: The content is not in the cache.
+	    \end{itemize}
+	    
+	    \item
+	    \textbf{Configuration Directives}: Caching is enabled and configured with a suite of modules and directives:
+	    \begin{itemize}
+	        \item
+	        \texttt{mod\_cache} / \texttt{mod\_cache\_disk}: These are the core modules that enable caching functionality, with \texttt{mod\_cache\_disk} specifically providing disk-based storage.
+	            
+	        \item
+	        \texttt{CacheRoot}: Specifies the local filesystem path where the cached files will be stored.
+	        
+	        \item
+	        \texttt{CacheEnable} / \texttt{CacheDisable}: These directives control caching for specific URL paths, allowing an administrator to enable caching for static assets while disabling it for dynamic content.
+	        
+	        \item
+	        \texttt{CacheMinFileSize} / \texttt{CacheMaxFileSize}: These set the lower and upper size limits for files that can be stored in the cache. This prevents wasting cache resources on very small files (where the overhead may outweigh the benefit) or quickly filling the cache with very large files.
+	        
+	        \item
+	        \texttt{mod\_expires}: This module controls the \texttt{Expires} and \texttt{Cache-Control: max-age} HTTP headers, which tell clients and proxies how long a resource should be considered fresh (time-based freshness).
+	        
+	        \item
+	        \texttt{FileETag}: This directive configures the generation of \texttt{ETag} (entity tag) headers, which allow for content-based freshness validation. The client can check if its cached version is still valid by sending the ETag back to the server.
+	    \end{itemize}
+	\end{enumerate}
+	
+	\subsection{Caching Policies and Validation Mechanisms}
+	
+	Caching does not improve performance in every scenario. When configuring a cache system, administrators must carefully decide which resources should be cached and which should not.
+	
+	In general, resources are good candidates for caching when:
+	\begin{itemize}
+		\item
+		they are requested frequently;
+		
+		\item
+		they are relatively small;
+		
+		\item
+		they change infrequently.
+	\end{itemize}
+	
+	Caching very large files may rapidly consume disk space and reduce the effectiveness of the cache. Furthermore, storing resources that are rarely requested may waste cache capacity without providing meaningful performance benefits. For this reason, Apache allows administrators to selectively disable caching for specific resources using directives such as:
+	
+	\begin{lstlisting}
+		CacheDisable /update/
+	\end{lstlisting}
+	
+	This mechanism is commonly used for:
+	\begin{itemize}
+		\item
+		dynamic content;
+		
+		\item
+		frequently updated resources;
+		
+		\item
+		sensitive information;
+		
+		\item
+		files whose caching overhead would outweigh the performance benefits.
+	\end{itemize}
+	
+	\subsection{Expiration Headers and Freshness Validation}
+	
+	The \texttt{mod\_expires} module allows Apache to generate HTTP expiration metadata that helps clients and proxy servers determine whether a cached resource is still valid. In particular, the module can automatically generate:
+	\begin{itemize}
+		\item
+		The \texttt{Expires} header. This header contains the time after which the response is considered expired and uses the following syntax:
+		\begin{lstlisting}
+Expires: <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
+		\end{lstlisting}
+		
+		\item
+		The \texttt{Cache-Control: max-age} header. Unlike the \texttt{Expires} header, which specifies an absolute expiration date and time, the \texttt{max-age} directive defines freshness using a relative amount of time expressed in seconds. Its syntax is:
+		
+		\begin{lstlisting}
+Cache-Control: max-age=<seconds>
+		\end{lstlisting}
+		
+		The value associated with \texttt{max-age} represents the maximum amount of time during which the resource may be considered fresh starting from the moment the response is generated by the server. For example:
+		
+		\begin{lstlisting}
+Cache-Control: max-age=3600
+		\end{lstlisting}
+		
+		indicates that the resource can be reused from the cache for one hour without contacting the server again. The \texttt{Cache-Control} header is generally preferred over the older \texttt{Expires} header because:
+		\begin{itemize}
+			\item
+			it avoids synchronization problems caused by incorrect client clocks;
+			
+			\item
+			it is easier to compute since it uses relative time intervals;
+			
+			\item
+			it provides additional caching directives beyond expiration management.
+		\end{itemize}
+		
+		The \texttt{Cache-Control} header may also contain several other directives controlling cache behavior, such as:
+		\begin{itemize}
+			\item
+			\texttt{public}: indicates that the response may be cached by browsers and shared proxy caches;
+			
+			\item
+			\texttt{private}: indicates that the response is intended for a single user and should not be stored by shared caches;
+			
+			\item
+			\texttt{no-cache}: requires caches to revalidate the resource with the origin server before reusing it;
+			
+			\item
+			\texttt{no-store}: prevents caches from storing the resource entirely.
+		\end{itemize}
+		
+		For example:
+		
+		\begin{lstlisting}
+Cache-Control: public, max-age=86400
+		\end{lstlisting}
+		
+		allows the resource to remain cached for one day by both browsers and intermediary proxy servers.
+	\end{itemize}
+	
+	These headers define the resource \textbf{Time-To-Live (TTL)}, that is, the amount of time during which the cached resource is considered fresh. The most important directives provided by the \texttt{mod\_expires} module are:
+	\begin{itemize}
+		\item
+		\texttt{ExpiresActive On | Off}: Enables or disables expiration processing;
+		
+		\item
+		\texttt{ExpiresDefault <code>seconds}: Defines the default expiration policy. The \texttt{seconds} parameter is the TTL of the resource expressed in seconds. The \texttt{<code>} parameter is a letter specifying the starting point of the TTL. The letter can be:
+		\begin{itemize}
+			\item \texttt{M}: To set the starting point of the TTL to the last modification time of the resource. We can use this option if we want the resource to expire at the same time for all users. We can use this option, for instance, for weekly notices located at the same URL;
+			
+			\item \texttt{A}: To set the starting point of the TTL to the time the client accesses the resource. We can use this option if we want the resource to expire after a fixed amount of time to the user's perspective even if it implies that the resource has a different expiration date for each user. This can be good for image files that don't change very often, particularly for a set of related documents that all refer to the same images (i.e., the images will be accessed repeatedly within a relatively short timespan).
+		\end{itemize}
+		
+		It is also possible to use strings in substitution of the \texttt{<code>seconds} parameters for human readability, for instance:
+		\begin{itemize}
+			\item \texttt{"modification plus 5 hours 3 minutes"}
+			\item \texttt{"access plus 1 month 15 days 2 hours"}
+		\end{itemize}
+		
+		\item
+		\texttt{ExpiresByType MIME-type <code>seconds}: Defines expiration policies according to MIME types. The \texttt{<code>} and \texttt{seconds} parameters are the same as the previous directive. We use this directive if we have different needs for the different file types. For example, static images may remain valid for several days, while HTML pages may require shorter expiration times.		
+	\end{itemize}
+	
+	When a cached resource becomes stale, the client may contact the server to validate its local copy instead of downloading the entire resource again.\\
+	
+	Here is an example of configuration file using these directives:
+	\begin{lstlisting}
+	# Enable expirations
+	ExpiresActive On
+	
+	# Default fallback value for all unspecified MIME-types
+	ExpiresDefault M2592000 # One month after modification
+	
+	# Expire GIF images after a month in the client's cache
+	ExpiresByType image/gif A2592000
+	
+	# HTML documents are good for a week from the
+	# time they were changed
+	ExpiresByType text/html M604800
+	
+	# It is possible to use wildcards characters to select
+	# all extensions for a particular file type
+	ExpiresByType video/* "access plus 1 month"
+	\end{lstlisting}
+	
+	\subsection{Entity Tags (ETags)}
+	
+	Apache also supports cache validation through \textbf{Entity Tag (ETag)} response headers. An ETag is a unique identifier associated with a specific version of a resource. Apache can generate ETags for static files using the \texttt{FileETag component ...} directive, which specifies which file attributes should contribute to the ETag generation process. Apache may generate ETags using one or a combination of the following components:
+	\begin{itemize}
+		\item \texttt{Size}: File size;
+		\item \texttt{MTime}: The date and time the file was last modified will be included;
+		\item \texttt{INode}: Inode number (index node number, a unique integer identifier for files and directories in Unix-like file systems);
+		\item \texttt{All}: All available fields will be used. This is equivalent to:
+		\begin{lstlisting}
+	FileETag INode MTime Size
+		\end{lstlisting}
+		\item \texttt{None}: If a document is file-based, no ETag field will be included in the response.
+	\end{itemize}
+	
+	When a client already possesses a cached version of a resource, it may send the previously received ETag back to the server using the HTTP header:
+	
+	\begin{lstlisting}
+	If-None-Match: "<etag_value>"
+	\end{lstlisting}
+	
+	Apache then compares the received ETag with the current version of the resource:
+	\begin{itemize}
+		\item
+		if the resource has not changed, the server replies with \texttt{304 Not Modified} and no response body is transmitted;
+		
+		\item
+		if the resource has changed, Apache sends the updated content together with a new ETag.
+	\end{itemize}
+	
+	This mechanism significantly reduces:
+	\begin{itemize}
+		\item
+		bandwidth usage;
+		
+		\item
+		response times;
+		
+		\item
+		unnecessary data transfers.
+	\end{itemize}
+	
+	\subsection{Example of caching configuration file}
+	
+	The following snippet shows an example of caching configuration file.
+	
+	\begin{lstlisting}
+	LoadModule cache_module modules/mod_cache.so
+	<IfModule mod_cache.c>
+		LoadModule cache_disk_module modules/mod_cache_disk.so
+		<IfModule mod_cache_disk.c>
+			CacheRoot c:/cacheroot
+			CacheEnable disk /
+			CacheMinFileSize 64
+			CacheMaxFileSize 640000
+		</IfModule>
+		
+		CacheDisable http://www.example.com/update/
+	</IfModule>
+	\end{lstlisting}
+	
+	In this file we first load \texttt{cache\_module} and then \texttt{cache\_disk\_module} and we use the \texttt{<IfModule>} sectioning directive to make sure that the modules were loaded before we proceed.\\
+	
+	We use some previously seen directives inside the nested sectioning directive because they require both modules to be used and we use the directive \texttt{CacheDisable} to avoid storing in the cache the files in the folder \texttt{http://www.example.com/update/}. The files in this folder may be either too big, updated frequently (dynamic content), sensitive information or infrequently requested content. Considering that the last directive requires only the \texttt{cache\_module} module but not the other, we can use this directive inside \texttt{<IfModule mod\_cache.c>} but outside of \texttt{<IfModule mod\_cache\_disk.c>}.
+	
+	\section{Apache as a Proxy Server}
+	
+	Apache HTTP Server can be configured to operate as a proxy server, acting as an intermediary between clients and other servers. Depending on the deployment scenario, Apache may operate either as:
+	\begin{itemize}
+		\item a \textbf{forward proxy}, serving clients that wish to access external resources;
+		
+		\item a \textbf{reverse proxy} (or gateway), serving backend servers hidden behind Apache.
+	\end{itemize}
+	
+	These features are mainly provided by the \texttt{mod\_proxy} module and its related extensions.
+	
+	\subsection{Forward Proxy}
+	
+	A forward proxy is a server used by clients on an internal network to access resources located on external networks such as the Internet. In this configuration:
+	\begin{itemize}
+		\item the client explicitly knows that it is communicating with a proxy;
+		
+		\item the proxy receives the client's requests;
+		
+		\item the proxy forwards the requests to the destination server;
+		
+		\item the proxy receives the response and sends it back to the client.
+	\end{itemize}
+	
+	The overall communication flow can therefore be summarized as:
+	
+	\[
+	\text{Client} \rightarrow \text{Forward Proxy} \rightarrow \text{External Server}
+	\]
+	\[
+	\text{Client} \leftarrow \text{Forward Proxy} \leftarrow \text{External Server}
+	\]
+	
+	Forward proxies are commonly used for:
+	\begin{itemize}
+		\item centralized Internet access control;
+		
+		\item content filtering;
+		
+		\item traffic monitoring;
+		
+		\item anonymization of client requests;
+		
+		\item caching frequently requested resources.
+	\end{itemize}
+	
+	Forward proxying is enabled using the directive:
+	
+	\begin{lstlisting}
+	ProxyRequests On
+	\end{lstlisting}
+	
+	Apache also provides the directive:
+	
+	\begin{lstlisting}
+	ProxyVia On
+	\end{lstlisting}
+	
+	which controls the generation of the HTTP \texttt{Via} header. This header identifies intermediate proxy servers involved in handling the request and response. Proxy access control rules are typically configured using the \texttt{<Proxy>} container. For example:
+	
+	\begin{lstlisting}
+	ProxyRequests On
+	ProxyVia On
+	
+	<Proxy "*">
+		Require host internal.example.com
+	</Proxy>
+	\end{lstlisting}
+	
+	In this example:
+	\begin{itemize}
+		\item the wildcard \texttt{"*"} indicates that the configuration applies to all proxied resources;
+		
+		\item only hosts belonging to the domain \texttt{internal.example.com} are authorized to use the proxy.
+	\end{itemize}
+	
+	Without appropriate access restrictions, a forward proxy may become an \textbf{open proxy}, which can be abused for malicious activities.
+	
+	\subsection{Reverse Proxy (Gateway)}
+	
+	A reverse proxy operates in the opposite direction. Instead of representing clients, it represents one or more backend servers. In this configuration:
+	\begin{itemize}
+		\item clients communicate only with the reverse proxy;
+		
+		\item the reverse proxy forwards requests to backend servers;
+		
+		\item backend servers generate the responses;
+		
+		\item the reverse proxy returns the responses to the clients.
+	\end{itemize}
+	
+	The communication flow becomes:
+	
+	\[
+	\text{Client} \rightarrow \text{Reverse Proxy} \rightarrow \text{Backend Servers}
+	\]
+	\[
+	\text{Client} \leftarrow \text{Reverse Proxy} \leftarrow \text{Backend Servers}
+	\]
+	
+	To the client, the reverse proxy appears to be the actual origin server. The client is generally unaware of the existence of the backend infrastructure. Reverse proxies are commonly used for:
+	\begin{itemize}
+		\item load balancing;
+		
+		\item hiding internal infrastructure;
+		
+		\item centralized SSL/TLS termination;
+		
+		\item request filtering and security;
+		
+		\item caching;
+		
+		\item improving scalability and fault tolerance.
+	\end{itemize}
+	
+	The most important directives for configuring a reverse proxy are:
+	
+	\begin{lstlisting}
+	ProxyPass "/foo" "http://example.com/bar"
+	ProxyPassReverse "/foo" "http://example.com/bar"
+	\end{lstlisting}
+	
+	The directive \texttt{ProxyPass} forwards requests matching a specific URL path to a backend server. For example:
+	
+	\begin{lstlisting}
+	ProxyPass "/api" "http://backend.internal/api"
+	\end{lstlisting}
+	
+	causes requests directed to:
+	
+	\begin{lstlisting}
+	/api
+	\end{lstlisting}
+	
+	to be internally forwarded to the backend server.\\
+	
+	The directive \texttt{ProxyPassReverse} is used to rewrite HTTP redirection headers generated by the backend server. In particular, it adjusts:
+	\begin{itemize}
+		\item \texttt{Location};
+		
+		\item \texttt{Content-Location};
+		
+		\item \texttt{URI}
+	\end{itemize}
+	
+	headers contained in redirect responses so that clients continue interacting transparently with the reverse proxy rather than directly with backend servers.
+	
+	\subsubsection{Load Balancing}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\linewidth]{"Images/Load balancing.png"}
+		\caption{Load balancer distributing the client requests across three backend servers}
+		\label{fig:load_balancing}
+	\end{figure}
+	
+	One of the most important applications of reverse proxies is \textbf{load balancing}. In this architecture, Apache acts as a gateway and distributes incoming client requests across multiple backend servers (see figure \ref{fig:load_balancing}). Each backend server processes a subset of the incoming traffic. This architecture provides several advantages:
+	\begin{itemize}
+		\item improved scalability;
+		
+		\item better fault tolerance;
+		
+		\item higher availability;
+		
+		\item reduced workload on individual servers.
+	\end{itemize}
+	
+	Since clients communicate only with the reverse proxy, changes to the backend infrastructure remain transparent to users. Backend servers may therefore:
+	\begin{itemize}
+		\item
+		be added or removed dynamically;
+		
+		\item
+		use different hardware configurations;
+		
+		\item
+		run different application instances;
+		
+		\item
+		be geographically distributed.
+	\end{itemize}
+	
+	A simplified Apache load balancing configuration is shown below:
+	
+	\begin{lstlisting}
+	<Proxy "balancer://mycluster">
+		BalancerMember "http://server1.internal"
+		BalancerMember "http://server2.internal"
+	</Proxy>
+		
+	ProxyPass "/" "balancer://mycluster/"
+	ProxyPassReverse "/" "balancer://mycluster/"
+	\end{lstlisting}
+	
+	In this example:
+	\begin{itemize}
+		\item the \texttt{<Proxy>} container defines a logical cluster named \texttt{mycluster};
+		
+		\item the \texttt{BalancerMember} directives specify the backend servers participating in the cluster;
+		
+		\item incoming requests are distributed among the backend servers by Apache.
+	\end{itemize}
+	
+	This mechanism allows the system to handle larger workloads while maintaining a single public entry point for clients.
+	
+	\section{Securing Connections with SSL/TLS}
+	
+	In the modern web, encrypting all traffic with SSL/TLS (Secure Sockets Layer/Transport Layer Security) is a fundamental best practice. Widespread risks like eavesdropping and user tracking make unencrypted communication unsafe, even for content that isn't explicitly sensitive. In fact, we may think that we are not sharing personal information when we browse the internet without inserting data but we actually are! Websites aim to gather as much fingerprint information as possible from the clients so we need a way to encrypt \textbf{all} our communications. Apache's \texttt{mod\_ssl} module provides an interface to the OpenSSL library, enabling strong encryption.
+	
+	\subsection{Core Configuration}
+	
+	Enabling a basic TLS configuration for a virtual host requires a few essential directives:
+	\begin{itemize}
+		\item \texttt{Listen 443}: Instructs the server to listen on port 443, the standard for HTTPS traffic;
+		
+		\item \texttt{SSLEngine on}: Enables the TLS engine for the specified virtual host;
+		
+		\item \texttt{SSLCertificateFile /path/to/server.crt}: Specifies the path to the server's public certificate file, which is presented to clients;
+		
+		\item \texttt{SSLCertificateKeyFile /path/to/server.key}: Specifies the path to the server's private key, which must be kept secure;
+	\end{itemize}
+	
+	The following example contains all the directives we just exposed:
+	
+	\begin{lstlisting}
+	LoadModule ssl_module modules/mod_ssl.so
+	Listen 443
+	<VirtualHost *:443>
+		ServerName www.example.com
+		SSLEngine on
+		SSLCertificateFile "/path/to/www.example.com.cert"
+		SSLCertificateKeyFile "/path/to/www.example.com.key"
+	</VirtualHost>
+	\end{lstlisting}
+	
+	\subsection{Generating a self-signed TLS certificate using the Linux \texttt{openssl} command}
+	
+	TLS certificates are generally generated by an external Certification Authority (CA) but, for testing and development purposes, you can act as your own Certificate Authority (CA) and generate a self-signed certificate. This is not suitable for production but allows you to test TLS configurations locally.The following \texttt{openssl} commands generate the necessary files:
+	
+	\begin{enumerate}
+		\item Create the CA's private key:
+		\begin{lstlisting}[language=bash]
+openssl genrsa -des3 -out myca.key 4096
+		\end{lstlisting}
+		
+		\item Create the CA's public certificate:
+		\begin{lstlisting}[language=bash]
+openssl req -new -x509 -days 365 -key myca.key -out myca.crt
+		\end{lstlisting}
+		
+		\item Create the server's private key:
+		\begin{lstlisting}[language=bash]
+openssl genrsa -des3 -out server.key 4096
+		\end{lstlisting}
+		
+		\item Create a Certificate Signing Request (CSR) for the server:
+		\begin{lstlisting}[language=bash]
+openssl req -new -key server.key -out server.csr
+		\end{lstlisting}
+		
+		\item Use the CA to sign the server's CSR and create the final public server certificate:
+		\begin{lstlisting}[language=bash]
+openssl req -x509 -days 365 -in server.csr -CA myca.crt \
+	-CAkey myca.key -set_serial 01 -out server.crt
+		\end{lstlisting}
+	\end{enumerate}
+	
+	\newpage
+	\subsection{Self-Signed Certificates vs External Certification Authorities}
+	
+	When configuring HTTPS on a web server, administrators must obtain a digital certificate associated with the server identity. This certificate may either be \textbf{self-signed} or issued by an external \textbf{Certification Authority (CA)}. In the case of a \textbf{self-signed certificate}, the administrator independently performs the entire certificate generation process. This includes:
+	\begin{itemize}
+		\item creating the Certification Authority key;
+		\item creating the Certification Authority certificate;
+		\item creating the Certificate Signing Request;
+		\item generating the server private key;
+		\item signing the server certificate.
+	\end{itemize}
+	
+	In this model, the same entity acts both as the server owner and the trusted authority certifying the server identity. Although self-signed certificates are simple to generate and useful for:
+	\begin{itemize}
+		\item local development;
+		\item internal networks;
+		\item testing environments;
+	\end{itemize}
+	
+	they are generally not trusted by browsers because no publicly recognized Certification Authority validates the server identity.\\
+	
+	Conversely, when using an \textbf{external Certification Authority}, part of the certificate generation process is delegated to a trusted third-party organization. In this scenario, the administrator usually generates a:
+	\begin{itemize}
+		\item server private key;
+		\item Certificate Signing Request (CSR).
+	\end{itemize}
+	
+	The CSR contains:
+	\begin{itemize}
+		\item the server public key;
+		
+		\item identification information about the organization or domain owner.
+	\end{itemize}
+	
+	The CSR is then sent to the external CA, which verifies the identity of the requester before issuing the signed certificate.\\
+	
+	The verification process may involve:
+	\begin{itemize}
+		\item domain ownership validation;
+		\item organizational verification;
+		\item legal documentation;
+		\item digital or paper-based contracts.
+	\end{itemize}
+	
+	Certification Authorities require the requester to sign documents or provide proof of identity in order to guarantee that certificates are issued only to trusted entities. Some authorities perform the entire procedure digitally, while others may still require physical documentation depending on the certificate type and validation level.\\
+	
+	The exact certificate issuing workflow may vary depending on the policies of the Certification Authority. For example:
+	\begin{itemize}
+		\item the CA may directly generate and sign the server certificate before sending it to the customer;
+		\item the CA may instead provide only a signed CSR, leaving part of the key generation process to the customer.
+	\end{itemize}
+	
+	The main advantage of using an external CA is that modern browsers and operating systems already trust well-known Certification Authorities through pre-installed root certificates. Consequently, users accessing the website do not receive security warnings, unlike what typically happens with self-signed certificates.\\
+	
+	While Apache's modularity, flexibility, and rich feature set have made it a cornerstone of web infrastructure, its traditional process-driven architecture presented challenges under the extreme loads of the modern web. The industry's search for a solution to the ``C10k problem''---the challenge of efficiently handling ten thousand concurrent connections---led to the development of fundamentally different server architectures. Nginx emerged as a direct architectural response, designed from the ground up for high concurrency	and resource efficiency.
+
+\end{document}

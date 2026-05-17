@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.16)  3 MAY 2026 19:00
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.16)  17 MAY 2026 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./JSON.tex
-(JSON.tex
+**./Apache.tex
+(Apache.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
 
@@ -707,7 +707,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 28.
+(scrbook)           before \begin{document} on input line 40.
 
 (C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookma
 rk.sty
@@ -717,43 +717,43 @@ Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 ipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 \BKM@id=\count336
-)) (JSON.aux)
-\openout1 = `JSON.aux'.
+)) (Apache.aux)
+\openout1 = `Apache.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-Package scrbase Info: activating english \partname on input line 28.
-Package scrbase Info: activating english \chaptername on input line 28.
-Package scrbase Info: activating english \appendixname on input line 28.
-Package scrbase Info: activating english \figurename on input line 28.
-Package scrbase Info: activating english \tablename on input line 28.
-Package scrbase Info: activating english \contentsname on input line 28.
-Package scrbase Info: activating english \listfigurename on input line 28.
-Package scrbase Info: activating english \listtablename on input line 28.
-Package scrbase Info: activating english \bibname on input line 28.
-Package scrbase Info: activating english \indexname on input line 28.
-Package hyperref Info: Link coloring OFF on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+Package scrbase Info: activating english \partname on input line 40.
+Package scrbase Info: activating english \chaptername on input line 40.
+Package scrbase Info: activating english \appendixname on input line 40.
+Package scrbase Info: activating english \figurename on input line 40.
+Package scrbase Info: activating english \tablename on input line 40.
+Package scrbase Info: activating english \contentsname on input line 40.
+Package scrbase Info: activating english \listfigurename on input line 40.
+Package scrbase Info: activating english \listtablename on input line 40.
+Package scrbase Info: activating english \bibname on input line 40.
+Package scrbase Info: activating english \indexname on input line 40.
+Package hyperref Info: Link coloring OFF on input line 40.
 \c@lstlisting=\count337
 Package tocbasic Info: omitting babel extension for `lol'
-(tocbasic)             because of missing \bbl@set@language on input line 28.
+(tocbasic)             because of missing \bbl@set@language on input line 40.
 \scr@dte@lstlisting@maxnumwidth=\skip77
 
 Package fontspec Info: 
@@ -762,294 +762,281 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 28.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 28.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 28.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 28.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 28.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 28.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 28.
-LaTeX Font Info:    Redeclaring math accent \check on input line 28.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 28.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 28.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 28.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 28.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 40.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 40.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 40.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 40.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 40.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 40.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 40.
+LaTeX Font Info:    Redeclaring math accent \check on input line 40.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 40.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 40.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 40.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 40.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 28.
+(Font)              `operators' in the math version `normal' on input line 40.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 28.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 40.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 28.
+(Font)              `operators' in the math version `bold' on input line 40.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 28.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 40.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 28.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 28.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 28.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 28.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> TU/DejaVuSansMono(0)/m/n on input line
- 28.
+ 40.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 28.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 28.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 28.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 40.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/DejaVuSansMono(0)/b/n on input line
- 28.
+ 40.
  [1
 
 
 
 ]
-Overfull \hbox (10.95pt too wide) in paragraph at lines 40--43
+Overfull \hbox (10.95pt too wide) in paragraph at lines 52--55
 [][]
  []
 
-[2] (JSON.toc [3
+[2] (Apache.toc
+Overfull \hbox (57.1838pt too wide) in paragraph at lines 41--41
+ [][] [][]\TU/lmr/m/n/10 Interaction Between \TU/DejaVuSansMono(0)/m/n/10 KeepA
+live\TU/lmr/m/n/10 , \TU/DejaVuSansMono(0)/m/n/10 KeepAliveTimeout\TU/lmr/m/n/1
+0 , and \TU/DejaVuSansMono(0)/m/n/10 MaxKeepAliveRequests[] []  
+ []
+
+[3
 
 
 
 ])
 \tf@toc=\write3
-\openout3 = `JSON.toc'.
+\openout3 = `Apache.toc'.
 
  [4]
 chapter 1.
+File: Images/Web_server_market_share.jpg Graphic file (type bmp)
+<Images/Web_server_market_share.jpg>
+File: Images/Configuration files.png Graphic file (type bmp)
+<Images/Configuration files.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-
- []
-
-
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 58--59
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 3657) in paragraph at lines 77--77
-[]|\TU/lmr/m/n/10.95 An unordered set of
- []
-
-
-Underfull \hbox (badness 1137) in paragraph at lines 79--80
-[]|\TU/lmr/m/n/10.95 Maintaining sequences, vec-
- []
-
-
-Overfull \hbox (16.06728pt too wide) in paragraph at lines 73--82
- [][] 
- []
-
-File: Images/object_structure.jpg Graphic file (type bmp)
-<Images/object_structure.jpg>
-File: Images/array_structure.jpg Graphic file (type bmp)
-<Images/array_structure.jpg>
-[5
-
-
-]
-File: Images/data_types.jpg Graphic file (type bmp)
-<Images/data_types.jpg>
-
-Overfull \hbox (3.18pt too wide) in paragraph at lines 139--140
-[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (27.26202pt too wide) in paragraph at lines 143--144
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[6] [7]
-Overfull \hbox (21.24152pt too wide) in paragraph at lines 181--182
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--193
-
+Underfull \hbox (badness 2790) in paragraph at lines 160--160
+[]|\TU/lmr/bx/n/6 Lower. \TU/lmr/m/n/6 Over-distributing security rules
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
-
+Underfull \hbox (badness 1092) in paragraph at lines 160--160
+\TU/lmr/m/n/6 developers to make localized configuration
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
-
- []
-
-[8] [9] [10] [11] [12]
-chapter 2.
-
-Overfull \hbox (4.82658pt too wide) in paragraph at lines 416--417
-\TU/lmr/m/n/10 action as when the user clicks the browser’s \TU/lmr/bx/n/10 Bac
-k \TU/lmr/m/n/10 button. Equivalent to \TU/DejaVuSansMono(0)/m/n/10 history.go(
--1)\TU/lmr/m/n/10 . 
- []
-
-[13
-
-
-]
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 446--447
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14]
-File: Images/DOM.png Graphic file (type bmp)
-<Images/DOM.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 496--497
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
-[16]
-Overfull \hbox (5.86191pt too wide) in paragraph at lines 575--600
- [][] 
- []
-
-[17]
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 629--630
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 631--632
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 639--640
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 647--648
-
- []
-
-[18] [19] [20]
-chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 719--720
-
- []
-
-
-Underfull \hbox (badness 1342) in paragraph at lines 733--733
-[]|\TU/lmr/m/n/10.95 No. Executes as soon as
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
-
- []
-
-File: Images/normal vs async vs defer.png Graphic file (type bmp)
-<Images/normal vs async vs defer.png>
-[21
-
-
-] [22]
-chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--787
-[]|\TU/lmr/bx/n/10.95 Web Storage
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 786--787
-\TU/lmr/bx/n/10.95 (\TU/DejaVuSansMono(0)/b/n/10.95 localStorage \TU/lmr/bx/n/1
-0.95 and
- []
-
-
-Underfull \hbox (badness 3724) in paragraph at lines 790--791
-[]|\TU/lmr/m/n/10.95 Serialized strings (typically
+Underfull \hbox (badness 1895) in paragraph at lines 160--160
+[]|\TU/lmr/m/n/6 Sparingly, for specific, localized overrides
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 803--804
+Underfull \hbox (badness 10000) in paragraph at lines 165--169
 
  []
 
-[23
+[5
+
+
+] [6] [7] [8
 
 
 ]
-Overfull \hbox (9.2005pt too wide) in paragraph at lines 823--824
-[][][][][][][][][][][][][][][][][][][][] 
+chapter 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--180
+
+ []
+
+[9]
+File: Images/Apache HTTP server architecture.jpg Graphic file (type bmp)
+<Images/Apache HTTP server architecture.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
+
+ []
+
+[11] [12]
+chapter 3.
+File: Images/Apache HTTP server configuration.jpg Graphic file (type bmp)
+<Images/Apache HTTP server configuration.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--273
+
+ []
+
+[13
+
+
+] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 330--331
+
+ []
+
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
+
+ []
+
+
+Underfull \hbox (badness 2573) in paragraph at lines 493--493
+[]|\TU/lmr/m/n/6 Directory containing symbolic links to virtual host configurat
+ion files stored in
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
+
+ []
+
+[18]
+Overfull \hbox (30.55498pt too wide) in paragraph at lines 583--584
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
+
+ []
+
+
+Overfull \hbox (52.01215pt too wide) in paragraph at lines 624--625
+[]\TU/lmr/m/n/10 Also the \TU/DejaVuSansMono(0)/m/n/10 <Location> \TU/lmr/m/n/1
+0 directive has a regular-expression-based counterpart called \TU/DejaVuSansMon
+o(0)/m/n/10 <LocationMatch>
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--667
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 672--673
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 692--693
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--716
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 780--781
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 786--787
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
+
+ []
+
+
+Overfull \hbox (28.31517pt too wide) in paragraph at lines 827--828
+\TU/DejaVuSansMono(0)/m/n/10 /var/www/private \TU/lmr/m/n/10 directory. Therefo
+re, only \TU/DejaVuSansMono(0)/m/n/10 ExecCGI \TU/lmr/m/n/10 remains active ins
+ide \TU/DejaVuSansMono(0)/m/n/10 /var/www/private\TU/lmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 827--828
+
  []
 
 [24]
-chapter 5.
-File: Images/Synchronous request.jpg Graphic file (type bmp)
-<Images/Synchronous request.jpg>
-File: Images/Asynchronous request.jpg Graphic file (type bmp)
-<Images/Asynchronous request.jpg>
-
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 865--866
 
  []
 
@@ -1058,159 +1045,314 @@ Underfull \hbox (badness 10000) in paragraph at lines 871--872
 
  []
 
-[25
 
-
-] [26] [27]
-Overfull \hbox (23.26315pt too wide) in paragraph at lines 890--891
-\TU/lmr/bx/n/10 Search Engine Indexing\TU/lmr/m/n/10 , as crawlers primarily re
-ad initial HTML, and breaks \TU/lmr/bx/n/10 Bookmark/History
+Overfull \hbox (31.83005pt too wide) in paragraph at lines 880--881
+[]\TU/lmr/m/n/10 This configuration denies access to all clients except those o
+riginating from the domain \TU/DejaVuSansMono(0)/m/n/10 example.org\TU/lmr/m/n/
+10 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 890--891
+Underfull \hbox (badness 10000) in paragraph at lines 880--881
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 902--903
+
+ []
+
+[26]
+Overfull \hbox (9.2005pt too wide) in paragraph at lines 954--955
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 994--995
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1025
 
  []
 
 
-Overfull \hbox (0.89171pt too wide) in paragraph at lines 895--896
-[]\TU/lmr/bx/n/10 History API: \TU/lmr/m/n/10 The industry standard for program
-matically updating the URL and browser
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 906--907
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 924--925
-
+Overfull \hbox (2.37448pt too wide) in paragraph at lines 1026--1027
+[]\TU/lmr/m/n/10 Persistent connections are particularly important for modern w
+eb applications because browsers
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 935--936
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1055
 
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
-
- []
-
-[30]
-Overfull \hbox (3.18pt too wide) in paragraph at lines 1030--1031
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1060
+Underfull \hbox (badness 10000) in paragraph at lines 1119--1120
 
  []
 
 
-Overfull \hbox (0.45244pt too wide) in paragraph at lines 1064--1065
+Underfull \hbox (badness 10000) in paragraph at lines 1131--1132
+
+ []
+
+[30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1209--1210
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1215--1216
+
+ []
+
+[32] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1369--1370
+
+ []
+
+[34] [35] [36] [37]
+Overfull \hbox (2.88506pt too wide) in paragraph at lines 1561--1562
+[]\TU/DejaVuSansMono(0)/m/n/10 AuthName "Realm Name"\TU/lmr/m/n/10 : Sets the t
+ext that appears in the authentication prompt
+ []
+
+[38]
+chapter 4.
+[39
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1675--1676
+
+ []
+
+[40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 1869--1870
+
+ []
+
+[43]
+File: Images/PHP module.jpg Graphic file (type bmp)
+<Images/PHP module.jpg>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1896--1897
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1898--1899
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1900--1901
+
+ []
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 1902--1903
+
+ []
+
+File: Images/PHP CGI.jpg Graphic file (type bmp)
+<Images/PHP CGI.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[45] [46]
+File: Images/PHP CGI script.jpg Graphic file (type bmp)
+<Images/PHP CGI script.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 2007--2008
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2009--2010
+
+ []
+
+[47] [48]
+chapter 5.
+File: Images/Redirection.png Graphic file (type bmp)
+<Images/Redirection.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 2030--2031
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2059--2060
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2061--2062
+
+ []
+
+
+Overfull \hbox (7.35477pt too wide) in paragraph at lines 2063--2064
+\TU/lmr/m/n/10 tion yet. The old location of the resource is \TU/DejaVuSansMono
+(0)/m/n/10 http://www.example.com/olddir/mydoc.html
+ []
+
+[49
+
+
+] [50]
+File: Images/Virtual hosting.png Graphic file (type bmp)
+<Images/Virtual hosting.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]|\TU/lmr/bx/n/10.95 Name-Based Virtual
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2098--2098
+[]|\TU/lmr/bx/n/10.95 Primary Trade-
+ []
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 2098--2098
+[]|\TU/lmr/bx/n/10.95 Advantage: \TU/lmr/m/n/10.95 Highly effi-
+ []
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 2111--2112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2131--2132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2133--2134
+
+ []
+
+
+Overfull \hbox (22.3626pt too wide) in paragraph at lines 2135--2136
+[]\TU/lmr/m/n/10 The slides suggests that new virtual host configurations shoul
+d be “based on” \TU/DejaVuSansMono(0)/m/n/10 000-default.conf\TU/lmr/m/n/10 .
+ []
+
+[52]
+Overfull \hbox (9.2005pt too wide) in paragraph at lines 2151--2152
 [][][][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/sl' in size <10.95> not 
-available
-(Font)              Font shape `TU/DejaVuSansMono(0)/m/it' tried instead on inp
-ut line 1073.
-[31]
-Overfull \hbox (26.36066pt too wide) in paragraph at lines 1111--1112
-\TU/lmr/m/n/10 In addition to the \TU/DejaVuSansMono(0)/m/n/10 readyState \TU/l
-mr/m/n/10 property, which tracks the lifecycle of a request, the \TU/DejaVuSans
-Mono(0)/m/n/10 XMLHttpRequest
- []
 
-[32]
-Overfull \hbox (22.03459pt too wide) in paragraph at lines 1126--1127
-[]\TU/DejaVuSansMono(0)/m/n/10 response\TU/lmr/m/n/10 : contains the response d
-ata in a format consistent with the value of \TU/DejaVuSansMono(0)/m/n/10 respo
-nseType\TU/lmr/m/n/10 .
+Overfull \hbox (43.88408pt too wide) in paragraph at lines 2182--2183
+[]\TU/lmr/m/n/10 Internally, this command creates a symbolic link from the conf
+iguration file stored in \TU/DejaVuSansMono(0)/m/n/10 sites-available
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1133
+Underfull \hbox (badness 10000) in paragraph at lines 2226--2227
+
+ []
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 2232--2233
+
+ []
+
+[54] [55]
+Overfull \hbox (9.7247pt too wide) in paragraph at lines 2349--2350
+[]\TU/DejaVuSansMono(0)/m/n/10 mod_expires\TU/lmr/m/n/10 : This module controls
+ the \TU/DejaVuSansMono(0)/m/n/10 Expires \TU/lmr/m/n/10 and \TU/DejaVuSansMono
+(0)/m/n/10 Cache-Control: max-age
+ []
+
+
+Overfull \hbox (30.55498pt too wide) in paragraph at lines 2400--2401
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[56]
+Overfull \hbox (6.93225pt too wide) in paragraph at lines 2458--2460
+[]\TU/DejaVuSansMono(0)/m/n/10 ExpiresDefault <code>seconds\TU/lmr/m/n/10 : Def
+ines the default expiration policy. The \TU/DejaVuSansMono(0)/m/n/10 seconds
+ []
+
+[57]
+Underfull \hbox (badness 10000) in paragraph at lines 2475--2476
+
+ []
+
+[58]
+Overfull \hbox (3.18pt too wide) in paragraph at lines 2545--2546
+[][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2557--2558
+
+ []
+
+[59] [60] [61]
+Underfull \hbox (badness 10000) in paragraph at lines 2695--2696
+
+ []
+
+File: Images/Load balancing.png Graphic file (type bmp)
+<Images/Load balancing.png>
+[62] [63]
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
+g1.sty
+File: lstlang1.sty 2025/10/06 1.11 listings language file
+)
+(C:\Users\Gabriele_user\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
+g1.sty
+File: lstlang1.sty 2025/10/06 1.11 listings language file
+) [64]
+Underfull \hbox (badness 10000) in paragraph at lines 2847--2848
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1134--1135
+Underfull \hbox (badness 10000) in paragraph at lines 2862--2863
 
  []
 
 
-Overfull \hbox (5.67308pt too wide) in paragraph at lines 1136--1137
-\TU/DejaVuSansMono(0)/m/n/10 === 4 \TU/lmr/m/n/10 or, alternatively, \TU/DejaVu
-SansMono(0)/m/n/10 xhr.readyState === XMLHttpRequest.DONE \TU/lmr/m/n/10 as XHR
- ready
- []
-
-
-Overfull \hbox (42.596pt too wide) in paragraph at lines 1142--1143
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (42.596pt too wide) in paragraph at lines 1143--1144
-[][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (6.47295pt too wide) in paragraph at lines 1146--1147
-[][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (60.65752pt too wide) in paragraph at lines 1147--1148
-[][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1153--1154
+Underfull \hbox (badness 10000) in paragraph at lines 2872--2873
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
-
- []
-
-[33]
-Overfull \hbox (27.26202pt too wide) in paragraph at lines 1169--1170
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (15.22101pt too wide) in paragraph at lines 1205--1206
-[][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1217--1218
+[65]
+Underfull \hbox (badness 10000) in paragraph at lines 2880--2881
 
  []
 
-[35] [36] (JSON.aux)
+[66] (Apache.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 18556 strings out of 402987
- 397358 string characters out of 5446868
- 1040008 words of memory out of 5000000
- 47072 multiletter control sequences out of 15000+600000
- 633365 words of font info for 94 fonts, out of 8000000 for 9000
+ 18747 strings out of 402987
+ 400556 string characters out of 5446868
+ 1191335 words of memory out of 5000000
+ 47252 multiletter control sequences out of 15000+600000
+ 633381 words of font info for 96 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,20n,107p,11262b,2028s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,21n,107p,11238b,1816s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on JSON.pdf (36 pages).
+Output written on Apache.pdf (66 pages).
