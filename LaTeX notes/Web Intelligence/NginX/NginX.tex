@@ -51,22 +51,169 @@
 	
 	\section{A Fundamentally Different Architecture}
 	
-	The primary difference between Nginx and Apache lies in their core architectural models. Nginx employs an \textbf{asynchronous, event-based, non-blocking architecture}. It operates with a master process that is responsible for reading and validating the configuration and managing the lifecycle of a small, fixed number of worker processes. These workers, often configured to match the number of CPU cores, handle the actual connections and can each manage thousands of concurrent requests simultaneously.
+	The primary difference between Nginx and Apache lies in their core architectural models. Nginx employs an \textbf{asynchronous, event-based, non-blocking architecture}. It operates with a master process that is responsible for reading and validating the configuration and managing the lifecycle of a small, fixed number of worker processes. These workers, often configured to match the number of CPU cores, handle the actual connections and can each manage thousands of concurrent requests simultaneously.\\
 	
-	This is in stark contrast to Apache's older, synchronous model, which traditionally assigned a new process or thread to each connection, leading to high memory consumption and performance degradation under heavy load. The direct impact of Nginx's architecture is significant: it uses substantially less memory and delivers superior performance at high levels of concurrency, making it an excellent choice for modern, high-traffic web applications.
+	The responsibilities of the master process include:
+	\begin{itemize}
+		\item reading and validating the configuration file;
+		\item starting, stopping, and maintaining worker processes;
+		\item reloading the configuration and reconfiguring the server without interrupting active connections or causing service downtime.
+	\end{itemize}
+	
+	Worker processes are the components that actually handle client requests. Instead of creating a dedicated process or thread for every incoming connection, each worker uses an event loop capable of managing thousands of concurrent connections within a single process. This design dramatically reduces memory usage and context-switching overhead.\\
+	
+	A central component of this architecture is the shared \textbf{listen socket}. A socket is an operating system abstraction representing one endpoint of a network communication channel. The listen socket is created by the master process and shared among all worker processes. It remains bound to a specific IP address and port (for example, port 80 for HTTP or port 443 for HTTPS) and waits for incoming client connections.\\
+	
+	When a new client connection arrives, the operating system notifies one of the worker processes that the listen socket is ready to accept the connection. This mechanism avoids the need for every worker to continuously poll for new requests and allows the operating system to efficiently distribute incoming connections among the available workers.\newpage
+	
+	Nginx relies on operating system dependent event notification mechanisms such as:
+	\begin{itemize}
+		\item \texttt{epoll} on Linux;
+		\item \texttt{kqueue} on BSD-based systems and macOS;
+		\item \texttt{select} or \texttt{poll} on older Unix systems.
+	\end{itemize}
+	
+	These mechanisms allow a worker process to monitor thousands of sockets simultaneously and react only when a socket becomes ready for reading or writing. This approach is significantly more efficient than continuously checking every connection.\\
+	
+	For example, suppose a web server receives 10,000 simultaneous client connections. In a traditional process-per-connection architecture, the server might need thousands of threads or processes, consuming large amounts of memory and CPU time due to context switching. In contrast, Nginx may use only a small number of worker processes (for example, four workers on a quad-core CPU). Each worker can asynchronously manage thousands of active connections using the operating system event notification system. When data becomes available on a socket, the OS wakes up the appropriate worker, which processes the request without blocking other connections.\\
+	
+	This architecture is in stark contrast to Apache's older synchronous model, which traditionally assigned a new process or thread to each connection, leading to high memory consumption and performance degradation under heavy load. The direct impact of Nginx's architecture is significant: it uses substantially less memory and delivers superior performance at high levels of concurrency, making it an excellent choice for modern, high-traffic web applications.
+	
+	\subsection{Event Loop, Session Management, and User Isolation}
+	
+	One of the most important aspects of the Nginx architecture is that a single worker process can handle thousands of concurrent client connections simultaneously using an event-driven model. This may initially raise concerns regarding authentication, session management, and user isolation, especially when authenticated and unauthenticated users are being served concurrently by the same worker process.\\
+	
+	In reality, the event loop mechanism used by Nginx is responsible only for managing \textbf{network I/O events} and does not directly manage user authentication or application state. Each worker process maintains an internal event queue containing tasks generated by many different users and connections. Consequently, a single CPU core may process requests belonging to thousands of different clients in rapid succession.\\
+	
+	Unlike traditional thread-per-request architectures, Nginx does not dedicate a specific thread or process to each user. Instead, worker processes asynchronously react to events generated by sockets associated with different clients. The worker simply determines which socket is ready for reading or writing and processes the corresponding request.\\
+	
+	For example, a worker process may internally alternate between:
+	\begin{itemize}
+		\item a request from an authenticated user;
+		\item a request from an anonymous client;
+		\item an HTTPS handshake;
+		\item a WebSocket event;
+		\item a static file request.
+	\end{itemize}
+	
+	This design remains safe because each HTTP request carries all the information necessary to identify the client, typically through:
+	\begin{itemize}
+		\item cookies;
+		\item session identifiers;
+		\item authentication tokens;
+		\item authorization headers.
+	\end{itemize}
+	
+	In a typical PHP-based web application, authentication is not handled directly by Nginx. Instead, Nginx forwards dynamic requests to an application server such as PHP-FPM. The application layer is responsible for managing sessions and authentication state. For instance, when a client sends a request containing:
+	
+	\begin{verbatim}
+	Cookie: PHPSESSID=abc123
+	\end{verbatim}
+	
+	PHP uses the session identifier to retrieve the corresponding session data from a dedicated session storage system. Depending on the server configuration, session data may be stored:
+	\begin{itemize}
+		\item in files on disk;
+		\item in memory databases such as Redis or Memcached;
+		\item inside relational or NoSQL databases.
+	\end{itemize}
+	
+	The stored session may contain information such as:
+	\begin{itemize}
+		\item user identifier;
+		\item authentication status;
+		\item roles and permissions;
+		\item shopping cart contents;
+		\item CSRF tokens (Cross-Site Request Forgery, a unique, secret, and unpredictable value generated by a server and given to a user's browser. It prevents hackers from executing unauthorized actions on your behalf by ensuring that any form submission or API request genuinely originated from your trusted session).
+	\end{itemize}
+	
+	Therefore, the worker process itself does not permanently store the authentication state of every user in its own memory. Instead, it temporarily handles requests and delegates session management to specialized application-layer components. Internally, each active connection handled by a worker process is associated with lightweight data structures containing:
+	\begin{itemize}
+		\item socket descriptors;
+		\item network buffers;
+		\item connection state;
+		\item timers and event metadata.
+	\end{itemize}
+	
+	These structures are isolated for each connection and are managed independently by the operating system and the Nginx event loop. The operating system further guarantees process-level memory isolation, preventing one request from accidentally accessing another user's data.\newpage
+	
+	Security therefore does not depend on assigning one worker per user, but rather on:
+	\begin{itemize}
+		\item isolated connection contexts;
+		\item unique session identifiers;
+		\item proper session management;
+		\item operating system memory protection;
+		\item application-layer authentication mechanisms.
+	\end{itemize}
+	
+	As a result, a small number of Nginx worker processes can efficiently and safely manage tens of thousands of concurrent users while maintaining strict separation between user sessions and authentication states.
 	
 	\section{The Nginx Configuration Model}
 	
-	Like Apache, Nginx uses a text-based configuration file. Its structure is composed of simple directives (a name and parameters ending with a semicolon) and block directives (contexts enclosed in curly braces). The configuration is organized into a clear hierarchy of three primary contexts:
+	Like Apache, Nginx uses a text-based configuration file composed of directives. The main configuration file is typically called \texttt{nginx.conf}. Unlike Apache, however, Nginx organizes directives into different hierarchical \textbf{contexts}, allowing configuration rules to be applied at different levels of the web server architecture.	Nginx directives are divided into two categories:
+	\begin{itemize}
+		\item \textbf{Simple directives}: consist of a directive name followed by parameters separated by spaces and terminated by a semicolon. For example:
+		
+		\begin{lstlisting}
+	worker_processes 4;
+		\end{lstlisting}
+		
+		\item \textbf{Block directives}: consist of a directive name followed by a block of additional directives enclosed in curly braces. These blocks define a configuration context. For example:
+		
+		\begin{lstlisting}
+	server {
+		listen 80;
+		server_name example.com;
+	}
+		\end{lstlisting}
+	\end{itemize}
+	
+	The configuration hierarchy is organized into three main contexts:
 	
 	\begin{enumerate}
-	    \item \texttt{http}: The top-level context for all web traffic configuration. It contains one or more \texttt{server} blocks.
-	    \item \texttt{server}: This block defines a specific virtual host, specifying the port to listen on and the domain name it should respond to.
-	    \item \texttt{location}: Contained within a \texttt{server} block, a \texttt{location} block applies directives to requests for a specific URI path. Nginx processes a request by selecting the most specific matching location block.
+		\item \texttt{http}: the top-level context for the entire web server instance. It contains global HTTP configuration directives and one or more \texttt{server} blocks.
+		
+		\item \texttt{server}: defines a specific virtual host. A server block specifies the IP address and port on which the server listens, together with the domain names associated with that virtual host.
+		
+		\item \texttt{location}: defines configuration rules for a specific set of resources or URI paths inside a virtual host. Requests can be matched using prefixes or regular expressions. Multiple nested \texttt{location} contexts are allowed.
 	\end{enumerate}
 	
-	This hierarchical structure is illustrated in the example below:
+	Nginx processes requests hierarchically according to the following order:
 	
+	\begin{center}
+		\texttt{http} $\rightarrow$ \texttt{server} $\rightarrow$ \texttt{location}
+	\end{center}
+	
+	\newpage
+	First, Nginx determines which \texttt{server} block should process the incoming request based on:
+	\begin{itemize}
+		\item the listening port;
+		\item the IP address;
+		\item the requested domain name specified in the \texttt{Host} header.
+	\end{itemize}
+	
+	The configuration file may therefore contain multiple \texttt{server} blocks implementing different virtual hosts on the same physical machine. Once the correct server block has been selected, Nginx evaluates the requested URI against the available \texttt{location} directives. The goal is to determine which configuration block most specifically matches the request. For matching requests, the URI is combined with the path specified by the \texttt{root} directive to construct the path of the requested resource on the local filesystem. For example:
+	
+	\begin{lstlisting}
+	location /images/ {
+		root /var/www/html;
+	}
+	\end{lstlisting}
+	
+	A request for:
+	
+	\begin{lstlisting}
+	/images/logo.png
+	\end{lstlisting}
+	
+	will correspond to the following file path on disk:
+	
+	\begin{lstlisting}
+	/var/www/html/images/logo.png
+	\end{lstlisting}
+	
+	When multiple \texttt{location} blocks match a request, Nginx selects the \textbf{most specific match}, generally corresponding to the location block with the longest matching prefix. This mechanism allows administrators to define both general rules and highly specialized configurations for specific resources or application paths. Directives defined in more specific contexts override directives inherited from more general contexts. Consequently, a directive specified inside a \texttt{location} block takes precedence over the same directive defined at the \texttt{server} or \texttt{http} level.\\
+	
+	This hierarchical structure is illustrated in the example below:
 	\begin{lstlisting}
 	http {
 	    server {
@@ -84,20 +231,399 @@
 	}
 	\end{lstlisting}
 	
-	This example shows a top-level \texttt{http} block containing a \texttt{server} block for a virtual host. Inside, two \texttt{location} blocks define different document roots for different URI paths, with \texttt{/images/} being more specific than the root path \texttt{/}. Directives in more specific contexts override those in more general ones.
+	This example shows a top-level \texttt{http} block containing a \texttt{server} block for a virtual host. Inside, two \texttt{location} blocks define different document roots for different URI paths. Given this configuration file, if a user requests the resource at the following URI:
+	
+	\begin{lstlisting}
+	http://www.example.com/images/example.png
+	\end{lstlisting}
+	
+	Nginx chooses the second location because it has a longer prefix and is more specific (\texttt{/images} is longer than \texttt{/}) and returns to the client the file stored in the following path on th disk:
+	
+	\begin{lstlisting}
+	/data/images/example.png
+	\end{lstlisting}
 	
 	\section{Common Nginx Use Cases}
 	
-	The following examples demonstrate two of the most fundamental Nginx configurations.
+	The following examples demonstrate two of the most common Nginx configurations: virtual hosting and reverse proxying.
 	
+	\subsection{Virtual Host Configuration}
+	
+	\begin{lstlisting}
+	server {
+		listen 4000;
+		server_name www.example.com;
+	
+		location / {
+			root /usr/share/nginx/html/vhost;
+			index index.html index.htm;
+		}
+	}
+	\end{lstlisting}
+	
+	This \texttt{server} block configures a complete virtual host. The directive:
+	
+	\begin{lstlisting}
+	listen 4000;
+	\end{lstlisting}
+	
+	instructs Nginx to accept incoming TCP connections on port 4000.\\
+	
+	The directive:
+	
+	\begin{verbatim}
+	server_name www.example.com;
+	\end{verbatim}
+	
+	specifies the hostname associated with this virtual host. Nginx uses the value contained in the HTTP \texttt{Host} header to determine which \texttt{server} block should process the request.\\
+	
+	To test the configuration locally, the hostname must be mapped to an IP address through the operating system hosts file. For example:
+	
+	\begin{verbatim}
+	127.0.0.1 www.example.com
+	\end{verbatim}
+	
+	This manual mapping acts as a local DNS resolution rule, associating the hostname \texttt{www.example.com} with the loopback address \texttt{127.0.0.1}. Consequently, requests sent to:
+	
+	\begin{verbatim}
+	http://www.example.com:4000
+	\end{verbatim}
+	
+	will reach the local Nginx instance.\\
+	
+	Inside the \texttt{location} block, the directive:
+	
+	\begin{verbatim}
+	root /usr/share/nginx/html/vhost;
+	\end{verbatim}
+	
+	defines the root directory used to retrieve static resources from the filesystem.\\
+	
+	The \texttt{index} directive specifies the default file that should be served when the client requests a directory instead of a specific file:
+	
+	\begin{verbatim}
+	index index.html index.htm;
+	\end{verbatim}
+	
+	The directive accepts multiple filenames because Nginx tests them sequentially and returns the first existing file to the client. In this case:
 	\begin{enumerate}
-	    \item \textbf{Virtual Host Configuration}: This \texttt{server} block configures a complete virtual host.
-	    \item Here, \texttt{listen 4000;} instructs Nginx to accept connections on port 4000. \texttt{server\_name www.example.com;} ensures this block only responds to requests with that specific \texttt{Host} header. The \texttt{root} directive sets the document root directory, and \texttt{index} specifies the default file to serve if a directory is requested.
-	    \item \textbf{Reverse Proxy Configuration}: This \texttt{location} block uses the \texttt{proxy\_pass} directive to forward all incoming requests to a backend server.
-	    \item This configuration forms the basis of using Nginx as a reverse proxy or load balancer. The architectural pattern is identical to that discussed in the Apache section~(2.4.4)---a gateway forwarding requests to backend servers---with only the syntax and underlying process model differing.
+		\item Nginx first searches for \texttt{index.html};
+		\item if the file does not exist, it searches for \texttt{index.htm}.
 	\end{enumerate}
 	
+	Therefore, the directive does not indicate multiple simultaneous files, but rather an ordered list of fallback default resources.
+	
+	\subsection{Reverse Proxy Configuration}
+	
+	\begin{lstlisting}
+	server {
+		listen 5000;
+		server_name localhost;
+	
+		location / {
+			proxy_pass http://host.docker.internal:80;
+		}
+	
+		location ~ \.(gif|jpg|png)$ {
+			root /usr/share/nginx/html/proxy;
+		}
+	}
+	\end{lstlisting}
+	
+	This configuration demonstrates the use of Nginx as a reverse proxy server.\\
+	
+	\newpage
+	The directive:
+	
+	\begin{verbatim}
+	proxy_pass http://host.docker.internal:80;
+	\end{verbatim}
+	
+	forwards incoming requests to another web server running on a different host or container. In this example, the backend server listens on port 80.\\
+	
+	The hostname:
+	
+	\begin{verbatim}
+	host.docker.internal
+	\end{verbatim}
+	
+	is a special DNS name provided by Docker. It automatically resolves to the internal IP address of the host machine from inside a Docker container. This mechanism allows a containerized Nginx instance to communicate with services running on the host operating system. Consequently, when a client accesses:
+	
+	\begin{verbatim}
+	http://localhost:5000
+	\end{verbatim}
+	
+	Nginx receives the request and transparently forwards it to:
+	
+	\begin{verbatim}
+	http://host.docker.internal:80
+	\end{verbatim}
+	
+	The client therefore interacts only with Nginx, while the actual content may be generated by another backend application server.\\
+	
+	The second \texttt{location} block:
+	
+	\begin{verbatim}
+	location ~ \.(gif|jpg|png)$
+	\end{verbatim}
+	
+	uses the symbol \texttt{\textasciitilde{}} to indicate that the URI should be matched using a regular expression. The regular expression:
+	
+	\begin{verbatim}
+	\.(gif|jpg|png)$
+	\end{verbatim}
+	
+	matches all URIs ending with:
+	\begin{itemize}
+		\item \texttt{.gif}
+		\item \texttt{.jpg}
+		\item \texttt{.png}
+	\end{itemize}
+	
+	For example:
+	
+	\begin{itemize}
+		\item /images/photo.jpg
+		\item /icons/logo.png
+	\end{itemize}
+	
+	When such a request is detected, Nginx serves the resource directly from the local filesystem instead of forwarding the request to the backend server. The directive:
+	
+	\begin{verbatim}
+	root /usr/share/nginx/html/proxy;
+	\end{verbatim}
+	
+	specifies an absolute filesystem path used as the root directory for static resources handled by this location block. For example, the request:
+	
+	\begin{verbatim}
+	/images/photo.jpg
+	\end{verbatim}
+	
+	will correspond to the following filesystem path:
+	
+	\begin{verbatim}
+	/usr/share/nginx/html/proxy/images/photo.jpg
+	\end{verbatim}
+	
+	This mechanism is extremely efficient because Nginx can serve static files such as images directly, without involving the backend application server. As a result:
+	\begin{itemize}
+		\item backend load is reduced;
+		\item response times improve;
+		\item memory and CPU usage decrease;
+		\item static content delivery becomes highly scalable.
+	\end{itemize}
+	
+	This architectural pattern is commonly used in modern web infrastructures, where Nginx acts simultaneously as:
+	\begin{itemize}
+		\item reverse proxy;
+		\item load balancer;
+		\item SSL/TLS terminator;
+		\item static content server.
+	\end{itemize}
+	
 	While their syntax and architecture differ, both Apache and Nginx provide powerful tools for implementing key web architecture patterns. One of the most critical of these is load balancing, a technique essential for building scalable and reliable services.
+	
+	\chapter{Nginx Installation and Service Management}
+	
+	Nginx is available for most modern operating systems and can be installed using either precompiled packages or by compiling the source code manually. The installation process and management commands are designed to be lightweight and efficient, reflecting the overall philosophy of the web server.
+	
+	\section{Installing Nginx}
+	
+	On Linux systems, Nginx is commonly installed through the package manager provided by the distribution. Prebuilt packages are available in formats such as:
+	\begin{itemize}
+		\item RPM packages for Red Hat, CentOS, Fedora, and related distributions;
+		\item DEB packages for Debian, Ubuntu, and related distributions.
+	\end{itemize}
+	
+	The official installation instructions for supported Linux distributions can be found on the official Nginx website: \href{https://nginx.org/en/linux\_packages.htm}{\texttt{https://nginx.org/en/linux\_packages.html}}.\\
+	
+	Installing from precompiled packages is generally the simplest and most reliable approach because:
+	\begin{itemize}
+		\item dependencies are automatically resolved;
+		\item updates can be managed through the package manager;
+		\item the installation follows the conventions of the operating system.
+	\end{itemize}
+	
+	Alternatively, Nginx can be compiled directly from source code. This approach is useful when:
+	\begin{itemize}
+		\item custom modules are required;
+		\item specific compile-time options must be enabled or disabled;
+		\item experimental versions need to be tested;
+		\item the administrator wants maximum control over the installation.
+	\end{itemize}
+	
+	\newpage
+	Compilation from source typically follows the traditional Unix workflow:
+	
+	\begin{verbatim}
+	./configure
+	make
+	make install
+	\end{verbatim}
+	
+	The \texttt{configure} script checks system dependencies and generates the appropriate build configuration, while \texttt{make} compiles the source code. The official documentation for compilation options is available at \href{https://nginx.org/en/docs/configure.html}{\texttt{https://nginx.org/en/docs/configure.html}}.\\
+	
+	By default, the Nginx executable is installed in:
+	
+	\begin{verbatim}
+	/usr/sbin/nginx
+	\end{verbatim}
+	
+	However, the installation path can be modified using specific compilation options during the \texttt{configure} phase. The default location of the main configuration file is:
+	
+	\begin{verbatim}
+	/etc/nginx/nginx.conf
+	\end{verbatim}
+	
+	This file represents the main entry point of the Nginx configuration hierarchy and may include additional configuration files using the \texttt{include} directive.\\
+	
+	For Microsoft Windows systems, Nginx is distributed as a precompiled binary package. Although functional, the Windows version is generally considered less optimized than the Unix/Linux implementation because Nginx was originally designed around Unix event-driven mechanisms such as \texttt{epoll}.
+	
+	\section{Starting and Managing the Nginx Service}
+	
+	The Nginx daemon can be started directly by executing the binary:
+	
+	\begin{verbatim}
+	/usr/sbin/nginx
+	\end{verbatim}
+	
+	Starting the server typically requires root privileges because Nginx often binds to privileged ports such as:
+	\begin{itemize}
+		\item port 80 for HTTP;
+		\item port 443 for HTTPS.
+	\end{itemize}
+	
+	The executable supports several optional parameters used to control the daemon during runtime.
+	
+	\subsection{Stopping the Server}
+	
+	To immediately terminate the Nginx server, the following command can be used:
+	
+	\begin{verbatim}
+	/usr/sbin/nginx -s stop
+	\end{verbatim}
+	
+	This operation forces the server to terminate quickly and closes active connections abruptly.
+	
+	\subsection{Graceful Shutdown}
+	
+	A safer alternative is the graceful shutdown command:
+	
+	\begin{verbatim}
+	/usr/sbin/nginx -s quit
+	\end{verbatim}
+	
+	In this case, Nginx stops accepting new client connections but allows already active connections to complete before terminating worker processes.\\
+	
+	A graceful stop is particularly important in production environments because it prevents:
+	\begin{itemize}
+		\item interrupted downloads;
+		\item incomplete HTTP responses;
+		\item abrupt client disconnections;
+		\item loss of in-progress requests.
+	\end{itemize}
+	
+	This mechanism is possible because the master process coordinates worker termination while monitoring active connections.
+	
+	\subsection{Reloading the Configuration}
+	
+	One of the most powerful features of Nginx is the ability to reload the configuration without interrupting service availability:
+	
+	\begin{verbatim}
+	/usr/sbin/nginx -s reload
+	\end{verbatim}
+	
+	When this command is executed:
+	\begin{enumerate}
+		\item the master process rereads the configuration file;
+		\item the configuration syntax is validated;
+		\item new worker processes are spawned with the updated configuration;
+		\item old workers continue serving existing connections;
+		\item once active requests terminate, the old workers are gracefully stopped.
+	\end{enumerate}
+	
+	This architecture allows configuration changes to be applied ``on the fly'' without downtime, which is one of the reasons why Nginx is widely adopted in high-availability infrastructures.
+	
+	\subsection{Testing the Installation}
+	
+	Once the server has been started successfully, its operation can be verified by opening a web browser and navigating to:
+	
+	\begin{verbatim}
+	http://localhost
+	\end{verbatim}
+	
+	If the installation and configuration are correct, Nginx returns a default welcome page or the configured website content (see figure \ref{fig:welcome_message}).
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=\linewidth]{"Images/Welcome message.jpg"}
+		\caption{Nginx welcome message}
+		\label{fig:welcome_message}
+	\end{figure}
+	
+	The term \texttt{localhost} refers to the local machine itself and typically resolves to the loopback IP address:
+	
+	\begin{verbatim}
+	127.0.0.1
+	\end{verbatim}
+	
+	This test confirms that:
+	\begin{itemize}
+		\item the Nginx daemon is running;
+		\item the server is listening on the expected port;
+		\item the network configuration is functioning correctly;
+		\item the HTTP request-response cycle operates properly.
+	\end{itemize}
+	
+	\chapter{Containerization with Docker and Docker Compose}
+	
+	Containerizing NGINX ensures environment parity across development and production, simplifying deployment workflows.
+	
+	\section{Docker Compose Service (docker-compose.yml)}
+	
+	To manage the deployment and persistence of these containers, \texttt{docker-compose.yml} defines the service parameters, specifically port mapping and volume externalization:
+	
+	\begin{lstlisting}
+	version: '3'
+	services:
+	  nginx:
+		restart: always
+		image: nginx:latest
+		container_name: web
+		ports:
+		  - "8080:80"   # Maps Host Port 8080 to Container Port 80
+		  - "5000:5000"
+		  - "4000:4000"
+		volumes:
+		  - nginx_root:/usr/share/nginx/html
+		  - nginx_conf:/etc/nginx/conf.d
+	volumes:
+	  nginx_root:
+		external: true
+	  nginx_conf:
+		external: true
+	\end{lstlisting}
+	
+	The \texttt{ports} mapping (e.g., \texttt{8080:80}) is crucial: it allows external traffic on the host's port 8080 to be routed into the container's standard web port. This ensures the service is accessible while maintaining isolation.\\
+	
+	After creating the \texttt{docker-compose.yml} file, we can run the command \texttt{docker compose up -d} to start the Docker application and all the services defined in the YAML file.
+	
+	\section{Custom NGINX Dockerfile}
+	
+	To build a custom image, a \texttt{Dockerfile} is used to package the configuration and static assets:
+	
+	\begin{lstlisting}
+		FROM nginx:latest
+		
+		# Copy local configs and static content into the image
+		COPY ./nginx_conf/. /etc/nginx/conf.d/
+		COPY ./nginx_root/. /usr/share/nginx/html/
+		
+		# Define accessible container ports
+		EXPOSE 80 4000 5000
+	\end{lstlisting}
+	
+	After creating this \texttt{Dockerfile}, we can build the container image using the command: \texttt{docker build –t nginx-test}. Then, we can start the container using the command \texttt{docker run -d –p 8080:80 –p 4000:4000 –p 5000:5000 --name web nginx-test} and check if all files are available using the command \texttt{docker exec –it web /bin/bash}.
 	
 	\chapter{A Deeper Dive into Load Balancing}
 	
@@ -136,109 +662,39 @@
 	
 	Managing state is a key consideration when designing any load-balanced architecture, as it directly impacts both user experience and system reliability.
 	
-	\chapter{Fundamentals of NGINX Configuration Architecture}
+	\section{Load Balancing in NGINX}
 	
-	The strategic importance of NGINX lies in its modular configuration architecture, which provides granular control over web traffic and resource management. This design serves as the robust foundation for modern web infrastructure, allowing architects to define precise rules for how an instance handles various types of requests and system resources. This modularity ensures that the server can scale from a simple file provider to a complex traffic gateway without a total redesign of the underlying configuration logic.
-	
-	NGINX configuration is built upon two distinct types of directives:
-	
-	\begin{itemize}
-	    \item \textbf{Simple Directives:} Consist of a single line of text (e.g., \texttt{root /data/www;}) and must be terminated with a semicolon.
-	    \item \textbf{Block Directives:} Defined by a name followed by a set of directives enclosed within curly braces \texttt{\{ \}}. These create a ``context'' for the directives within them.
-	\end{itemize}
-	
-	The architecture is organized into a visual and functional hierarchy:
-	
-	\begin{enumerate}
-	    \item \textbf{HTTP:} The outermost context for global settings applicable to all web traffic.
-	    \item \textbf{Server:} Managed within the HTTP context to define settings for individual Virtual Hosts.
-	    \item \textbf{Location:} Nested within the Server context to define how NGINX handles specific resource paths, often utilizing regular expressions or prefixes.
-	\end{enumerate}
-	
-	This structure follows a strict hierarchical application logic (\textbf{HTTP > Server > Location}). In this model, the most specific context---the Location block---is capable of overriding more general settings defined in the Server or HTTP contexts. This allows for highly specialized resource handling without compromising global stability. This foundational architecture provides the flexibility required for implementing advanced features like Virtual Hosting.
-	
-	\chapter{Virtual Hosting and Resource Mapping}
-	
-	Virtual Hosting is a strategic capability that enables a single physical NGINX instance to host multiple distinct domains and services efficiently. This optimization allows organizations to maximize hardware utilization by running diverse web applications through a unified gateway.
-	
-	To establish a Virtual Host, four essential directives are utilized within the \texttt{server} block:
-	
-	\begin{itemize}
-	    \item \texttt{listen}: Defines the TCP port for incoming traffic (e.g., \texttt{listen 80;}).
-	    \item \texttt{server\_name}: Identifies the host name or domain assigned to the virtual host (e.g., \texttt{server\_name example.com;}).
-	    \item \texttt{root}: Maps the request to a specific path on the local file system.
-	    \item \texttt{index}: Defines the default files (like \texttt{index.html}) to serve when a directory is requested.
-	\end{itemize}
-	
-	\section{Scenario: Path Resolution and Matching Logic}
-	
-	NGINX resolves overlapping paths based on prefix specificity and order. If a request matches multiple contexts at the same hierarchical level, the last defined context is applied.
-	
-	\begin{lstlisting}
-	server {
-	    listen 80;
-	    server_name localhost;
-	
-	    # Context A: Generic root
-	    location / {
-	        root /data/www;
-	    }
-	
-	    # Context B: Specific prefix
-	    location /images/ {
-	        root /data;
-	    }
-	}
-	\end{lstlisting}
-	
-	\textbf{Architectural Analysis:} If a client requests \texttt{/images/example.png}, the request matches both \texttt{/} and \texttt{/images/}. Because they share the same hierarchical level, NGINX applies the last defined context (Context B). Consequently, the file is sought at \texttt{/data/images/example.png}. It is critical to order configurations by placing generic locations first and specific locations afterward to ensure correct resource delivery.
-	
-	This ability to map local resources effectively serves as the precursor to NGINX's more advanced role in intermediate traffic handling.
-	
-	\chapter{The Reverse Proxy Implementation}
-	
-	Historically, NGINX's shift from a simple web server to a high-performance reverse proxy was driven by its superior efficiency over legacy systems like Apache, particularly regarding connection concurrency. As a proxy, NGINX acts as an intermediary, receiving client requests and forwarding them to backend services.
-	
-	The primary directive for this role is \texttt{proxy\_pass}. It directs traffic to an internal server or a containerized instance. In modern microservices, architects often use special DNS names to bridge network layers:
-	
-	\begin{lstlisting}
-	location / {
-	    proxy_pass http://host.docker.internal:8080;
-	}
-	\end{lstlisting}
-	
-	\textit{Note:} \texttt{host.docker.internal} \textit{is a special DNS name that resolves to the internal IP address used by the host, facilitating seamless communication between containers and host-level services.}
-	
-	In professional deployments, NGINX often performs a hybrid ``filtering'' role. It serves static content directly (using \texttt{root}) while proxying all other requests to a backend. By offloading static asset delivery from the application server, NGINX significantly increases overall system throughput.
-	
-	This single-target proxying capability provides the technical framework required for more complex multi-server distribution known as Load Balancing.
-	
-	\chapter{Advanced Load Balancing Strategies}
-	
-	Load balancing is implemented to maximize throughput, reduce latency, and ensure fault tolerance. Rather than ``scaling up'' with expensive hardware, NGINX facilitates a ``scale-out'' architecture, distributing traffic across a fleet of identical, standardized server instances.
-	
-	Architects use the \texttt{upstream} context to group backend instances. Within this context, specific policies can be applied:
+	Load balancing is implemented to maximize throughput, reduce latency, and ensure fault tolerance. Rather than ``scaling up'' with expensive hardware, NGINX facilitates a ``scale-out'' architecture, distributing traffic across a fleet of identical, standardized server instances. Architects use the \texttt{upstream} context to group backend instances. Within this context, specific policies can be applied:
 	
 	\begin{center}
-	\begin{tabular}{|l|l|l|l|}
+	\begin{tabularx}{\linewidth}{|p{7.5em}|p{6.5em}|X|X|}
 	\hline
+	
 	\textbf{Policy Name} & \textbf{Directive} & \textbf{Mechanism} & \textbf{Use Case / Benefit} \\
 	\hline
+	
 	Round Robin & \textit{(Default)} & Requests are distributed sequentially. & Standard distribution for identical backends. \\
 	\hline
+	
 	Least Connected & \texttt{least\_conn;} & Targets the server with the lowest active connections. & Prevents overloading busy application servers. \\
 	\hline
+	
 	IP Hash & \texttt{ip\_hash;} & Maps client IP to a specific server via a hash function. & Ensures session persistence for stateful apps. \\
 	\hline
-	\end{tabular}
+	\end{tabularx}
 	\end{center}
 	
-	\section{Implementation Example: Load Balancer with Persistence}
+	\section{Load Balancer implementation in NGINX}
 	
 	\begin{lstlisting}
 	http {
 	    upstream myapp1 {
+	        # Here we can use a policy directive from
+	        # the table. Leaving this empty implements
+	        # the round robin policy by default.
 	        ip_hash; # Ensures session persistence
+	        # least_conn; # Prevents server overloading
+	        
 	        server srv1.example.com;
 	        server srv2.example.com;
 	        server srv3.example.com;
@@ -254,46 +710,6 @@
 	\end{lstlisting}
 	
 	By replicating server instances with identical configurations, NGINX provides high reliability. If one node fails, the load balancer continues to respond using the remaining healthy instances, ensuring seamless failover.
-	
-	\chapter{Containerization with Docker and Docker Compose}
-	
-	Containerizing NGINX ensures environment parity across development and production, simplifying deployment workflows. To build a custom image, a \texttt{Dockerfile} is used to package the configuration and static assets:
-	
-	\section{Custom NGINX Dockerfile}
-	
-	\begin{lstlisting}
-	FROM nginx:latest
-	# Copy local configs and static content into the image
-	COPY ./nginx_conf/. /etc/nginx/conf.d/
-	COPY ./nginx_root/. /usr/share/nginx/html/
-	# Define accessible container ports
-	EXPOSE 80 4000 5000
-	\end{lstlisting}
-	
-	To manage the deployment and persistence of these containers, \texttt{docker-compose.yml} defines the service parameters, specifically port mapping and volume externalization:
-	
-	\section{Docker Compose Service (docker-compose.yml)}
-	
-	\begin{lstlisting}
-	version: '3'
-	services:
-	  web:
-	    image: nginx-test
-	    build: .
-	    ports:
-	      - "8080:80"   # Maps Host Port 8080 to Container Port 80
-	      - "5000:5000"
-	    volumes:
-	      - nginx_root:/usr/share/nginx/html
-	      - nginx_conf:/etc/nginx/conf.d
-	volumes:
-	  nginx_root:
-	    external: true
-	  nginx_conf:
-	    external: true
-	\end{lstlisting}
-	
-	The \texttt{ports} mapping (e.g., \texttt{8080:80}) is crucial: it allows external traffic on the host's port 8080 to be routed into the container's standard web port. This ensures the service is accessible while maintaining isolation.
 	
 	\chapter{Comparative Performance Analysis: NGINX vs. Apache HTTP Server}
 	
