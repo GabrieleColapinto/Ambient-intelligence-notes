@@ -1,0 +1,65 @@
+\contentsline {chapter}{\numberline {1}The Semantic Web}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation and Definition}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Semantic Ambiguity on the Web}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Foundational Web Technologies}{6}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Resource Identification with URI and IRI}{6}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}XML and XML Namespaces}{6}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Standard Semantic Web Technologies}{7}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}RDF}{7}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}RDFS}{7}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}OWL}{8}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}SPARQL}{8}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}RIF}{8}{subsection.1.4.5}%
+\contentsline {section}{\numberline {1.5}Unrealized and Partially Realized Layers}{8}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Cryptographic Support}{8}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Proof and Explanation}{8}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Trust}{9}{subsection.1.5.3}%
+\contentsline {section}{\numberline {1.6}From Web Documents to Machine-Interpretable Knowledge}{9}{section.1.6}%
+\contentsline {chapter}{\numberline {2}The RDF Data Model}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Role of RDF}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Abstract Syntax}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}RDF Statements}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Triples}{11}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Subject, Predicate, and Object}{12}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Resources and IRIs}{13}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Literals}{13}{section.2.5}%
+\contentsline {section}{\numberline {2.6}RDF Graphs}{13}{section.2.6}%
+\contentsline {section}{\numberline {2.7}RDF Datasets}{14}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Data Model and Serialization}{14}{section.2.8}%
+\contentsline {chapter}{\numberline {3}RDF Serializations}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}RDF/XML}{16}{section.3.1}%
+\contentsline {section}{\numberline {3.2}N-Triples}{17}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Turtle}{17}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Comma Notation for Shared Subjects and Predicates}{18}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Semicolon Notation for Shared Subjects}{18}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}TriG}{18}{section.3.4}%
+\contentsline {section}{\numberline {3.5}N-Quads}{19}{section.3.5}%
+\contentsline {section}{\numberline {3.6}JSON-LD (JSON syntax for Linked Data)}{20}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Clarifying the \texttt {@reverse} entry}{20}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}JSON-LD Contexts}{22}{subsection.3.6.2}%
+\contentsline {section}{\numberline {3.7}RDFa}{24}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Choosing a Serialization}{25}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Core RDF Constructs}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Typing Resources and Properties}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}RDF Containers}{27}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Membership Properties and \texttt {rdf:li}}{28}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Language-Tagged Strings}{30}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Blank Nodes}{30}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Blank Nodes as Aggregation Devices}{31}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}RDF Reification}{31}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Use Cases and Limitations of Reification}{32}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}Chapter summary}{32}{section.4.5}%
+\contentsline {chapter}{\numberline {5}RDF Schema}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Purpose of RDF Schema}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}The RDFS Metamodel}{33}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Class Taxonomies}{34}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}The Meaning of \texttt {rdfs:subClassOf}}{34}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Class Hierarchies in Domain Vocabularies}{35}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Property Descriptions}{35}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Properties as First-Class Resources}{35}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Domain and Range}{35}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Subproperties}{36}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5.5}Human-Readable Vocabulary Metadata}{37}{section.5.5}%
+\contentsline {section}{\numberline {5.6}RDFS Inference Patterns}{38}{section.5.6}%
+\contentsline {section}{\numberline {5.7}From RDF to RDFS and OWL}{40}{section.5.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
