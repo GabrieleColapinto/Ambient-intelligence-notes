@@ -1,0 +1,750 @@
+\documentclass{scrbook}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tabularx} % Required for fixed width tables
+\usepackage{scrlayer-scrpage} % Required for the subtitles
+\usepackage{url} % Required for the URLs
+\usepackage{hyperref} % Required for the URLs
+\usepackage{listings} % Required for the code snippets
+\usepackage{mathtools} % Required for the system of equations
+\usepackage{enumitem} % Required for list styling
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono} % Overleaf has this font pre-installed
+
+% Put the caption of the snippets at the bottom
+\lstset{
+	captionpos=b,
+	basicstyle=\ttfamily\small,
+	columns=fullflexible,
+	keepspaces=true
+}
+
+
+\title{SPARQL: SPARQL Protocol And RDF Query Language}
+\subtitle{Ambient intelligence course (A.Y. 2025/2026)\\Topic taught by Prof. Floriano Scioscia}
+\author{Gabriele Colapinto}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{empty}
+	
+	{\Large\textbf{License}} \\
+	{Notes from Ambient intelligence (A.Y. 2025/2026) by Gabriele Colapinto. 
+		Course taught by professors Michele Ruta, Floriano Scioscia, Arnaldo Tomasino, Davide Loconte — 
+		Licensed under CC BY-NC 4.0.\\
+		\url{https://creativecommons.org/licenses/by-nc/4.0/}}
+	
+	\vspace*{\fill}
+	\rule{\textwidth}{0.2pt}
+	\small{© 2025 Gabriele Colapinto \\
+		Released under the \href{https://creativecommons.org/licenses/by-nc/4.0/}{Creative Commons Attribution–NonCommercial 4.0 International License}}
+	
+	\clearpage
+	
+	\tableofcontents
+	
+	\chapter{SPARQL Protocol and RDF Query Language}
+	
+	\section{Role of SPARQL in RDF Data Access}
+	
+	SPARQL, the SPARQL Protocol and RDF Query Language, is the standard query language for RDF datasets. Since an RDF dataset is naturally represented as a directed labelled graph made of triples, the central operation in SPARQL is \textbf{graph pattern matching}: a query describes a pattern, and the query processor searches the RDF data for substitutions of variables that make the pattern match.\\
+	
+	A SPARQL query is not, by itself, an inference procedure. A query processor evaluates graph patterns over the RDF dataset exposed by the endpoint, possibly according to the entailment regime supported by that endpoint, but the basic language should not be confused with a rule engine or an ontology reasoner. Its primary role is to retrieve, test, or construct information from RDF graphs.\\
+	
+	A \textbf{SPARQL endpoint} is a software service that accepts SPARQL queries and returns query results, commonly over HTTP. Results may be returned in machine-processable formats such as XML, JSON, or RDF serializations, or in human-readable formats such as HTML. Endpoints can be classified according to the datasets they expose:
+	\begin{itemize}
+	    \item a \textbf{specific endpoint} provides access to a predefined set of loaded datasets, such as \texttt{https://dbpedia.org/sparql};
+	    \item a \textbf{generic endpoint} allows the query to identify the Web-accessible RDF dataset to be queried, as in \texttt{https://www.openlinksw.com/sparql}.
+	\end{itemize}
+	
+	The availability of public RDF datasets and endpoints is one of the practical reasons for SPARQL's importance in Linked Data applications: large knowledge graphs can be queried through a uniform language without requiring a proprietary data access interface. Collections such as \texttt{https://lod-cloud.net} provide entry points for discovering datasets and endpoints in the Linked Open Data cloud.
+	
+	\section{Triple Patterns and Solution Bindings}
+	
+	\subsection{Triple Patterns}
+	
+	SPARQL queries are built from \textbf{triple patterns}. A triple pattern has the same shape as an RDF triple, but any of the three positions---subject, predicate, or object---may contain a variable. Variables are prefixed by \texttt{?} and act as unknowns to be bound during pattern matching.\\
+	
+	The most general triple pattern is:
+	
+	\begin{lstlisting}
+?subject ?predicate ?object
+	\end{lstlisting}
+	
+	A more selective pattern fixes the predicate and leaves the subject and object unknown:
+	
+	\begin{lstlisting}
+?movie dbpedia-owl:starring ?actor
+	\end{lstlisting}
+	
+	This pattern matches triples whose predicate is \texttt{dbpedia-owl:starring}. For every matching triple, the subject is bound to \texttt{?movie} and the object is bound to \texttt{?actor}. The result of evaluating a graph pattern is therefore a set of \textbf{solution mappings}, where each solution maps query variables to RDF terms.
+	
+	\subsection{Example RDF Graph}
+	
+	Consider the following RDF graph, written in Turtle syntax. It states the actors starring in two movies.
+	
+	\begin{lstlisting}
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/> .
+
+dbpedia:The_Matrix_Revolutions dbpedia-owl:starring
+  dbpedia:Carrie-Anne_Moss ,
+  dbpedia:Keanu_Reeves ,
+  dbpedia:Laurence_Fishburne .
+	
+dbpedia:Speed dbpedia-owl:starring
+  dbpedia:Keanu_Reeves ,
+  dbpedia:Sandra_Bullock .
+	\end{lstlisting}
+	
+	Although Turtle abbreviates repeated subjects and predicates, the graph contains five RDF triples. Each actor listed after \texttt{dbpedia-owl:starring} corresponds to one triple.
+	
+	\subsection{A Basic \texttt{SELECT} Query}
+	
+	The following query retrieves movies and actors by matching the pattern \texttt{?movie dbpedia-owl:starring ?actor} against the RDF graph.
+	
+	\begin{lstlisting}
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+
+SELECT ?movie ?actor
+FROM <http://dbpedia.org>
+WHERE {
+  ?movie dbpedia-owl:starring ?actor
+}
+	\end{lstlisting}
+	
+	The \texttt{PREFIX} declaration abbreviates IRIs. The \texttt{SELECT} clause specifies the variables to be returned. The \texttt{FROM} clause identifies the default graph to be queried, and the \texttt{WHERE} clause contains the graph pattern.\\
+	
+	For the example graph, all five triples match the pattern. The result set is a table of bindings:
+	
+\begin{center}
+	\begin{tabular}{ll}
+		\textbf{\texttt{?movie}} & \textbf{\texttt{?actor}} \\
+		\hline
+		\texttt{dbpedia:The\_Matrix\_Revolutions} & \texttt{dbpedia:Carrie-Anne\_Moss} \\
+		\texttt{dbpedia:The\_Matrix\_Revolutions} & \texttt{dbpedia:Keanu\_Reeves} \\
+		\texttt{dbpedia:The\_Matrix\_Revolutions} & \texttt{dbpedia:Laurence\_Fishburne} \\
+		\texttt{dbpedia:Speed} & \texttt{dbpedia:Keanu\_Reeves} \\
+		\texttt{dbpedia:Speed} & \texttt{dbpedia:Sandra\_Bullock}
+	\end{tabular}
+\end{center}
+	
+	This result resembles a relational projection: only the variables named in the \texttt{SELECT} clause appear in the result. However, the underlying evaluation is graph-pattern matching over RDF terms, not tuple matching over fixed relational schemas.
+	
+	\section{Result Sets and XML Serialization}
+	
+	A \texttt{SELECT} query returns a solution sequence: each solution contains bindings for some or all projected variables. One standardized serialization of such results is the SPARQL Query Results XML format.\\
+	
+	The following fragment illustrates the structure of an XML result document for a query that projects \texttt{?actor}.
+	
+	\begin{lstlisting}
+<sparql xmlns="http://www.w3.org/2005/sparql-results#">
+  <head>
+    <!-- one variable element for each query variable -->
+    <variable name="actor"/>
+  </head>
+
+  <results distinct="false" ordered="true">
+    
+    <!-- one result element for each query result -->
+    <result>
+      <binding name="actor">
+        <uri>http://dbpedia.org/resource/Keanu_Reeves</uri>
+      </binding>
+    </result>
+	
+    <result>
+      <binding name="actor">
+        <uri>http://dbpedia.org/resource/Carrie-Anne_Moss</uri>
+      </binding>
+    </result>
+    
+  </results>
+</sparql>
+	\end{lstlisting}
+	
+	The root element is \texttt{sparql}. The \texttt{head} element lists the variables projected by the query. The \texttt{results} element contains one \texttt{result} element for each solution. A \texttt{binding} associates a variable name with an RDF term, represented for example as a \texttt{uri}, a literal, or a blank node. For boolean queries, the XML result uses a \texttt{boolean} element instead of a list of variable bindings.\\
+	
+	The attributes \texttt{distinct} and \texttt{ordered} describe whether duplicate solutions have been removed and whether the solution sequence is ordered. These properties depend on query modifiers such as \texttt{DISTINCT} and \texttt{ORDER BY}.
+	
+	\section{Structure of a SPARQL Query}
+	
+	A SPARQL query is organized into a sequence of clauses. Not all clauses are mandatory, but the following structure captures the main components used in typical queries.
+	
+	\begin{lstlisting}
+# Prefix declarations
+PREFIX ...
+BASE ...
+	
+# Query form
+SELECT ...
+CONSTRUCT ...
+ASK ...
+DESCRIBE ...
+	
+# Dataset definition
+FROM ...
+	
+# Query patterns
+WHERE { ... }
+	
+# Modifiers
+ORDER BY ...
+LIMIT ...
+OFFSET ...
+	\end{lstlisting}
+	
+	The \textbf{prefix declarations} define abbreviations for IRIs. The \textbf{query form} determines the kind of result produced by the query: a table of bindings, an RDF graph, a boolean value, or a description of resources. The \textbf{dataset definition} identifies the RDF graph or graphs to be queried. The \textbf{query pattern} is evaluated against the dataset. Finally, \textbf{modifiers} control ordering, duplicate handling, and pagination of the result sequence.
+	
+	\section{IRIs, Prefixes, and Dataset Definitions}
+	
+	\subsection{Prefixed Names and Relative IRIs}
+	
+	SPARQL supports two mechanisms for shortening IRIs: \texttt{PREFIX} and \texttt{BASE}.\\
+	
+	A \texttt{PREFIX} declaration associates a prefix name with an IRI. A prefixed name is then formed by joining the prefix with a local part.
+	
+	\begin{lstlisting}
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+	\end{lstlisting}
+	
+	The prefixed name \texttt{dbpedia:The\_Matrix} denotes the IRI obtained by concatenating the prefix IRI with the local part \texttt{The\_Matrix}.\\
+	
+	A \texttt{BASE} declaration defines a base IRI used to resolve relative IRIs.
+	
+	\begin{lstlisting}
+BASE <http://dbpedia.org/>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+
+# The following forms denote the same IRI:
+<http://dbpedia.org/resource/The_Matrix>  # Full IRI
+dbpedia:The_Matrix                        # Prefixed IRI
+<resource/The_Matrix>                     # Relative IRI
+	\end{lstlisting}
+	
+	The first form is an absolute IRI. The second is a prefixed name. The third is a relative IRI resolved against the base IRI. In practice, prefixes are the most common abbreviation mechanism in SPARQL queries because they also make the vocabulary used by the query explicit.
+	
+	\subsubsection{Current Base IRI and Relative IRI Resolution}
+	
+	A \texttt{BASE} declaration does not introduce a named base that can later be selected explicitly. Instead, it sets the \emph{current base IRI} used to resolve relative IRI references occurring in the query. At any point in the query text, a relative IRI is interpreted with respect to the base IRI currently in force at that position.\\
+	
+	This means that the absence of a local disambiguation mechanism does not imply that a SPARQL query may contain only one \texttt{BASE} declaration. Multiple \texttt{BASE} declarations may occur, but they act sequentially: a later declaration changes the current base for the relative IRIs that follow it.
+	
+	\begin{lstlisting}
+BASE <http://example.org/a/>
+
+SELECT *
+WHERE {
+  <resource/x> ?p ?o .
+}
+	\end{lstlisting}
+	
+	In this query, the relative IRI \texttt{<resource/x>} is resolved as:
+	
+	\begin{lstlisting}
+http://example.org/a/resource/x
+	\end{lstlisting}
+	
+	If a second \texttt{BASE} declaration occurs later, subsequent relative IRIs are resolved against the new base:
+	
+	\begin{lstlisting}
+BASE <http://example.org/a/>
+PREFIX ex: <vocab/>
+
+BASE <http://example.org/b/>
+SELECT *
+WHERE {
+  <resource/x> ?p ?o .
+}
+	\end{lstlisting}
+	
+	Here, the relative IRI in the \texttt{PREFIX} declaration is resolved using the first base, so \texttt{ex:} denotes:
+	
+	\begin{lstlisting}
+http://example.org/a/vocab/
+	\end{lstlisting}
+	
+	The relative IRI \texttt{<resource/x>} in the query body, instead, is resolved using the second base:
+	
+	\begin{lstlisting}
+http://example.org/b/resource/x
+	\end{lstlisting}
+	
+	The disambiguation is therefore positional rather than syntactic: SPARQL does not provide a construct to choose among several bases at the point where a relative IRI is written. A relative IRI is always resolved against the current base IRI. When different resolution contexts are needed, the query should either change the current base with another \texttt{BASE} declaration, use absolute IRIs, or define suitable \texttt{PREFIX} declarations.
+	
+	\subsection{Default and Named Graphs}
+	
+	A SPARQL query is evaluated over an \emph{RDF dataset}. An RDF dataset contains exactly one default graph and zero or more named graphs. The default graph has no name and is used for matching ordinary graph patterns. Named graphs, instead, are identified by IRIs and are accessed explicitly with the \texttt{GRAPH} keyword.\\
+	
+	The graph currently used to evaluate a graph pattern is called the \emph{active graph}. Outside a \texttt{GRAPH} block, the active graph is the default graph. Inside a \texttt{GRAPH} block, the active graph is the named graph selected by that block.
+	
+	\subsubsection{No Explicit Dataset Definition}
+	
+	If a query contains neither \texttt{FROM} nor \texttt{FROM NAMED}, the dataset is not specified inside the query itself. In that case, the query is evaluated over the dataset provided by the SPARQL service or by the protocol request.
+	
+	\begin{lstlisting}
+SELECT ?s ?p ?o
+WHERE {
+  ?s ?p ?o .
+}
+	\end{lstlisting}
+	
+	In this case, the triple pattern is matched against the service-defined default graph. Whether named graphs are available depends on the dataset exposed by the endpoint. Therefore, the meaning of the query is endpoint-dependent.
+	
+	\subsubsection{A Single \texttt{FROM} Clause}
+	
+	The \texttt{FROM} clause specifies a graph that contributes to the default graph of the query dataset.
+	
+	\begin{lstlisting}
+SELECT ?s ?p ?o
+FROM <http://example.org/graph1>
+WHERE {
+  ?s ?p ?o .
+}
+	\end{lstlisting}
+	
+	The pattern inside \texttt{WHERE} does not use \texttt{GRAPH}, so it is matched against the default graph. In this query, the default graph is obtained from \texttt{<http://example.org/graph1>}.\\
+	
+	It is important to distinguish the graph used to build the default graph from a named graph. A graph mentioned with \texttt{FROM} is not automatically available as a named graph. Therefore, the following query does not necessarily match anything, even though the same IRI appears in \texttt{FROM}:
+	
+	\begin{lstlisting}
+SELECT ?s ?p ?o
+FROM <http://example.org/graph1>
+WHERE {
+  GRAPH <http://example.org/graph1> {
+    ?s ?p ?o .
+  }
+}
+	\end{lstlisting}
+	
+	The \texttt{GRAPH} keyword searches among the named graphs of the query dataset. Since \texttt{FROM} contributes to the default graph and does not declare a named graph, there is no named graph to select unless it is also declared with \texttt{FROM NAMED} or provided by the dataset definition.
+	
+	\subsubsection{Multiple \texttt{FROM} Clauses}
+	
+	A query may contain more than one \texttt{FROM} clause. In that case, the default graph is the RDF merge of the graphs identified by the \texttt{FROM} clauses.
+	
+	\begin{lstlisting}
+SELECT ?s ?p ?o
+FROM <http://example.org/graph1>
+FROM <http://example.org/graph2>
+WHERE {
+  ?s ?p ?o .
+}
+	\end{lstlisting}
+	
+	The query pattern is evaluated as if \texttt{graph1} and \texttt{graph2} had been combined into a single default graph for the purpose of query evaluation. This is useful when data from several sources should be queried without preserving the distinction between their graph names.\\
+	
+	The merge affects only the default graph. The original graph IRIs are not available through \texttt{GRAPH} merely because they occur in \texttt{FROM}. Consequently, the query cannot recover from which \texttt{FROM} graph a matched triple originated, unless such provenance information is explicitly represented in the data itself.
+	
+	\subsubsection{A Single \texttt{FROM NAMED} Clause}
+	
+	The \texttt{FROM NAMED} clause declares a named graph in the query dataset. Unlike \texttt{FROM}, it does not add the graph to the default graph.
+	
+	\begin{lstlisting}
+SELECT ?s ?p ?o
+FROM NAMED <http://example.org/graph1>
+WHERE {
+  GRAPH <http://example.org/graph1> {
+    ?s ?p ?o .
+  }
+}
+	\end{lstlisting}
+	
+	Here, the triple pattern is evaluated against the named graph \texttt{<http://example.org/graph1>} because the \texttt{GRAPH} block explicitly selects that graph.\\
+	
+	If a query contains \texttt{FROM NAMED} clauses but no \texttt{FROM} clauses, the default graph is empty. Therefore, ordinary triple patterns outside \texttt{GRAPH} do not match triples from the named graph:
+	
+	\begin{lstlisting}
+SELECT ?s ?p ?o
+FROM NAMED <http://example.org/graph1>
+WHERE {
+  ?s ?p ?o .
+}
+	\end{lstlisting}
+	
+	This query attempts to match \texttt{?s ?p ?o} against the default graph, not against \texttt{graph1}. Since \texttt{graph1} is available only as a named graph, it must be accessed using \texttt{GRAPH}.
+	
+	\subsubsection{Multiple \texttt{FROM NAMED} Clauses}
+	
+	A query may declare several named graphs.
+	
+	\begin{lstlisting}
+SELECT ?g ?s ?p ?o
+FROM NAMED <http://example.org/graph1>
+FROM NAMED <http://example.org/graph2>
+WHERE {
+  GRAPH ?g {
+    ?s ?p ?o .
+  }
+}
+	\end{lstlisting}
+	
+	When the argument of \texttt{GRAPH} is a variable, SPARQL tries the graph pattern against each named graph in the dataset. For each match, the variable is bound to the IRI of the named graph where the match was found. In this example, \texttt{?g} may be bound to either \texttt{<http://example.org/graph1>} or \texttt{<http://example.org/graph2>}.\\
+	
+	If the same IRI is used in more than one \texttt{FROM NAMED} clause, it still denotes a single named graph in the query dataset.
+	
+	\subsubsection{Combining \texttt{FROM} and \texttt{FROM NAMED}}
+	
+	The two clauses can be used together. Graphs specified with \texttt{FROM} form the default graph, while graphs specified with \texttt{FROM NAMED} remain distinct and are accessed with \texttt{GRAPH}.
+	
+	\begin{lstlisting}
+SELECT ?person ?email ?source
+FROM <http://example.org/metadata>
+FROM NAMED <http://example.org/graph1>
+FROM NAMED <http://example.org/graph2>
+WHERE {
+  ?source <http://purl.org/dc/elements/1.1/publisher> ?person .
+
+  GRAPH ?source {
+    ?x <http://xmlns.com/foaf/0.1/mbox> ?email .
+  }
+}
+	\end{lstlisting}
+	
+	In this query, the first triple pattern is matched against the default graph, built from\\
+	\texttt{<http://example.org/metadata>}. The \texttt{GRAPH ?source} block is matched against named graphs. The variable \texttt{?source} connects the metadata in the default graph with the named graph to be queried.\\
+	
+	This pattern is common when the default graph contains metadata about the named graphs, such as provenance, publisher, date, or access information, while the named graphs contain the actual domain data.
+	
+	\subsubsection{The \texttt{GRAPH} Clause with a Fixed IRI}
+	
+	The \texttt{GRAPH} clause may specify a fixed graph IRI.
+	
+	\begin{lstlisting}
+SELECT ?s ?p ?o
+FROM NAMED <http://example.org/graph1>
+FROM NAMED <http://example.org/graph2>
+WHERE {
+  GRAPH <http://example.org/graph1> {
+    ?s ?p ?o .
+  }
+}
+	\end{lstlisting}
+	
+	Only the named graph \texttt{<http://example.org/graph1>} is used as the active graph inside the block. Triples from \texttt{<http://example.org/graph2>} are ignored for that part of the query.\\
+	
+	If the fixed IRI does not correspond to any named graph in the query dataset, the \texttt{GRAPH} block has no solution.
+	
+	\subsubsection{The \texttt{GRAPH} Clause with a Variable}
+	
+	When the graph name is a variable, SPARQL ranges over the named graphs in the dataset.
+	
+	\begin{lstlisting}
+SELECT ?g ?s ?p ?o
+FROM NAMED <http://example.org/graph1>
+FROM NAMED <http://example.org/graph2>
+WHERE {
+  GRAPH ?g {
+    ?s ?p ?o .
+  }
+}
+	\end{lstlisting}
+	
+	The variable \texttt{?g} is bound to the name of each graph that satisfies the pattern. This form is useful when the query must discover where a match occurs, rather than restricting evaluation to one known graph.\\
+	
+	A graph variable may also be constrained by another part of the query:
+	
+	\begin{lstlisting}
+SELECT ?g ?date ?s ?p ?o
+FROM <http://example.org/metadata>
+FROM NAMED <http://example.org/graph1>
+FROM NAMED <http://example.org/graph2>
+WHERE {
+  ?g <http://purl.org/dc/elements/1.1/date> ?date .
+
+  GRAPH ?g {
+    ?s ?p ?o .
+  }
+}
+	\end{lstlisting}
+	
+	The first pattern is evaluated against the default graph and binds \texttt{?g} to graph IRIs described in the metadata. The \texttt{GRAPH ?g} block is then evaluated only against the named graphs whose IRIs are compatible with those bindings.
+	
+	\subsubsection{Summary of the Main Cases}
+	
+	The interaction between \texttt{FROM}, \texttt{FROM NAMED}, and \texttt{GRAPH} can be summarized as follows:
+	
+	\begin{itemize}
+		\item With no \texttt{FROM} and no \texttt{FROM NAMED}, the query uses the dataset supplied by the SPARQL service or protocol request.
+		\item With one \texttt{FROM}, ordinary graph patterns are matched against the graph specified as the default graph.
+		\item With multiple \texttt{FROM} clauses, ordinary graph patterns are matched against the RDF merge of the specified graphs.
+		\item With only \texttt{FROM NAMED}, the named graphs are available through \texttt{GRAPH}, while the default graph is empty.
+		\item With both \texttt{FROM} and \texttt{FROM NAMED}, ordinary graph patterns use the default graph built from \texttt{FROM}, while \texttt{GRAPH} blocks use the named graphs declared by \texttt{FROM NAMED}.
+		\item \texttt{GRAPH <iri>} restricts matching to the named graph identified by that IRI.
+		\item \texttt{GRAPH ?g} ranges over the named graphs in the dataset and binds \texttt{?g} to the graph where the match is found.
+	\end{itemize}
+	
+	\section{Graph Patterns in the \texttt{WHERE} Clause}
+	
+	\subsection{Basic Graph Patterns}
+	
+	The \texttt{WHERE} clause contains the graph pattern to be evaluated. Multiple triple patterns are separated by dots. In a basic graph pattern, all patterns must match simultaneously.
+	
+	\begin{lstlisting}
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+
+SELECT ?movie ?actor ?country
+FROM <http://dbpedia.org>
+WHERE {
+  ?movie dbpedia-owl:starring ?actor .
+  ?movie dbpedia-owl:director ?actor .
+  OPTIONAL { ?movie dbpprop:country ?country }
+}
+	\end{lstlisting}
+	
+	The first two triple patterns are conjunctive. A solution must bind \texttt{?movie} and \texttt{?actor} so that the same person is both starring in and directing the same movie. Reusing the same variable across patterns imposes equality of the corresponding RDF terms in the solution mapping.
+	
+	\subsection{\texttt{OPTIONAL} Patterns}
+	
+	The \texttt{OPTIONAL} keyword marks a pattern whose absence does not invalidate the solution. In the previous query, the country is retrieved when a matching country triple exists. If no such triple is present for a movie that already satisfies the mandatory patterns, the solution is still returned and \texttt{?country} remains unbound.\\
+	
+	Optional patterns are useful when RDF data is incomplete or heterogeneous, which is common in large Linked Data collections. They allow the query to preserve core results while enriching them with additional information when available.
+	
+	\subsection{\texttt{UNION} Patterns}
+	
+	The \texttt{UNION} keyword expresses alternatives between groups of graph patterns. It corresponds to a logical disjunction between pattern groups.
+	
+	\begin{lstlisting}
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+
+SELECT ?movie ?person ?country
+FROM <http://dbpedia.org>
+WHERE {
+  { ?movie dbpedia-owl:starring ?person }
+  UNION
+  { ?movie dbpedia-owl:director ?person }
+
+  OPTIONAL { ?movie dbpprop:country ?country }
+}
+	\end{lstlisting}
+	
+	This query returns people related to a movie either as actors or as directors. The alternatives are enclosed in braces because each side of \texttt{UNION} is a graph pattern. After a solution is produced by either branch, the optional country pattern is evaluated in the same way as for any other solution.\\
+	
+	Basic conjunctions, optional patterns, and unions can be nested to express complex graph constraints. Care is required when variables appear in only one branch of a union, since they may remain unbound in solutions produced by the other branch.
+	
+	\subsection{\texttt{FILTER} Conditions}
+	
+	A \texttt{FILTER} restricts the solutions produced by graph pattern matching. It is evaluated as a boolean expression over the current solution bindings.
+	
+	\begin{lstlisting}
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+
+SELECT DISTINCT ?actor
+FROM <http://dbpedia.org>
+WHERE {
+  ?movie dbpedia-owl:starring ?actor .
+  ?movie dbpprop:budget ?budget .
+  FILTER(isNumeric(?budget) && ?budget > 1.0E8)
+}
+	\end{lstlisting}
+	
+	The query retrieves actors starring in movies whose budget is numeric and greater than \(100\) million. The \texttt{DISTINCT} modifier removes duplicate actor bindings, which can arise when the same actor appears in several matching movies.\\
+	
+	The expression \texttt{isNumeric(?budget)} guards the numeric comparison. Without such a check, heterogeneous literal datatypes in the dataset may produce evaluation errors or unexpected filtering behavior. More generally, \texttt{FILTER} is the main mechanism for applying value constraints after structural graph matching has produced candidate solutions.\\
+	
+	SPARQL also supports existence tests in filters. \texttt{FILTER EXISTS} keeps a solution only if an additional pattern can be matched, whereas \texttt{FILTER NOT EXISTS} keeps it only if the pattern cannot be matched. These constructs are useful when the inclusion or exclusion condition is itself graph-shaped rather than a simple comparison.
+	
+	\subsection{\texttt{GRAPH} Patterns}
+	
+	The \texttt{GRAPH} keyword evaluates a pattern against a named graph instead of the default graph. The graph name may be an explicit IRI or a variable.
+	
+	\begin{lstlisting}
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?super ?sub
+FROM <http://dbpedia.org>
+WHERE {
+  GRAPH <http://www.w3.org/2002/07/owl#> {
+    ?super a rdfs:Class .
+    ?sub rdfs:subClassOf ?super
+  }
+}
+	\end{lstlisting}
+	
+	This query matches the class and subclass pattern inside the named graph identified by the IRI in the \texttt{GRAPH} clause. The default graph declared by \texttt{FROM} is not used for the enclosed pattern.\\
+	
+	A graph name can also be bound through a variable:
+	
+	\begin{lstlisting}
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?super ?sub
+FROM NAMED <http://www.w3.org/2002/07/owl#>
+FROM NAMED <http://www.openlinksw.com/schemas/oplweb#>
+WHERE {
+  GRAPH ?src {
+    ?super a rdfs:Class .
+    ?sub rdfs:subClassOf ?super
+  }
+}
+	\end{lstlisting}
+	
+	Here, \texttt{?src} ranges over the named graphs declared by \texttt{FROM NAMED}. The variable does not need to be projected in the result. It can serve only as an intermediate binding that selects the graph in which the enclosed pattern is evaluated.
+	
+	\section{Query Modifiers}
+	
+	\subsection{Ordering}
+	
+	\texttt{ORDER BY} orders the solution sequence according to one or more expressions, typically variables.
+	
+	\begin{lstlisting}
+ORDER BY ?budget
+	\end{lstlisting}
+	
+	The default order is ascending. Descending order is requested with \texttt{DESC}:
+	
+	\begin{lstlisting}
+ORDER BY DESC(?budget)
+	\end{lstlisting}
+	
+	Ordering is applied to the solution sequence after pattern matching and filtering. It is therefore a result-set operation, not a graph-matching condition.
+	
+	\subsection{Limiting and Offsetting Results}
+	
+	\texttt{LIMIT} sets the maximum number of solutions returned. \texttt{OFFSET} skips a fixed number of solutions from the beginning of the current solution sequence. Their typical use is pagination or sampling of large result sets.
+	
+	\begin{lstlisting}
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+
+SELECT ?actor ?movie ?budget
+FROM <http://dbpedia.org>
+WHERE {
+  ?movie dbpedia-owl:starring ?actor .
+  ?movie dbpprop:budget ?budget .
+  FILTER(isNumeric(?budget) && ?budget > 1.0E8)
+}
+ORDER BY ?budget
+LIMIT 100
+OFFSET 10
+	\end{lstlisting}
+	
+	This query returns at most \(100\) solutions after skipping the first \(10\) solutions in the sequence ordered by increasing budget. Since \texttt{OFFSET} is meaningful only relative to an order, pagination queries should normally include an explicit \texttt{ORDER BY} when deterministic behavior is required.
+	
+	\section{Selected Operators and Functions}
+	
+	SPARQL expressions can be used in filters and in other expression positions. The operators and functions in tables \ref{tbl:unary_operators} and \ref{tbl:binary_operators} are commonly used for inspecting RDF terms, checking variable bindings, manipulating string literals, and constraining query results.\\
+	
+	\begin{table}
+		\begin{tabularx}{\linewidth}{|X|p{5em}|p{7em}|X|}\hline
+			\textbf{Unary operator} & \textbf{Argument type} & \textbf{Return type} & \textbf{Meaning} \\
+			\hline
+			
+			\texttt{bound(A)} & variable & \texttt{xsd:boolean} & Returns \texttt{true} if the variable \texttt{A} has a value in the current solution. It is especially useful with \texttt{OPTIONAL} patterns. \\ \hline
+			
+			\texttt{isIRI(A)} or \texttt{isURI(A)} & RDF term & \texttt{xsd:boolean} & Tests whether \texttt{A} is an IRI. The two names are equivalent; \texttt{isIRI} is the preferred terminology. \\ \hline
+			
+			\texttt{isBlank(A)} & RDF term & \texttt{xsd:boolean} & Tests whether \texttt{A} is a blank node. \\ \hline
+			
+			\texttt{isLiteral(A)} & RDF term & \texttt{xsd:boolean} & Tests whether \texttt{A} is a literal, including plain literals, language-tagged strings, and typed literals. \\ \hline
+			
+			\texttt{isNumeric(A)} & RDF term & \texttt{xsd:boolean} & Tests whether \texttt{A} is a numeric literal, so that numeric comparisons and arithmetic operations can be applied safely. \\ \hline
+			
+			\texttt{ucase(A)} & string literal & string literal & Returns the uppercase form of the string literal \texttt{A}. \\ \hline
+			
+			\texttt{datatype(A)} & literal & IRI & Returns the datatype IRI of the literal \texttt{A}. For example, it can be used to distinguish \texttt{xsd:integer}, \texttt{xsd:decimal}, and \texttt{xsd:date} literals. \\ \hline
+		\end{tabularx}
+		\caption{SPARQL unary operators}
+		\label{tbl:unary_operators}
+	\end{table}
+	
+	\begin{table}
+		\begin{tabularx}{\linewidth}{|X|p{5em}|p{5em}|p{6.5em}|X|}\hline
+			\textbf{Binary operator} & \textbf{Type of A} & \textbf{Type of B} & \textbf{Return type} & \textbf{Meaning} \\
+			\hline
+			
+			\texttt{contains(A,B)} & string literal & string literal & \texttt{xsd:boolean} & Returns \texttt{true} if the string literal \texttt{A} contains the string literal \texttt{B}. \\ \hline
+			
+			\texttt{regex(A,B)} & string literal & simple literal & \texttt{xsd:boolean} & Returns \texttt{true} if the string literal \texttt{A} matches the regular expression pattern \texttt{B}. \\ \hline
+		\end{tabularx}
+		\caption{SPARQL binary operators}
+		\label{tbl:binary_operators}
+	\end{table}
+	
+	The term-inspection functions are particularly useful when querying heterogeneous RDF data, where the same property may be used with IRIs, blank nodes, literals, or literals having different datatypes. For example, \texttt{isIRI} distinguishes resources from literal values, \texttt{isBlank} detects anonymous resources, and \texttt{datatype} allows filters to depend on the datatype of a literal. String operators such as \texttt{contains} and \texttt{regex} support textual constraints, while \texttt{bound} is commonly used to test whether an optional pattern has contributed a value to the current solution.
+	
+	\section{Query Forms}
+	
+	\subsection{\texttt{SELECT}}
+	
+	\texttt{SELECT} returns the bindings of the variables named in the projection. It is the most common query form when the expected result is a table-like result set.
+	
+	\begin{lstlisting}
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+
+SELECT ?movie ?actor
+WHERE {
+  ?movie dbpedia-owl:starring ?actor
+}
+	\end{lstlisting}
+	
+	Only projected variables appear in the result, even if additional variables are used internally for matching, filtering, or graph selection.
+	
+	\newpage
+	\subsection{\texttt{CONSTRUCT}}
+	
+	\texttt{CONSTRUCT} returns an RDF graph generated from a template. The query first evaluates the \texttt{WHERE} pattern, then instantiates the construct template for each solution.
+	
+	\begin{lstlisting}
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpprop: <http://dbpedia.org/property/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+
+CONSTRUCT {
+  ?actor vcard:birthday ?birthdate
+}
+FROM <http://dbpedia.org>
+WHERE {
+  dbpedia:The_Matrix_Revolutions dbpedia-owl:starring ?actor .
+  ?actor dbpprop:birthDate ?birthdate
+}
+	\end{lstlisting}
+	
+	The query retrieves actors starring in \texttt{dbpedia:The\_Matrix\_Revolutions} together with their birth dates. For each solution, it creates a triple using the \texttt{vcard:birthday} predicate. If ten actors with birth dates match the pattern, the constructed result graph contains ten corresponding triples, subject to RDF graph semantics such as duplicate triple elimination.\\
+	
+	\texttt{CONSTRUCT} is useful when the goal is not merely to inspect RDF data, but to transform it into another RDF shape, possibly using a different vocabulary.
+	
+	\newpage
+	\subsection{\texttt{ASK}}
+	
+	\texttt{ASK} checks whether a graph pattern has at least one solution. It returns only a boolean value.
+	
+	\begin{lstlisting}
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+
+ASK {
+  dbpedia:The_Matrix dbpedia-owl:starring dbpedia:Keanu_Reeves
+}
+	\end{lstlisting}
+	
+	The result is \texttt{true} if the triple pattern is matched in the queried dataset, and \texttt{false} otherwise. Variables may also appear in \texttt{ASK} patterns. In that case, the answer is \texttt{true} if there exists at least one binding that satisfies the pattern.
+	
+	\subsection{\texttt{DESCRIBE}}
+	
+	\texttt{DESCRIBE} returns an informative RDF graph about one or more resources. Unlike \texttt{CONSTRUCT}, the exact shape of the returned graph is not specified by an explicit template in the query.
+	
+	\begin{lstlisting}
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+
+DESCRIBE ?actor {
+  dbpedia:The_Matrix_Revolutions dbpedia-owl:starring ?actor
+}
+	\end{lstlisting}
+	
+	This query first identifies actors starring in \texttt{dbpedia:The\_Matrix\_Revolutions}, then asks the endpoint to return descriptive RDF data about those resources. The amount and selection of returned information depend on the endpoint. A typical implementation may include triples where the described resource appears as subject or object, but the language intentionally leaves this behavior implementation-dependent.
+	
+	\section{Scope of the Query Language}
+	
+	The query forms \texttt{SELECT}, \texttt{CONSTRUCT}, \texttt{ASK}, and \texttt{DESCRIBE} cover the principal ways of extracting information from RDF datasets: tabular bindings, generated RDF graphs, boolean existence checks, and descriptive graphs. The query language described here is concerned with retrieval and graph construction as query results. Modification of RDF graphs is handled by separate update mechanisms rather than by these query forms.\\
+	
+	The essential modelling idea remains the same across the language: RDF data is queried by matching graph-shaped patterns, binding variables to RDF terms, and then projecting, filtering, ordering, or reshaping the resulting solution mappings.
+
+\end{document}

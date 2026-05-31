@@ -1,0 +1,38 @@
+\contentsline {chapter}{\numberline {1}SPARQL Protocol and RDF Query Language}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Role of SPARQL in RDF Data Access}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Triple Patterns and Solution Bindings}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Triple Patterns}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Example RDF Graph}{6}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}A Basic \texttt {SELECT} Query}{6}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Result Sets and XML Serialization}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Structure of a SPARQL Query}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.5}IRIs, Prefixes, and Dataset Definitions}{8}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Prefixed Names and Relative IRIs}{8}{subsection.1.5.1}%
+\contentsline {subsubsection}{\nonumberline Current Base IRI and Relative IRI Resolution}{9}{subsubsection*.3}%
+\contentsline {subsection}{\numberline {1.5.2}Default and Named Graphs}{10}{subsection.1.5.2}%
+\contentsline {subsubsection}{\nonumberline No Explicit Dataset Definition}{10}{subsubsection*.5}%
+\contentsline {subsubsection}{\nonumberline A Single \texttt {FROM} Clause}{10}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Multiple \texttt {FROM} Clauses}{11}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline A Single \texttt {FROM NAMED} Clause}{11}{subsubsection*.11}%
+\contentsline {subsubsection}{\nonumberline Multiple \texttt {FROM NAMED} Clauses}{12}{subsubsection*.13}%
+\contentsline {subsubsection}{\nonumberline Combining \texttt {FROM} and \texttt {FROM NAMED}}{12}{subsubsection*.15}%
+\contentsline {subsubsection}{\nonumberline The \texttt {GRAPH} Clause with a Fixed IRI}{13}{subsubsection*.17}%
+\contentsline {subsubsection}{\nonumberline The \texttt {GRAPH} Clause with a Variable}{13}{subsubsection*.19}%
+\contentsline {subsubsection}{\nonumberline Summary of the Main Cases}{14}{subsubsection*.21}%
+\contentsline {section}{\numberline {1.6}Graph Patterns in the \texttt {WHERE} Clause}{14}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Basic Graph Patterns}{14}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}\texttt {OPTIONAL} Patterns}{15}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}\texttt {UNION} Patterns}{15}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}\texttt {FILTER} Conditions}{16}{subsection.1.6.4}%
+\contentsline {subsection}{\numberline {1.6.5}\texttt {GRAPH} Patterns}{16}{subsection.1.6.5}%
+\contentsline {section}{\numberline {1.7}Query Modifiers}{17}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Ordering}{17}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Limiting and Offsetting Results}{17}{subsection.1.7.2}%
+\contentsline {section}{\numberline {1.8}Selected Operators and Functions}{18}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Query Forms}{18}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}\texttt {SELECT}}{18}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.2}\texttt {CONSTRUCT}}{20}{subsection.1.9.2}%
+\contentsline {subsection}{\numberline {1.9.3}\texttt {ASK}}{21}{subsection.1.9.3}%
+\contentsline {subsection}{\numberline {1.9.4}\texttt {DESCRIBE}}{21}{subsection.1.9.4}%
+\contentsline {section}{\numberline {1.10}Scope of the Query Language}{21}{section.1.10}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
