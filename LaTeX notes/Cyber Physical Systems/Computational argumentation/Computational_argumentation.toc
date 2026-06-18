@@ -1,0 +1,39 @@
+\contentsline {chapter}{\numberline {1}The Foundations of Argumentation}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Computational Argumentation: Formalizing Reasoning}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Core Layers of an Argumentation Framework}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Formal Models of Argumentation}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Argument Mining}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Structured Argumentation}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Abstract Argumentation}{11}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Argumentation and Machine Learning: A Point of Intersection}{13}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Foundational Models of Argumentation}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Structured Argumentation}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Abstract Argumentation}{15}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Illustrative Example: Medical Reasoning}{16}{section.6.3}%
+\contentsline {section}{\numberline {6.4}From SA to AA: understanding indirect attackers and supporters}{17}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Dung's Abstract Argumentation Framework (AF)}{21}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Formal Definition}{21}{section.7.1}%
+\contentsline {section}{\numberline {7.2}The Role of Semantics}{21}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Extension-Based Semantics}{23}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Conflict-Free Sets}{23}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Admissible Sets}{24}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Naive Extensions}{24}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Complete Extensions}{24}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Grounded Extensions}{26}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Preferred Extensions}{27}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Stable Extensions}{27}{section.8.7}%
+\contentsline {chapter}{\numberline {9}Ranking-Based Semantics}{29}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Foundational Properties}{29}{section.9.1}%
+\contentsline {chapter}{\numberline {10}Key Algorithms and Semantics}{31}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Categorizer}{31}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Discussion-based Semantics (Dbs)}{32}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Burden-based Semantics (Bbs)}{34}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Foundational Challenges: Limitations of Dung’s Argumentation Framework}{37}{chapter.11}%
+\contentsline {chapter}{\numberline {12}Incorporating Subjectivity: The Value-based Argumentation Framework (VAF)}{39}{chapter.12}%
+\contentsline {chapter}{\numberline {13}Modeling Agreement: The Bipolar Argumentation Framework (BAF)}{41}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Advantages and Disadvantages of BAFs}{41}{section.13.1}%
+\contentsline {chapter}{\numberline {14}Quantifying Conflict: The Weighted Argumentation Framework (WAF)}{43}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Advantages and Disadvantages of WAFs}{43}{section.14.1}%
+\contentsline {chapter}{\numberline {15}The Integrated Model: The Bipolar Weighted Argumentation Framework (BWAF)}{45}{chapter.15}%
+\contentsline {chapter}{\numberline {16}Comparative Summary of Argumentation Frameworks}{47}{chapter.16}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
