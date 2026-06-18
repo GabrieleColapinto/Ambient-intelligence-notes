@@ -1,0 +1,69 @@
+\contentsline {chapter}{\numberline {1}HTTP/2: Motivation, Evolution, and Compatibility}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Limits of HTTP/1.1}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}From HTTP/1.1 to HTTP/2}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Design Goals}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Why HTTP/2 Is Not HTTP/1.2}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Pre-HTTP/2 Workarounds}{7}{section.1.5}%
+\contentsline {chapter}{\numberline {2}The HTTP/2 Binary Framing Layer}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Purpose of the Binary Framing Layer}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Streams, Messages, and Frames}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Streams}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Messages}{10}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Frames}{11}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Frame Ordering Across the Network Stack}{11}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Streams as Message Contexts}{13}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Multiplexing over a Single Connection}{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Interleaved Requests and Responses}{15}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Reassembly}{15}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Performance Consequences of Multiplexing}{16}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Application-Layer Blocking}{16}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Reduced Need for HTTP/1.x Workarounds}{16}{subsection.2.4.2}%
+\contentsline {chapter}{\numberline {3}HTTP/2 Frames, Stream Control, and Prioritization}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Frame Format}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Frame Types}{20}{section.3.2}%
+\contentsline {section}{\numberline {3.3}DATA Frames}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Flags}{20}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Payload Structure}{21}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}HEADERS Frames}{21}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Flags}{21}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Payload Structure}{22}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}CONTINUATION Frames}{23}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Stream Identifiers and Stream Use}{23}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Stream Priority}{24}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Priority Tree Example: Dependencies, Weights, and Scheduling}{25}{subsection.3.7.1}%
+\contentsline {subsubsection}{\nonumberline Why the picture can be misleading}{26}{subsubsection*.3}%
+\contentsline {subsubsection}{\nonumberline Parent-Before-Child Preference}{26}{subsubsection*.5}%
+\contentsline {subsubsection}{\nonumberline Scheduling the Children of \texttt {D}}{26}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Scheduling the Children of \texttt {C}}{27}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline Summary of the Possible Scheduling Cases}{28}{subsubsection*.11}%
+\contentsline {section}{\numberline {3.8}PRIORITY Frames}{28}{section.3.8}%
+\contentsline {section}{\numberline {3.9}RST\_STREAM Frames}{29}{section.3.9}%
+\contentsline {chapter}{\numberline {4}Flow Control, Server Push, and Connection Management}{31}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Flow Control in a Multiplexed Connection}{31}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Flow-Control Windows}{31}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Window Evolution Example}{32}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}\texttt {WINDOW\_UPDATE} Frames}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Server Push}{33}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Properties of Pushed Resources}{34}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Relationship with Multiplexing}{35}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}\texttt {PUSH\_PROMISE} Frames}{35}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Flags}{35}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Payload Structure}{36}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Connection Testing with \texttt {PING}}{36}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Connection Shutdown with \texttt {GOAWAY}}{37}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Connection Configuration with \texttt {SETTINGS}}{38}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Selected Settings}{38}{subsection.4.7.1}%
+\contentsline {section}{\numberline {4.8}Operational Interaction of the Mechanisms}{39}{section.4.8}%
+\contentsline {chapter}{\numberline {5}HTTP/2 Header Compression and Protocol Negotiation}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Motivation for Header Compression}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}The HPACK Compression Model}{42}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Static Huffman Coding}{42}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Static and Dynamic Header Tables}{42}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Indexed and Literal Representations}{43}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Header Blocks in HTTP/2 Frames}{43}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Compression Context and Ordering}{44}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Protocol Negotiation and Upgrade}{44}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Cleartext Upgrade with \texttt {h2c}}{44}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}HTTP/2 over TLS}{45}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Interaction Between Compression and Negotiation}{45}{section.5.5}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

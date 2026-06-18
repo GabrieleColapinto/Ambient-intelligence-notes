@@ -1,0 +1,135 @@
+\relax 
+\providecommand*\new@tpo@label[2]{}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}HTTP/2: Motivation, Evolution, and Compatibility}{5}{chapter.1}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Limits of HTTP/1.1}{5}{section.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}From HTTP/1.1 to HTTP/2}{6}{section.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Design Goals}{6}{section.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Why HTTP/2 Is Not HTTP/1.2}{7}{section.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}Pre-HTTP/2 Workarounds}{7}{section.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}The HTTP/2 Binary Framing Layer}{9}{chapter.2}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Purpose of the Binary Framing Layer}{9}{section.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces On the left we can see the binary framing layer inside the application layer and on the right we can see an HTTP/1.1 message being split in two types of frames.}}{9}{figure.2.1}\protected@file@percent }
+\newlabel{fig:binary_framing_layer}{{2.1}{9}{On the left we can see the binary framing layer inside the application layer and on the right we can see an HTTP/1.1 message being split in two types of frames}{figure.2.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Streams, Messages, and Frames}{10}{section.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Example of TCP connection containing streams, messages and frames.}}{10}{figure.2.2}\protected@file@percent }
+\newlabel{fig:streams_messages_frames}{{2.2}{10}{Example of TCP connection containing streams, messages and frames}{figure.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Streams}{10}{subsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Messages}{10}{subsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Frames}{11}{subsection.2.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Frame Ordering Across the Network Stack}{11}{subsection.2.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Streams as Message Contexts}{13}{subsection.2.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Multiplexing over a Single Connection}{14}{section.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Example of HTTP 2.0 connection with multiplexing. In this example the client is transmitting a DATA frame (stream 5) to the server and the server is transmitting an interleaved sequence of frames to the client for streams 1 and 3. As a result, there are three parallel streams in flight.}}{15}{figure.2.3}\protected@file@percent }
+\newlabel{fig:multiplexing}{{2.3}{15}{Example of HTTP 2.0 connection with multiplexing. In this example the client is transmitting a DATA frame (stream 5) to the server and the server is transmitting an interleaved sequence of frames to the client for streams 1 and 3. As a result, there are three parallel streams in flight}{figure.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Interleaved Requests and Responses}{15}{subsection.2.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Reassembly}{15}{subsection.2.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Performance Consequences of Multiplexing}{16}{section.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Application-Layer Blocking}{16}{subsection.2.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Reduced Need for HTTP/1.x Workarounds}{16}{subsection.2.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Tank and rocket sprites from Broforce}}{17}{figure.2.4}\protected@file@percent }
+\newlabel{fig:image_sprite}{{2.4}{17}{Tank and rocket sprites from Broforce}{figure.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Domain sharding in HTTP/1.x. Static resources are distributed across multiple hostnames, such as \texttt  {static1.domain.com}, \texttt  {static2.domain.com}, and \texttt  {static3.domain.com}, so that the browser can open more parallel TCP connections to the same logical service. This workaround reduces request queuing caused by per-host connection limits, but increases connection-management overhead and becomes largely unnecessary with HTTP/2 multiplexing.}}{17}{figure.2.5}\protected@file@percent }
+\newlabel{fig:domain_sharding}{{2.5}{17}{Domain sharding in HTTP/1.x. Static resources are distributed across multiple hostnames, such as \texttt {static1.domain.com}, \texttt {static2.domain.com}, and \texttt {static3.domain.com}, so that the browser can open more parallel TCP connections to the same logical service. This workaround reduces request queuing caused by per-host connection limits, but increases connection-management overhead and becomes largely unnecessary with HTTP/2 multiplexing}{figure.2.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}HTTP/2 Frames, Stream Control, and Prioritization}{19}{chapter.3}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Frame Format}{19}{section.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces HTTP/2 frame format}}{19}{figure.3.1}\protected@file@percent }
+\newlabel{fig:frame_format}{{3.1}{19}{HTTP/2 frame format}{figure.3.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Frame Types}{20}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}DATA Frames}{20}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Flags}{20}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Payload Structure}{21}{subsection.3.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Data frame payload structure}}{21}{figure.3.2}\protected@file@percent }
+\newlabel{fig:data_frame_payload}{{3.2}{21}{Data frame payload structure}{figure.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}HEADERS Frames}{21}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Flags}{21}{subsection.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Payload Structure}{22}{subsection.3.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Header frame payload structure}}{22}{figure.3.3}\protected@file@percent }
+\newlabel{fig:header_frame_payload}{{3.3}{22}{Header frame payload structure}{figure.3.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}CONTINUATION Frames}{23}{section.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Continuation frame payload structure}}{23}{figure.3.4}\protected@file@percent }
+\newlabel{fig:continuation_frame_payload}{{3.4}{23}{Continuation frame payload structure}{figure.3.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Stream Identifiers and Stream Use}{23}{section.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Stream Priority}{24}{section.3.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Basic prioritization tree with labeled nodes. -- The priority tree has an implicit root node, which represents the whole connection rather than a real HTTP/2 stream. Streams that do not depend on another stream are attached to this root, identified at the protocol level by dependency on stream \texttt  {0}. The root has no weight and carries no data; it only provides the top-level scheduling context. If several streams are direct children of the root, the resources available at the connection level are divided among them proportionally to their weights.}}{24}{figure.3.5}\protected@file@percent }
+\newlabel{fig:prioritization_tree_explanation}{{3.5}{24}{Basic prioritization tree with labeled nodes. -- The priority tree has an implicit root node, which represents the whole connection rather than a real HTTP/2 stream. Streams that do not depend on another stream are attached to this root, identified at the protocol level by dependency on stream \texttt {0}. The root has no weight and carries no data; it only provides the top-level scheduling context. If several streams are direct children of the root, the resources available at the connection level are divided among them proportionally to their weights}{figure.3.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.1}Priority Tree Example: Dependencies, Weights, and Scheduling}{25}{subsection.3.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Prioritization tree example}}{25}{figure.3.6}\protected@file@percent }
+\newlabel{fig:http2-priority-tree-example}{{3.6}{25}{Prioritization tree example}{figure.3.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Why the picture can be misleading}{26}{subsubsection*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Parent-Before-Child Preference}{26}{subsubsection*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Scheduling the Children of \texttt  {D}}{26}{subsubsection*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Scheduling the Children of \texttt  {C}}{27}{subsubsection*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Summary of the Possible Scheduling Cases}{28}{subsubsection*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.8}PRIORITY Frames}{28}{section.3.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Priority frame structure}}{29}{figure.3.7}\protected@file@percent }
+\newlabel{fig:priority_frame}{{3.7}{29}{Priority frame structure}{figure.3.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.9}RST\_STREAM Frames}{29}{section.3.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces RST\_Stream frame structure}}{29}{figure.3.8}\protected@file@percent }
+\newlabel{fig:RST_Stream_frame}{{3.8}{29}{RST\_Stream frame structure}{figure.3.8}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Flow Control, Server Push, and Connection Management}{31}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Flow Control in a Multiplexed Connection}{31}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Flow-Control Windows}{31}{subsection.4.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Stream between A and B. A sends a DATA frame to B and B sends a WINDOW\_UPDATE frame to A.}}{31}{figure.4.1}\protected@file@percent }
+\newlabel{fig:window_update}{{4.1}{31}{Stream between A and B. A sends a DATA frame to B and B sends a WINDOW\_UPDATE frame to A}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Window Evolution Example}{32}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}\texttt  {WINDOW\_UPDATE} Frames}{33}{section.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces WINDOW\_UPDATE frame structure}}{33}{figure.4.2}\protected@file@percent }
+\newlabel{fig:window_update_frame}{{4.2}{33}{WINDOW\_UPDATE frame structure}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Server Push}{33}{section.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Example of HTTP 2.0 connection with server push. -- \textbf  {The figure in the slides is inaccurate. This is the correct one.}}}{33}{figure.4.3}\protected@file@percent }
+\newlabel{fig:server_push}{{4.3}{33}{Example of HTTP 2.0 connection with server push. -- \textbf {The figure in the slides is inaccurate. This is the correct one.}}{figure.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Properties of Pushed Resources}{34}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Relationship with Multiplexing}{35}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}\texttt  {PUSH\_PROMISE} Frames}{35}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Flags}{35}{subsection.4.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Payload Structure}{36}{subsection.4.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces PUSH\_PROMISE frame payload}}{36}{figure.4.4}\protected@file@percent }
+\newlabel{fig:push_promise_frame_payload}{{4.4}{36}{PUSH\_PROMISE frame payload}{figure.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Connection Testing with \texttt  {PING}}{36}{section.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Ping frame payload}}{36}{figure.4.5}\protected@file@percent }
+\newlabel{fig:ping_frame}{{4.5}{36}{Ping frame payload}{figure.4.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Connection Shutdown with \texttt  {GOAWAY}}{37}{section.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces GOAWAY frame payload}}{37}{figure.4.6}\protected@file@percent }
+\newlabel{fig:goaway_frame_payload}{{4.6}{37}{GOAWAY frame payload}{figure.4.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Connection Configuration with \texttt  {SETTINGS}}{38}{section.4.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces SETTINGS frame payload}}{38}{figure.4.7}\protected@file@percent }
+\newlabel{fig:settings_frame_payload}{{4.7}{38}{SETTINGS frame payload}{figure.4.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Selected Settings}{38}{subsection.4.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}Operational Interaction of the Mechanisms}{39}{section.4.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}HTTP/2 Header Compression and Protocol Negotiation}{41}{chapter.5}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Motivation for Header Compression}{41}{section.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Figure showing two requests made to the same server. In the first request all the header fields are explicit because they are unknown to the communicating parts. In the second request, the client does not need to transmit again the previously sent headers and need to transmit only the different one which, in this case, is the path of the requested resource.}}{41}{figure.5.1}\protected@file@percent }
+\newlabel{fig:header_compression}{{5.1}{41}{Figure showing two requests made to the same server. In the first request all the header fields are explicit because they are unknown to the communicating parts. In the second request, the client does not need to transmit again the previously sent headers and need to transmit only the different one which, in this case, is the path of the requested resource}{figure.5.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}The HPACK Compression Model}{42}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Static Huffman Coding}{42}{subsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Static and Dynamic Header Tables}{42}{subsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Indexed and Literal Representations}{43}{subsection.5.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Header Blocks in HTTP/2 Frames}{43}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Compression Context and Ordering}{44}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Protocol Negotiation and Upgrade}{44}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Cleartext Upgrade with \texttt  {h2c}}{44}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}HTTP/2 over TLS}{45}{subsection.5.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Interaction Between Compression and Negotiation}{45}{section.5.5}\protected@file@percent }
+\global\@namedef{scr@dte@chapter@lastmaxnumwidth}{9.49994pt}
+\global\@namedef{scr@dte@section@lastmaxnumwidth}{16.77994pt}
+\global\@namedef{scr@dte@subsection@lastmaxnumwidth}{24.55994pt}
+\@writefile{toc}{\providecommand\tocbasic@end@toc@file{}\tocbasic@end@toc@file}
+\gdef \@abspage@last{46}
